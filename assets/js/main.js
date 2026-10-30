@@ -253,12 +253,24 @@
     // 只在两侧露出水面的位置放气泡：中间被玻璃窗盖住，气泡会显得像被切了一半
     if (window.innerWidth < 1024) return;
 
+    // 按内容栏的实际宽度算出两侧水面有多宽，让气泡贴着玻璃窗的外侧
+    var panel = document.querySelector(".hero");
+    if (!panel) return;
+
+    var panelWidth = panel.getBoundingClientRect().width;
+    var margin = (window.innerWidth - panelWidth) / 2;
+    if (margin < 90) return;
+
     var sizes = [32, 40];
 
-    function edgeLeft() {
-      return (Math.random() < 0.5
-        ? 0.8 + Math.random() * 5.5
-        : 92.5 + Math.random() * 3.5) + "%";
+    // 返回气泡左边缘的像素位置：离窗口 12–110px 的水面带，左右随机
+    function edgePosition(size) {
+      var band = Math.max(0, Math.min(110, margin - size - 30));
+      var gap = 12 + Math.random() * band;
+
+      return Math.random() < 0.5
+        ? margin - size - gap
+        : window.innerWidth - margin + gap;
     }
 
     for (var i = 0; i < 10; i++) {
@@ -268,7 +280,7 @@
       bubble.className = "bubble";
       bubble.style.width = size + "px";
       bubble.style.height = size + "px";
-      bubble.style.left = edgeLeft();
+      bubble.style.left = edgePosition(size) + "px";
 
       var duration = 28 + size * 0.25 + Math.random() * 8;
       bubble.style.animationDuration = duration.toFixed(1) + "s";
@@ -280,7 +292,7 @@
     for (var j = 0; j < 10; j++) {
       var sparkle = document.createElement("span");
       sparkle.className = "sparkle";
-      sparkle.style.left = edgeLeft();
+      sparkle.style.left = edgePosition(12) + "px";
       sparkle.style.top = 5 + Math.random() * 40 + "%";
       sparkle.style.setProperty(
         "--sparkle-delay",

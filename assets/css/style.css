@@ -17,7 +17,8 @@
 
   /* 布局 */
   --edge: clamp(0.75rem, 3vw, 2.5rem);
-  --container: 68rem;
+  /* 宽屏时内容栏跟着变宽，避免两侧空出太多水面 */
+  --container: min(76rem, max(68rem, 66vw));
   --radius: 18px;
   --radius-sm: 10px;
   --radius-xs: 8px;
