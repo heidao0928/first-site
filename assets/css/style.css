@@ -318,17 +318,17 @@ button {
   pointer-events: none;
 }
 
-/* Minecraft 式像素气泡：8×8 的方块精灵，放大后边缘依然是方的 */
+/* Minecraft 里的像素气泡：8×8 方块精灵（亮蓝描边 + 浅蓝过渡 + 白色高光） */
 .bubble {
   position: absolute;
   bottom: -12vh;
-  width: 36px;
-  height: 36px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Cg fill='%23eafdff' fill-opacity='.3'%3E%3Crect x='4' y='1' width='4' height='10'/%3E%3Crect x='2' y='3' width='8' height='6'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='.95'%3E%3Crect x='4' y='0' width='4' height='1'/%3E%3Crect x='2' y='1' width='2' height='1'/%3E%3Crect x='8' y='1' width='2' height='1'/%3E%3Crect x='1' y='2' width='1' height='2'/%3E%3Crect x='10' y='2' width='1' height='2'/%3E%3Crect x='0' y='4' width='1' height='4'/%3E%3Crect x='11' y='4' width='1' height='4'/%3E%3Crect x='1' y='8' width='1' height='2'/%3E%3Crect x='10' y='8' width='1' height='2'/%3E%3Crect x='2' y='10' width='2' height='1'/%3E%3Crect x='8' y='10' width='2' height='1'/%3E%3Crect x='4' y='11' width='4' height='1'/%3E%3C/g%3E%3Crect x='3' y='2' width='1' height='1' fill='%23ffffff'/%3E%3C/svg%3E");
+  width: 32px;
+  height: 32px;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAT0lEQVR4nGNkgALFNd//w9ggcD+EkxHOUViNKokiBmM8/PD9PwgjK7Kff+E/E7KAvACSsVCAogAbgCvAphuvI0H2g2i4LpgADBxMNADLAQBZTiBnMsFylAAAAABJRU5ErkJggg==");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   image-rendering: pixelated;
-  /* 硬边投影，让白气泡在浅色水面上也看得清 */
+
   opacity: 0;
   animation-name: bubble-rise;
   /* 阶梯式缓动，让气泡一格一格地往上蹦 */

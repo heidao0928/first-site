@@ -253,15 +253,15 @@
     // 只在两侧露出水面的位置放气泡：中间被玻璃窗盖住，气泡会显得像被切了一半
     if (window.innerWidth < 1024) return;
 
-    var sizes = [12, 12, 24];
+    var sizes = [32, 40];
 
     function edgeLeft() {
       return (Math.random() < 0.5
-        ? 0.5 + Math.random() * 7
-        : 92.5 + Math.random() * 7) + "%";
+        ? 0.8 + Math.random() * 5.5
+        : 92.5 + Math.random() * 3.5) + "%";
     }
 
-    for (var i = 0; i < 18; i++) {
+    for (var i = 0; i < 10; i++) {
       var bubble = document.createElement("span");
       var size = sizes[Math.floor(Math.random() * sizes.length)];
 

@@ -100,7 +100,7 @@ cp post.html post-my-new-post.html     # Windows: copy post.html post-my-new-pos
 - `.scene` 的 `background` —— 水面的太阳光晕 + 从浅到深的海水渐变，改这几个色标就能换一片海；
 - `.scene__rays` —— 斜射下来的光束（`repeating-linear-gradient` + 模糊）；
 - `.scene__caustics` —— 水底游动的光斑；
-- `.bubble` —— 一颗 12×12 的像素气泡（SVG data URI，放大后仍是方块），尺寸取 12 / 24 / 36 三种；
+- `.bubble` —— 一颗从 Minecraft 截图里抠出来的 8×8 像素气泡（透明 PNG），显示尺寸 32 / 40px；
 - `.sparkle` —— 水面上闪烁的像素星光。
 
 气泡只放在页面两侧露出的水面上（宽度 ≥ 1024px 时生成），这样它们不会从玻璃窗边缘「切」成半个。数量、速度在 `main.js` 的 `initBubbles` 里改，默认 18 颗气泡 + 10 颗星光。
