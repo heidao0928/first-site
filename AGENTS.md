@@ -26,6 +26,13 @@
 2. 小步改：一次只改一件事，改完立刻在浏览器里看效果。
 3. 在 `CHANGELOG.md` 最上面加一条：日期 / 改了什么 / 为什么。
 4. 改坏了就跑 `恢复.cmd`，选上一个快照；恢复前的状态会自动留在 `_恢复前_日期/`。
+5. 满意后跑 `推送.cmd`，提交并推送到 <https://github.com/heidao0928/first-site>。
+
+## 版本控制
+
+- 仓库：`git@github.com:heidao0928/first-site.git`（SSH 走 `ssh.github.com:443`，见 `~/.ssh/config`）。
+- 本机 Git 是便携版：`D:\tools\git\cmd\git.exe`，已加入用户 PATH。
+- 提交前会跑 `git add -A`，`.gitignore` 已排除 `preview/`、`版本存档/`、`_恢复前_*/`。
 
 ## 常见坑
 

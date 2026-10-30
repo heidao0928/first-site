@@ -5,6 +5,9 @@ preview/
 版本存档/
 _恢复前_*/
 
+# 万一用令牌推送，别把令牌提交上去
+.token.txt
+
 # 系统文件
 .DS_Store
 Thumbs.db

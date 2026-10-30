@@ -139,13 +139,16 @@ cp post.html post-my-new-post.html     # Windows: copy post.html post-my-new-pos
 
 ## 版本与回退
 
-项目自带一套零依赖的存档机制，不用装任何软件：
+项目有两层保险：**本地快照**（离线、秒回退）和 **GitHub 提交历史**（云端、可看每一次改动）。
+
+仓库地址：<https://github.com/heidao0928/first-site>
 
 | 想做什么 | 怎么做 |
 | --- | --- |
 | 改之前 | 双击 **`备份.cmd`**，`版本存档/` 里会多一个带时间戳的 zip |
 | 改坏了 | 双击 **`恢复.cmd`**，选编号、输入 `y` |
-| 想看看改了什么 | 打开 **`CHANGELOG.md`** |
+| 改完想同步到 GitHub | 双击 **`推送.cmd`** |
+| 想看看改了什么 | 打开 **`CHANGELOG.md`**，或仓库的 Commits 页面 |
 | 让 AI 接手 | 先把 **`AGENTS.md`** 和 **`CHANGELOG.md`** 发给它 |
 
 快照只包含站点文件（三个 HTML、`assets/`、README 与两份说明），不含 `preview/` 截图和 `版本存档/` 本身，所以每个只有几十 KB。
