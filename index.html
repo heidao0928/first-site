@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>你的名字 · 个人主页</title>
+    <meta
+      name="description"
+      content="你的名字的个人主页：前端开发、独立作品与写作。"
+    />
+    <meta name="theme-color" content="#0a6383" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="你的名字 · 个人主页" />
+    <meta property="og:description" content="前端开发者，也写一点东西。作品、文章与联系方式。" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+    <!-- 在样式表之前决定明暗主题，避免首屏闪白 -->
+    <script>
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var saved = localStorage.getItem("theme");
+          var dark = saved
+            ? saved === "dark"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.dataset.theme = dark ? "dark" : "light";
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- 水下场景：光束、焦散、气泡、暗角（纯装饰） -->
+    <div class="scene" aria-hidden="true">
+      <div class="scene__rays"></div>
+      <div class="scene__caustics"></div>
+      <div class="scene__bubbles" id="bubbles"></div>
+      <div class="scene__vignette"></div>
+    </div>
+
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <!-- ================= 页头 ================= -->
+    <header class="site-header" id="site-header">
+      <div class="container site-header__inner">
+        <!-- ✏️ 改成你的名字 / 缩写 -->
+        <a class="brand" href="index.html" aria-label="回到首页">
+          <span class="brand__mark" aria-hidden="true">你</span>
+          <span class="brand__text">你的名字</span>
+        </a>
+
+        <nav class="nav" id="primary-nav" aria-label="主导航">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="#about">关于</a></li>
+            <li><a class="nav__link" href="#work">作品</a></li>
+            <li><a class="nav__link" href="#writing">文章</a></li>
+            <li><a class="nav__link" href="#contact">联系</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-header__actions">
+          <button
+            class="icon-btn theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="切换深色模式"
+            aria-pressed="false"
+          >
+          </button>
+
+          <button
+            class="icon-btn nav-toggle"
+            id="nav-toggle"
+            type="button"
+            aria-label="打开菜单"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ================= Hero ================= -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="window-bar" aria-hidden="true">
+          <span class="window-bar__dots"><i></i><i></i><i></i></span>
+          <span class="window-bar__title">welcome.html</span>
+        </div>
+        <div class="container hero__inner">
+          <div class="hero__text">
+            <p class="hero__eyebrow">你好，我是</p>
+            <h1 class="hero__title" id="hero-title">
+              你的名字
+              <span class="hero__title-en">Your Name</span>
+            </h1>
+            <p class="hero__lede">
+              <!-- ✏️ 一句话介绍：你是谁、做什么、关心什么 -->
+              前端开发者，也写一点东西。把复杂的想法做成简单好用的产品，
+              相信细节本身就是产品的一部分。
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#work">看看我的作品</a>
+              <a class="btn btn--ghost" href="mailto:hello@example.com">发邮件给我</a>
+            </div>
+
+            <dl class="hero__meta">
+              <div>
+                <dt>现居</dt>
+                <dd>杭州 · 中国</dd>
+              </div>
+              <div>
+                <dt>在做</dt>
+                <dd>独立产品与前端工程</dd>
+              </div>
+              <div>
+                <dt>邮箱</dt>
+                <dd>hello@example.com</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="hero__portrait">
+            <!-- ✏️ 换成你自己的照片：替换 assets/img/avatar.svg，或改成 photo.jpg -->
+            <img
+              src="assets/img/avatar.svg"
+              alt="头像（占位图，替换成你的照片）"
+              width="320"
+              height="320"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 关于 ================= -->
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <header class="section__head" data-reveal>
+            <div>
+              <p class="section__kicker">01 — 关于</p>
+              <h2 class="section__title" id="about-title">
+                喜欢把东西做出来<em>，而不只是讨论它</em>
+              </h2>
+            </div>
+          </header>
+
+          <div class="about">
+            <div class="about__body" data-reveal>
+              <p class="about__lead">
+                我是一名前端开发者，过去几年主要在做 Web 产品：从设计稿还原到组件体系，
+                从性能优化到上线后的迭代。我喜欢那种「想法 → 可用的东西」的完整过程。
+              </p>
+              <p>
+                工作之外，我会做一些小工具和实验性的页面，也把踩过的坑写下来。
+                这个站点就是我的自留地：作品、文章、以及一些还没想清楚的想法。
+              </p>
+              <p>
+                如果你在做类似的事情，或者只是想聊聊，欢迎随时
+                <a href="mailto:hello@example.com">写信给我</a>。
+              </p>
+            </div>
+
+            <aside class="about__aside" data-reveal>
+              <div>
+                <h3 class="about__group-title">技能</h3>
+                <ul class="tag-list">
+                  <li class="tag">TypeScript</li>
+                  <li class="tag">React</li>
+                  <li class="tag">Vue</li>
+                  <li class="tag">CSS 架构</li>
+                  <li class="tag">Node.js</li>
+                  <li class="tag">Figma</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 class="about__group-title">最近在关注</h3>
+                <ul class="fact-list">
+                  <li><span aria-hidden="true">◦</span> 浏览器渲染性能</li>
+                  <li><span aria-hidden="true">◦</span> 设计系统与可访问性</li>
+                  <li><span aria-hidden="true">◦</span> 独立开发与产品设计</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 作品 ================= -->
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="container">
+          <header class="section__head" data-reveal>
+            <div>
+              <p class="section__kicker">02 — 作品</p>
+              <h2 class="section__title" id="work-title">做过的一些东西</h2>
+            </div>
+          </header>
+
+          <div class="card-grid">
+            <!-- ✏️ 复制这个 <article> 就能加一个作品 -->
+            <article class="card" data-reveal>
+              <div class="card__top">
+                <span class="card__index">01</span>
+                <span class="card__arrow" aria-hidden="true">↗</span>
+              </div>
+              <h3 class="card__title">
+                <a class="card__link" href="#">作品名称</a>
+              </h3>
+              <p class="card__desc">
+                一句话说明它解决了什么问题、你在其中做了什么。链接可以指向线上地址或仓库。
+              </p>
+              <ul class="card__tags">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>产品设计</li>
+              </ul>
+            </article>
+
+            <article class="card" data-reveal>
+              <div class="card__top">
+                <span class="card__index">02</span>
+                <span class="card__arrow" aria-hidden="true">↗</span>
+              </div>
+              <h3 class="card__title">
+                <a class="card__link" href="#">第二个作品</a>
+              </h3>
+              <p class="card__desc">
+                第二个作品的简介。建议写清「是什么 + 你的角色 + 结果」，比堆技术名词有效得多。
+              </p>
+              <ul class="card__tags">
+                <li>Vue</li>
+                <li>可视化</li>
+              </ul>
+            </article>
+
+            <article class="card" data-reveal>
+              <div class="card__top">
+                <span class="card__index">03</span>
+                <span class="card__arrow" aria-hidden="true">↗</span>
+              </div>
+              <h3 class="card__title">
+                <a class="card__link" href="#">第三个作品</a>
+              </h3>
+              <p class="card__desc">
+                也可以是开源项目、文章专栏、一次设计实践，只要能说明你的能力就值得放上来。
+              </p>
+              <ul class="card__tags">
+                <li>开源</li>
+                <li>工具</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 文章 ================= -->
+      <section class="section" id="writing" aria-labelledby="writing-title">
+        <div class="container">
+          <header class="section__head" data-reveal>
+            <div>
+              <p class="section__kicker">03 — 文章</p>
+              <h2 class="section__title" id="writing-title">最近写了什么</h2>
+            </div>
+            <a class="section__link" href="blog.html">全部文章</a>
+          </header>
+
+          <ul class="post-list" data-reveal>
+            <li class="post-item">
+              <a class="post-item__link" href="post.html">
+                <span class="post-item__date">2026.10</span>
+                <span class="post-item__body">
+                  <span class="post-item__title">在这里写文章标题</span>
+                  <span class="post-item__summary">一句话摘要，让读者知道读完能获得什么。</span>
+                </span>
+                <span class="post-item__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li class="post-item">
+              <a class="post-item__link" href="post.html">
+                <span class="post-item__date">2026.09</span>
+                <span class="post-item__body">
+                  <span class="post-item__title">第二篇文章的标题</span>
+                  <span class="post-item__summary">摘要同样保持一行以内，列表看起来会更利落。</span>
+                </span>
+                <span class="post-item__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li class="post-item">
+              <a class="post-item__link" href="post.html">
+                <span class="post-item__date">2026.08</span>
+                <span class="post-item__body">
+                  <span class="post-item__title">第三篇文章的标题</span>
+                  <span class="post-item__summary">写技术笔记、随笔、复盘都可以，重点是持续输出。</span>
+                </span>
+                <span class="post-item__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= 联系 ================= -->
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="contact" data-reveal>
+            <div class="contact__head">
+              <div>
+                <p class="section__kicker">04 — 联系</p>
+                <h2 class="contact__title" id="contact-title">
+                  有想法？<br />随时聊聊。
+                </h2>
+              </div>
+              <a class="contact__mail" href="mailto:hello@example.com">
+                hello@example.com <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <ul class="contact__social">
+              <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="https://x.com/" target="_blank" rel="noopener">X / Twitter</a></li>
+              <li><a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= 页脚 ================= -->
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>© <span data-year>2026</span> 你的名字 · 用 HTML 和 CSS 手写</p>
+        <span class="site-footer__badge">BEST VIEWED · 1024 × 768</span>
+        <ul class="site-footer__links">
+          <li><a href="mailto:hello@example.com">邮箱</a></li>
+          <li><a href="blog.html">文章</a></li>
+          <li><a href="#main">回到顶部</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <button class="to-top" id="to-top" type="button" aria-label="回到顶部">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" />
+      </svg>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
