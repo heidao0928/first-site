@@ -3053,33 +3053,9 @@ pre {
   line-height: 1.5;
 }
 
-.hub__cats {
-  margin-top: auto;
-  padding-top: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.75);
-}
 
-.hub__cats-title {
-  margin: 0 0 0.55rem;
-  color: var(--ink-3);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-}
 
-.hub__cats-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 
-.hub__cats-list .chip {
-  font-size: 0.75rem;
-  text-decoration: none;
-}
 
 @media (max-width: 56rem) {
   .hub {
@@ -3162,4 +3138,23 @@ pre {
   font-size: 0.78rem;
   font-weight: 500;
   line-height: 1.4;
+}
+/* 右下角的致敬署名 */
+.hub__credit {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: auto 0 0;
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.75);
+  color: var(--ink-3);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.hub__credit strong {
+  color: var(--ink-2);
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
