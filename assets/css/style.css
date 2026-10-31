@@ -2487,9 +2487,10 @@ pre {
   }
 }
 .site-footer__note {
-  display: block;
-  margin-top: 0.18rem;
+  display: inline;
+  margin-left: 0.45rem;
   color: var(--ink-3);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
