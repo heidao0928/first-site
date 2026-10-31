@@ -11,3 +11,6 @@ _恢复前_*/
 # 系统文件
 .DS_Store
 Thumbs.db
+
+# 调试用的一次性 CDP 脚本
+.preview/
