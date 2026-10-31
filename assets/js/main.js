@@ -254,7 +254,8 @@
     if (window.innerWidth < 1024) return;
 
     // 按内容栏的实际宽度算出两侧水面有多宽，让气泡贴着玻璃窗的外侧
-    var panel = document.querySelector(".hero");
+    // 首页用 .hub，内页用 .page-head / .section，都量一下内容栏的实际宽度
+    var panel = document.querySelector(".hub, .hero, .page-head, .section");
     if (!panel) return;
 
     var panelWidth = panel.getBoundingClientRect().width;
