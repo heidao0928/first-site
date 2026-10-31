@@ -17,7 +17,20 @@
       <div class="scene__vignette"></div>
     </div>
 
-    <main class="admin">
+    <div class="admin-gate" id="admin-gate">
+      <form class="admin-gate__box" id="admin-gate-form" autocomplete="off">
+        <p class="admin-gate__kicker">Admin</p>
+        <h1 class="admin-gate__title">后台管理</h1>
+        <label class="admin__field admin__field--wide">
+          <span>密码</span>
+          <input id="admin-gate-pass" type="password" autocomplete="current-password" />
+        </label>
+        <button type="submit" class="admin__btn admin__btn--primary">进入</button>
+        <p class="admin__status" id="admin-gate-status" role="status"></p>
+      </form>
+    </div>
+
+    <main class="admin" id="admin-main" hidden>
       <header class="admin__head">
         <div>
           <p class="admin__kicker">Admin</p>
@@ -134,6 +147,46 @@
 
         var hash = (location.hash || "").replace("#", "");
         if (hash && document.querySelector('[data-pane-panel="' + hash + '"]')) activate(hash);
+      })();
+    </script>
+    <script>
+      (function () {
+        var KEY = "dsh_admin_ok";
+        var HASH = "9395c669";
+
+        function hash(value) {
+          var h = 5381;
+          for (var i = 0; i < value.length; i++) {
+            h = ((h << 5) + h + value.charCodeAt(i)) >>> 0;
+          }
+          return h.toString(16);
+        }
+
+        var gate = document.getElementById("admin-gate");
+        var main = document.getElementById("admin-main");
+        var form = document.getElementById("admin-gate-form");
+        var pass = document.getElementById("admin-gate-pass");
+        var statusEl = document.getElementById("admin-gate-status");
+
+        function unlock() {
+          gate.hidden = true;
+          main.hidden = false;
+        }
+
+        if (localStorage.getItem(KEY) === HASH) unlock();
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          if (hash(pass.value.trim()) === HASH) {
+            localStorage.setItem(KEY, HASH);
+            unlock();
+          } else {
+            statusEl.textContent = "密码不对";
+            statusEl.className = "admin__status is-err";
+            pass.value = "";
+            pass.focus();
+          }
+        });
       })();
     </script>
     <script src="assets/js/admin.js"></script>

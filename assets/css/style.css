@@ -3938,3 +3938,45 @@ pre {
     white-space: nowrap;
   }
 }
+
+/* 后台密码门 */
+.admin-gate {
+  position: relative;
+  z-index: 3;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.admin-gate__box {
+  width: min(100%, 22rem);
+  display: grid;
+  gap: 0.8rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border: 1px solid var(--panel-line);
+  border-top-color: var(--panel-gloss);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(16px) saturate(150%);
+}
+
+.admin-gate__kicker {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.admin-gate__title {
+  margin: 0 0 0.3rem;
+  color: var(--ink);
+  font-size: 1.4rem;
+}
+
+.admin[hidden] {
+  display: none !important;
+}
