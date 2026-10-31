@@ -303,6 +303,31 @@
     }
   }
 
+  /* ---------------------------------------------------------- 教程分类筛选 */
+  function initTutorialFilter() {
+    var bar = document.querySelector("[data-tut-filters]");
+    if (!bar) return;
+
+    var cards = $$(".tut-card");
+
+    bar.addEventListener("click", function (event) {
+      var button = event.target.closest("button[data-filter]");
+      if (!button) return;
+
+      var filter = button.getAttribute("data-filter");
+
+      $$("button", bar).forEach(function (item) {
+        var active = item === button;
+        item.classList.toggle("is-active", active);
+        item.setAttribute("aria-pressed", String(active));
+      });
+
+      cards.forEach(function (card) {
+        var match = filter === "all" || card.getAttribute("data-cat") === filter;
+        card.classList.toggle("is-hidden", !match);
+      });
+    });
+  }
   /* ---------------------------------------------------------------- 启动 */
   function boot() {
     // 先让内容可见，再逐个启用交互；某个模块出错不会连累其他功能
@@ -315,6 +340,7 @@
       initYear,
       initCopyCode,
       initBubbles,
+      initTutorialFilter,
     ];
 
     steps.forEach(function (step) {

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>教程 · 黑岛的个人网站</title>
-    <meta name="description" content="黑岛写的教程，按时间从新到旧。" />
+    <meta name="description" content="黑岛的 FF14 拍照科技教程：7.0 版本教程、拍图过程、滤镜与插件应用。" />
     <meta name="theme-color" content="#0a6383" />
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 
@@ -78,57 +78,83 @@
         <div class="container">
           <p class="section__kicker">Tutorials</p>
           <h1 class="page-head__title">教程</h1>
-          <p class="page-head__lede">版本更新后步骤可能有出入，重要操作请对照当前版本文档。</p>
-          <p class="page-head__meta"><span>共 <strong>4</strong> 篇</span><span>最近更新于 2026.10</span></p>
+          <p class="page-head__lede">
+            主要还是发在小红书：图文步骤、拍图过程和一些插件折腾。这里放封面和索引，点开能看完整图文和外链。
+          </p>
+          <p class="page-head__meta">
+            <span>共 <strong>9</strong> 篇</span>
+            <span>更新于 2026.10</span>
+            <span>封面陆续补全中</span>
+          </p>
         </div>
       </header>
 
       <section class="section section--tight">
         <div class="container">
-          <div class="archive-group">
-            <h2 class="archive-year">2026</h2>
-            <ul class="post-list">
-              <li class="post-item">
-                <a class="post-item__link" href="post.html">
-                  <span class="post-item__date">10.12</span>
-                  <span class="post-item__body">
-                    <span class="post-item__title">第一篇教程的标题</span>
-                    <span class="post-item__summary">这条教程解决什么问题、适合谁看，一行讲清楚。</span>
-                  </span>
-                  <span class="post-item__arrow" aria-hidden="true">→</span>
-                </a>
-              </li>
-              <li class="post-item">
-                <a class="post-item__link" href="post.html">
-                  <span class="post-item__date">09.28</span>
-                  <span class="post-item__body">
-                    <span class="post-item__title">第二篇教程的标题</span>
-                    <span class="post-item__summary">版本不同，步骤可能有出入，写清适用的版本号。</span>
-                  </span>
-                  <span class="post-item__arrow" aria-hidden="true">→</span>
-                </a>
-              </li>
-              <li class="post-item">
-                <a class="post-item__link" href="post.html">
-                  <span class="post-item__date">08.06</span>
-                  <span class="post-item__body">
-                    <span class="post-item__title">第三篇教程的标题</span>
-                    <span class="post-item__summary">可以配截图、代码块和注意事项，正文样式已经备好。</span>
-                  </span>
-                  <span class="post-item__arrow" aria-hidden="true">→</span>
-                </a>
-              </li>
-              <li class="post-item">
-                <a class="post-item__link" href="post.html">
-                  <span class="post-item__date">05.19</span>
-                  <span class="post-item__body">
-                    <span class="post-item__title">第四篇教程的标题</span>
-                    <span class="post-item__summary">旧的教程可以归档在这里，方便以后回查。</span>
-                  </span>
-                  <span class="post-item__arrow" aria-hidden="true">→</span>
-                </a>
-              </li>
-            </ul>
+          <div class="tut-filters" data-tut-filters role="group" aria-label="教程分类">
+            <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
+            <button class="chip" type="button" data-filter="v70" aria-pressed="false">7.0 版本教程</button>
+            <button class="chip" type="button" data-filter="photo" aria-pressed="false">拍图过程</button>
+            <button class="chip" type="button" data-filter="plugin" aria-pressed="false">滤镜插件应用</button>
+          </div>
+
+          <div class="tut-grid">
+            <!-- ✏️ 每张卡：把 div.tut-card__cover 换成 <img src="assets/img/covers/xxx.jpg" alt=""> 即可用真实封面 -->
+            <a class="tut-card" href="post.html" data-cat="v70">
+              <div class="tut-card__cover" data-label="7.0" style="--c1: #1d5f95; --c2: #6fd0ef">
+                <span class="tut-card__pin">置顶</span>
+              </div>
+              <h3 class="tut-card__title">7.0 插件安装与版本更新</h3>
+              <p class="tut-card__meta"><span class="tut-card__tag">7.0 版本</span><span>2026.10</span></p>
+            </a>
+
+            <a class="tut-card" href="post.html" data-cat="v70">
+              <div class="tut-card__cover" data-label="7.0" style="--c1: #235a86; --c2: #8fdff4"></div>
+              <h3 class="tut-card__title">7.0 常用插件清单</h3>
+              <p class="tut-card__meta"><span class="tut-card__tag">7.0 版本</span><span>2026.09</span></p>
+            </a>
+
+            <a class="tut-card" href="post.html" data-cat="v70">
+              <div class="tut-card__cover" data-label="7.0" style="--c1: #2b6f9e; --c2: #a5e6f7"></div>
+              <h3 class="tut-card__title">7.0 界面改动与菜单去哪了</h3>
+              <p class="tut-card__meta"><span class="tut-card__tag">7.0 版本</span><span>2026.08</span></p>
+            </a>
+
+            <a class="tut-card" href="post.html" data-cat="photo">
+              <div class="tut-card__cover" data-label="拍图" style="--c1: #1f7d8c; --c2: #8ff0e2"></div>
+              <h3 class="tut-card__title">拍图参数与构图基础</h3>
+              <p class="tut-card__meta"><span class="tut-card__tag">拍图过程</span><span>2026.09</span></p>
+            </a>
+
+            <a class="tut-card" href="post.html" data-cat="photo">
+              <div class="tut-card__cover" data-label="拍图" style="--c1: #176c7a; --c2: #7fe6f0"></div>
+              <h3 class="tut-card__title">用 GPose 摆一个自然的姿势</h3>
+              <p class="tut-card__meta"><span class="tut-card__tag">拍图过程</span><span>2026.08</span></p>
+            </a>
+
+            <a class="tut-card" href="post.html" data-cat="photo">
+              <div class="tut-card__cover" data-label="拍图" style="--c1: #2a7f8f; --c2: #b6f4ef"></div>
+              <h3 class="tut-card__title">补光、背景与景深怎么调</h3>
+              <p class="tut-card__meta"><span class="tut-card__tag">拍图过程</span><span>2026.07</span></p>
+            </a>
+
+            <a class="tut-card" href="post.html" data-cat="plugin">
+              <div class="tut-card__cover" data-label="滤镜" style="--c1: #4a4a8f; --c2: #b9a8f0"></div>
+              <h3 class="tut-card__title">滤镜插件的基础设置</h3>
+              <p class="tut-card__meta"><span class="tut-card__tag">滤镜插件</span><span>2026.08</span></p>
+            </a>
+
+            <a class="tut-card" href="post.html" data-cat="plugin">
+              <div class="tut-card__cover" data-label="滤镜" style="--c1: #3f4a86; --c2: #a9b6f2"></div>
+              <h3 class="tut-card__title">ReShade 预设怎么挑、怎么改</h3>
+              <p class="tut-card__meta"><span class="tut-card__tag">滤镜插件</span><span>2026.07</span></p>
+            </a>
+
+            <a class="tut-card" href="post.html" data-cat="plugin">
+              <div class="tut-card__cover" data-label="滤镜" style="--c1: #54508f; --c2: #c6b8f5"></div>
+              <h3 class="tut-card__title">调色：从截图到成片</h3>
+              <p class="tut-card__meta"><span class="tut-card__tag">滤镜插件</span><span>2026.06</span></p>
+            </a>
           </div>
         </div>
       </section>
