@@ -3257,3 +3257,221 @@ pre {
 .page-tips--plain > * {
   max-width: 100%;
 }
+/* --------------------------------------------------------------------------
+   24 资源页表格
+   -------------------------------------------------------------------------- */
+.res-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--panel-line);
+  border-top-color: var(--panel-gloss);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+.res-table {
+  width: 100%;
+  min-width: 46rem;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  color: var(--ink-2);
+}
+
+.res-table__caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.res-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0.75rem 0.9rem;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+  color: var(--ink-3);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.res-table tbody td {
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.res-table tbody tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.res-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.res-table__num {
+  width: 3rem;
+  color: var(--ink-3);
+  font-size: 0.74rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.res-table__name {
+  min-width: 12rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.res-table__name a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.res-table__name a:hover {
+  text-decoration: underline;
+}
+
+.res-table__tags {
+  white-space: nowrap;
+}
+
+.res-tag {
+  display: inline-block;
+  margin: 0 0.3rem 0.25rem 0;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--ink-2);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.res-table__desc {
+  min-width: 16rem;
+  color: var(--ink-2);
+}
+
+.res-table__file {
+  width: 6rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.res-dl {
+  display: inline-block;
+  padding: 0.18rem 0.7rem;
+  border: 1px solid rgba(10, 110, 140, 0.45);
+  border-radius: var(--radius-full);
+  background: linear-gradient(180deg, #7fdcf5 0%, #23a5cb 48%, #0d86aa 100%);
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.res-dl:hover {
+  filter: brightness(1.06);
+}
+
+.res-dl--muted {
+  border-color: rgba(140, 200, 220, 0.55);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--ink-3);
+  box-shadow: none;
+}
+
+@media (max-width: 56rem) {
+  .res-table {
+    min-width: 40rem;
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 56rem) {
+  .res-table {
+    min-width: 34rem;
+  }
+
+  .res-table__num {
+    display: none;
+  }
+
+  .res-table__desc {
+    min-width: 10rem;
+  }
+
+  .res-table__name {
+    min-width: 9rem;
+  }
+}
+/* 手机：表格改成一列一条，避免横向滚动 */
+@media (max-width: 40rem) {
+  .res-table,
+  .res-table thead,
+  .res-table tbody,
+  .res-table tr,
+  .res-table td {
+    display: block;
+    width: auto;
+  }
+
+  .res-table {
+    min-width: 0;
+  }
+
+  .res-table thead {
+    display: none;
+  }
+
+  .res-table tbody tr {
+    padding: 0.8rem 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  }
+
+  .res-table tbody tr:nth-child(even) td {
+    background: none;
+  }
+
+  .res-table tbody td {
+    padding: 0;
+    border: 0;
+  }
+
+  .res-table tbody td.res-table__num {
+    display: block;
+    margin-bottom: 0.1rem;
+    font-size: 0.7rem;
+  }
+
+  .res-table__name {
+    min-width: 0;
+    font-size: 0.92rem;
+  }
+
+  .res-table__tags {
+    margin-top: 0.35rem;
+  }
+
+  .res-table__desc {
+    min-width: 0;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  .res-table__file {
+    width: auto;
+    margin-top: 0.45rem;
+    text-align: left;
+  }
+}
