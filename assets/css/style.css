@@ -3789,3 +3789,57 @@ pre {
 .tut-search__clear[hidden] {
   display: none !important;
 }
+/* 相关网站：右侧切一块单独放推荐 */
+.links-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.8rem);
+  align-items: start;
+}
+
+.links-promo {
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
+  padding-left: clamp(1rem, 2.5vw, 1.6rem);
+}
+
+.links-promo__card {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.links-promo__cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 10px 22px -18px rgba(4, 60, 80, 0.9);
+}
+
+.links-promo__title {
+  margin: 0.15rem 0 0;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.links-promo__desc {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 56rem) {
+  .links-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .links-promo {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.7);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+}
