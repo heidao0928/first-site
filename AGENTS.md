@@ -14,6 +14,8 @@
 
 ## 设计要点（不要轻易推翻）
 
+- **首页是单屏门户**：`.page-hub` + `.hub` 两栏（左介绍、右入口），桌面端 `height: 100svh; overflow: hidden`，不允许出现滚动条；手机端自动堆叠、允许轻微滚动。改字号/间距时必须回来确认 1366×768 和 1920×963 都不溢出。
+- 导航固定为：首页 / 教程 / 资源 / 相关网站，对应 `index.html`、`tutorials.html`、`resources.html`、`links.html`；正文模板是 `post.html`。
 - 背景是固定的水下场景：`.scene`（水色渐变）+ `::before`（太阳光晕）+ `::after`（水面波光）+ `.scene__rays`（光束）+ `.scene__caustics`（光斑）+ `.scene__bubbles`（气泡）+ `.scene__vignette`（暗角）。
 - 页面内容是一层层「玻璃窗」：`.hero / .section / .page-head / .post`，每块顶部有 `.window-bar`（红黄绿三个点的标题栏）。
 - 气泡用的是 **Minecraft 里的 8×8 像素精灵**（从游戏截图里抠出来、去掉深蓝底后转成透明 PNG，内联成 data URI），尺寸只有 32px / 40px 两种，**只在窗口宽度 ≥ 1024px、且两侧水面 ≥ 90px 时生成**。

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>资源 · 黑岛的个人网站</title>
+    <meta name="description" content="黑岛整理的工具、素材和参考资料。" />
+    <meta name="theme-color" content="#0a6383" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+    <script>
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var saved = localStorage.getItem("theme");
+          var dark = saved
+            ? saved === "dark"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.dataset.theme = dark ? "dark" : "light";
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <div class="scene" aria-hidden="true">
+      <div class="scene__rays"></div>
+      <div class="scene__caustics"></div>
+      <div class="scene__bubbles" id="bubbles"></div>
+      <div class="scene__vignette"></div>
+    </div>
+
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header" id="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="回到首页">
+          <span class="brand__mark" aria-hidden="true">黑</span>
+          <span class="brand__text">黑岛</span>
+        </a>
+
+        <nav class="nav" id="primary-nav" aria-label="主导航">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="index.html">首页</a></li>
+            <li><a class="nav__link" href="tutorials.html">教程</a></li>
+            <li><a class="nav__link" href="resources.html" aria-current="page">资源</a></li>
+            <li><a class="nav__link" href="links.html">相关网站</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-header__actions">
+          <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式" aria-pressed="false"></button>
+          <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <header class="page-head">
+        <div class="window-bar" aria-hidden="true">
+          <span class="window-bar__dots"><i></i><i></i><i></i></span>
+          <span class="window-bar__title">resources.html</span>
+        </div>
+        <div class="container">
+          <p class="section__kicker">Resources</p>
+          <h1 class="page-head__title">资源</h1>
+          <p class="page-head__lede">放自己真的用过的东西，写清授权和适用场景。</p>
+          <p class="page-head__meta"><span>共 <strong>4</strong> 项</span><span>持续补充</span></p>
+        </div>
+      </header>
+
+      <section class="section section--tight">
+        <div class="container">
+          <div class="card-grid">
+            <article class="card">
+              <div class="card__top">
+                <span class="card__index">01</span>
+                <span class="card__arrow" aria-hidden="true">↗</span>
+              </div>
+              <h3 class="card__title"><a class="card__link" href="#">资源名称</a></h3>
+              <p class="card__desc">一句话说明它是什么、怎么用，链接可以指向网盘、仓库或官网。</p>
+              <ul class="card__tags"><li>工具</li><li>免费</li></ul>
+            </article>
+
+            <article class="card">
+              <div class="card__top">
+                <span class="card__index">02</span>
+                <span class="card__arrow" aria-hidden="true">↗</span>
+              </div>
+              <h3 class="card__title"><a class="card__link" href="#">像素素材包</a></h3>
+              <p class="card__desc">图标、字体、纹理，说明授权方式和适用场景。</p>
+              <ul class="card__tags"><li>素材</li><li>像素</li></ul>
+            </article>
+
+            <article class="card">
+              <div class="card__top">
+                <span class="card__index">03</span>
+                <span class="card__arrow" aria-hidden="true">↗</span>
+              </div>
+              <h3 class="card__title"><a class="card__link" href="#">常用工具</a></h3>
+              <p class="card__desc">自己每天在用的小工具，附上为什么值得用。</p>
+              <ul class="card__tags"><li>效率</li></ul>
+            </article>
+
+            <article class="card">
+              <div class="card__top">
+                <span class="card__index">04</span>
+                <span class="card__arrow" aria-hidden="true">↗</span>
+              </div>
+              <h3 class="card__title"><a class="card__link" href="#">备用资源位</a></h3>
+              <p class="card__desc">多出来的一格，删掉或留着扩展都行。</p>
+              <ul class="card__tags"><li>占位</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>© <span data-year>2026</span> 黑岛 · 用 HTML 和 CSS 手写</p>
+        <span class="site-footer__badge">BEST VIEWED · 1024 × 768</span>
+        <ul class="site-footer__links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="links.html">相关网站</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

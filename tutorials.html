@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>教程 · 黑岛的个人网站</title>
+    <meta name="description" content="黑岛写的教程，按时间从新到旧。" />
+    <meta name="theme-color" content="#0a6383" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+    <script>
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var saved = localStorage.getItem("theme");
+          var dark = saved
+            ? saved === "dark"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.dataset.theme = dark ? "dark" : "light";
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <div class="scene" aria-hidden="true">
+      <div class="scene__rays"></div>
+      <div class="scene__caustics"></div>
+      <div class="scene__bubbles" id="bubbles"></div>
+      <div class="scene__vignette"></div>
+    </div>
+
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header" id="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="回到首页">
+          <span class="brand__mark" aria-hidden="true">黑</span>
+          <span class="brand__text">黑岛</span>
+        </a>
+
+        <nav class="nav" id="primary-nav" aria-label="主导航">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="index.html">首页</a></li>
+            <li><a class="nav__link" href="tutorials.html" aria-current="page">教程</a></li>
+            <li><a class="nav__link" href="resources.html">资源</a></li>
+            <li><a class="nav__link" href="links.html">相关网站</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-header__actions">
+          <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式" aria-pressed="false"></button>
+          <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <header class="page-head">
+        <div class="window-bar" aria-hidden="true">
+          <span class="window-bar__dots"><i></i><i></i><i></i></span>
+          <span class="window-bar__title">tutorials.html</span>
+        </div>
+        <div class="container">
+          <p class="section__kicker">Tutorials</p>
+          <h1 class="page-head__title">教程</h1>
+          <p class="page-head__lede">版本更新后步骤可能有出入，重要操作请对照当前版本文档。</p>
+          <p class="page-head__meta"><span>共 <strong>4</strong> 篇</span><span>最近更新于 2026.10</span></p>
+        </div>
+      </header>
+
+      <section class="section section--tight">
+        <div class="container">
+          <div class="archive-group">
+            <h2 class="archive-year">2026</h2>
+            <ul class="post-list">
+              <li class="post-item">
+                <a class="post-item__link" href="post.html">
+                  <span class="post-item__date">10.12</span>
+                  <span class="post-item__body">
+                    <span class="post-item__title">第一篇教程的标题</span>
+                    <span class="post-item__summary">这条教程解决什么问题、适合谁看，一行讲清楚。</span>
+                  </span>
+                  <span class="post-item__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li class="post-item">
+                <a class="post-item__link" href="post.html">
+                  <span class="post-item__date">09.28</span>
+                  <span class="post-item__body">
+                    <span class="post-item__title">第二篇教程的标题</span>
+                    <span class="post-item__summary">版本不同，步骤可能有出入，写清适用的版本号。</span>
+                  </span>
+                  <span class="post-item__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li class="post-item">
+                <a class="post-item__link" href="post.html">
+                  <span class="post-item__date">08.06</span>
+                  <span class="post-item__body">
+                    <span class="post-item__title">第三篇教程的标题</span>
+                    <span class="post-item__summary">可以配截图、代码块和注意事项，正文样式已经备好。</span>
+                  </span>
+                  <span class="post-item__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li class="post-item">
+                <a class="post-item__link" href="post.html">
+                  <span class="post-item__date">05.19</span>
+                  <span class="post-item__body">
+                    <span class="post-item__title">第四篇教程的标题</span>
+                    <span class="post-item__summary">旧的教程可以归档在这里，方便以后回查。</span>
+                  </span>
+                  <span class="post-item__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>© <span data-year>2026</span> 黑岛 · 用 HTML 和 CSS 手写</p>
+        <span class="site-footer__badge">BEST VIEWED · 1024 × 768</span>
+        <ul class="site-footer__links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="links.html">相关网站</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

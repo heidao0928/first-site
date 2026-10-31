@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>相关网站 · 黑岛的个人网站</title>
+    <meta name="description" content="常逛的网站和资料站。" />
+    <meta name="theme-color" content="#0a6383" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+    <script>
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var saved = localStorage.getItem("theme");
+          var dark = saved
+            ? saved === "dark"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.dataset.theme = dark ? "dark" : "light";
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <div class="scene" aria-hidden="true">
+      <div class="scene__rays"></div>
+      <div class="scene__caustics"></div>
+      <div class="scene__bubbles" id="bubbles"></div>
+      <div class="scene__vignette"></div>
+    </div>
+
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header" id="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="回到首页">
+          <span class="brand__mark" aria-hidden="true">黑</span>
+          <span class="brand__text">黑岛</span>
+        </a>
+
+        <nav class="nav" id="primary-nav" aria-label="主导航">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="index.html">首页</a></li>
+            <li><a class="nav__link" href="tutorials.html">教程</a></li>
+            <li><a class="nav__link" href="resources.html">资源</a></li>
+            <li><a class="nav__link" href="links.html" aria-current="page">相关网站</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-header__actions">
+          <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式" aria-pressed="false"></button>
+          <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <header class="page-head">
+        <div class="window-bar" aria-hidden="true">
+          <span class="window-bar__dots"><i></i><i></i><i></i></span>
+          <span class="window-bar__title">links.html</span>
+        </div>
+        <div class="container">
+          <p class="section__kicker">Links</p>
+          <h1 class="page-head__title">相关网站</h1>
+          <p class="page-head__lede">都是我平时会打开的站，按用途分类不用太严格。</p>
+          <p class="page-head__meta"><span>共 <strong>4</strong> 个</span><span>外部链接</span></p>
+        </div>
+      </header>
+
+      <section class="section section--tight">
+        <div class="container">
+          <ul class="post-list">
+            <li class="post-item">
+              <a class="post-item__link" href="https://github.com/" target="_blank" rel="noopener">
+                <span class="post-item__date">GitHub</span>
+                <span class="post-item__body">
+                  <span class="post-item__title">代码与项目托管</span>
+                  <span class="post-item__summary">这个站点就放在 GitHub 上。</span>
+                </span>
+                <span class="post-item__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="post-item">
+              <a class="post-item__link" href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">
+                <span class="post-item__date">MDN</span>
+                <span class="post-item__body">
+                  <span class="post-item__title">Web 技术文档</span>
+                  <span class="post-item__summary">写前端时最常查的地方。</span>
+                </span>
+                <span class="post-item__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="post-item">
+              <a class="post-item__link" href="https://zh.minecraft.wiki/" target="_blank" rel="noopener">
+                <span class="post-item__date">Minecraft Wiki</span>
+                <span class="post-item__body">
+                  <span class="post-item__title">游戏资料站</span>
+                  <span class="post-item__summary">查方块、配方和机制。</span>
+                </span>
+                <span class="post-item__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="post-item">
+              <a class="post-item__link" href="#" target="_blank" rel="noopener">
+                <span class="post-item__date">待填</span>
+                <span class="post-item__body">
+                  <span class="post-item__title">再放一个你常逛的网站</span>
+                  <span class="post-item__summary">复制这一条，改名字和链接就行。</span>
+                </span>
+                <span class="post-item__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>© <span data-year>2026</span> 黑岛 · 用 HTML 和 CSS 手写</p>
+        <span class="site-footer__badge">BEST VIEWED · 1024 × 768</span>
+        <ul class="site-footer__links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="links.html">相关网站</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

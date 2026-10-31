@@ -16,9 +16,11 @@
 
 ```
 .
-├── index.html              首页（Hero / 关于 / 作品 / 最新文章 / 联系）
-├── blog.html               文章列表
-├── post.html               文章详情页（同时是文章模板）
+├── index.html              单屏门户（标题 + 三个入口，不用滚动）
+├── tutorials.html          教程列表
+├── resources.html          资源列表
+├── links.html              相关网站
+├── post.html               教程正文页（同时是教程模板）
 ├── assets/
 │   ├── css/style.css       全部样式：场景、玻璃组件、文章排版
 │   ├── js/main.js          全部交互，约 280 行，无依赖
