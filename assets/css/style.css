@@ -3622,3 +3622,15 @@ pre {
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
+/* 相关网站里还没填链接的条目 */
+.post-item__link--pending {
+  cursor: default;
+}
+
+.post-item__arrow--pending {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  opacity: 0.9;
+}
