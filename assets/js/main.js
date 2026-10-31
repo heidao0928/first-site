@@ -631,28 +631,107 @@
     });
   }
 
-  /* ------------------------------------------------------ 教程链接挂载 */
-  function initTutorialLinks() {
-    var map = window.TUTORIAL_LINKS || {};
+  /* ------------------------------------------------------ 教程数据渲染 */
+  function initTutorialData() {
+    var data = window.TUTORIAL_DATA;
+    if (!data || !Array.isArray(data.items)) return;
 
-    function coverKey(el) {
-      var img = el.querySelector("img");
-      if (!img) return null;
-      var m = (img.getAttribute("src") || "").match(/covers\/([^./]+)\./);
-      return m ? m[1] : null;
+    var featuredBox = document.querySelector("[data-tut-featured]");
+    var catBox = document.querySelector("[data-tut-cat-featured]");
+    var grid = document.querySelector(".tut-grid");
+    if (!grid) return;
+
+    var byCover = {};
+    data.items.forEach(function (item) {
+      byCover[item.cover] = item;
+    });
+
+    var featured = (data.featured || []).filter(function (c) {
+      return byCover[c];
+    });
+
+    function esc(value) {
+      return String(value == null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
     }
 
-    $$(".tut-card, .tut-featured__item").forEach(function (el) {
-      if (!el.tagName || el.tagName.toLowerCase() !== "a") return;
-      var key = coverKey(el);
-      var href = key && map[key] ? String(map[key]).trim() : "";
-      if (href) {
-        el.setAttribute("href", href);
-        el.setAttribute("target", "_blank");
-        el.setAttribute("rel", "noopener noreferrer");
-        el.classList.add("has-link");
-      }
+    function coverSrc(cover) {
+      return "assets/img/covers/" + cover + ".webp";
+    }
+
+    function linkAttrs(item) {
+      var link = (item.link || "").trim();
+      if (!link) return ' href="#"';
+      return ' href="' + esc(link) + '" target="_blank" rel="noopener noreferrer"';
+    }
+
+    // 全部置顶
+    if (featuredBox) {
+      featuredBox.innerHTML = featured
+        .map(function (cover) {
+          var item = byCover[cover];
+          return (
+            '<a class="tut-featured__item"' + linkAttrs(item) + ">" +
+            '<span class="tut-featured__cover">' +
+            '<img src="' + coverSrc(cover) + '" alt="' + esc(item.title) + '" loading="lazy" decoding="async" />' +
+            '<span class="tut-featured__badge">置顶</span>' +
+            "</span>" +
+            '<span class="tut-featured__title">' + esc(item.title) + "</span>" +
+            "</a>"
+          );
+        })
+        .join("");
+    }
+
+    // 分类置顶
+    var catFeatured = data.catFeatured || {};
+    if (catBox) {
+      catBox.innerHTML = Object.keys(catFeatured)
+        .map(function (cat) {
+          var cover = catFeatured[cat];
+          var item = byCover[cover];
+          if (!item) return "";
+          var extra = cat === "other" ? " tut-featured__item--sm" : "";
+          return (
+            '<a class="tut-featured__item' + extra + '" data-cat-featured="' + cat + '"' + linkAttrs(item) + ' hidden>' +
+            '<span class="tut-featured__cover">' +
+            '<img src="' + coverSrc(cover) + '" alt="' + esc(item.title) + '" loading="lazy" decoding="async" />' +
+            '<span class="tut-featured__badge">置顶</span>' +
+            "</span>" +
+            '<span class="tut-featured__title">' + esc(item.title) + "</span>" +
+            "</a>"
+          );
+        })
+        .join("");
+    }
+
+    // 宫格（全部置顶的卡不进宫格）
+    var catPin = {};
+    Object.keys(catFeatured).forEach(function (cat) {
+      catPin[catFeatured[cat]] = cat;
     });
+
+    grid.innerHTML = data.items
+      .map(function (item) {
+        var attrs = "";
+        if (featured.indexOf(item.cover) !== -1) attrs += ' data-pin="1"';
+        if (catPin[item.cover]) attrs += ' data-cat-featured="' + catPin[item.cover] + '"';
+        if (item.cats && item.cats.length) attrs += ' data-cat="' + item.cats.join(" ") + '"';
+        else attrs += ' data-cat=""';
+
+        return (
+          '<a class="tut-card"' + linkAttrs(item) + attrs + ">" +
+          '<div class="tut-card__cover">' +
+          '<img src="' + coverSrc(item.cover) + '" alt="' + esc(item.title) + '" loading="lazy" decoding="async" />' +
+          "</div>" +
+          '<h3 class="tut-card__title">' + esc(item.title) + "</h3>" +
+          "</a>"
+        );
+      })
+      .join("");
   }
 
   /* ---------------------------------------------------------------- 启动 */
@@ -666,12 +745,12 @@
       initYear,
       initCopyCode,
       initBubbles,
+      initTutorialData,
       initTutorialGallery,
       initLightbox,
       initResourcesTable,
       initNotices,
       initCopyButtons,
-      initTutorialLinks,
     ];
 
     steps.forEach(function (step) {

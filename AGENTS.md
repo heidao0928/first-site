@@ -23,6 +23,12 @@
 - 原素材的浅蓝色（`#6fccf7`）在浅海水面上几乎看不见，所以把右下那半圈压深成了 `#3f9fd0`，并加了一圈 1px 深色描影。想完全还原原色，改 `.bubble` 里的 data URI 即可（`版本存档/` 与 git 历史里都有替换前的版本）。
 - 文章页的排版在 `.prose` 里，代码块是深色终端样式。
 
+## 内容数据
+
+- 教程：`assets/data/tutorials.js`（`window.TUTORIAL_DATA`），`items` 里每条 `{cover,title,cats[],link}`，`featured` 是「全部」置顶的封面顺序，`catFeatured` 是分类置顶 `{ana:brio:...}`。教程页由 `initTutorialData()` 渲染出宫格和两个置顶区，改数据即可改页面。
+- 资源：`assets/data/resources.js`；公告：`assets/data/notices.js`。
+- 后台 `admin.html` 的「教程」页可增删改教程、上传封面（自动压成 720 宽 WebP）、设置全部置顶与分类置顶。
+
 ## 修改流程
 
 1. 动手前先跑一次 `备份.cmd`（或在 `版本存档/` 里确认有今天的快照）。

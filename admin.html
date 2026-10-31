@@ -93,10 +93,20 @@
           <section class="admin__pane" data-pane-panel="tutorial" aria-label="教程" hidden>
             <div class="admin__bar">
               <div class="admin__bar-actions">
-                <button type="button" class="admin__btn" id="t-load">读取教程</button>
-                <button type="button" class="admin__btn admin__btn--primary" id="t-save">保存链接</button>
+                <button type="button" class="admin__btn" id="t-load">重新读取</button>
+                <button type="button" class="admin__btn admin__btn--primary" id="t-save">保存全部</button>
               </div>
               <p class="admin__status" id="t-status" role="status"></p>
+            </div>
+
+            <div class="admin__field admin__field--new">
+              <label class="admin__label" for="t-add-file">新建教程：选封面图</label>
+              <div class="admin__new-row">
+                <input type="file" id="t-add-file" accept="image/*" />
+                <input type="text" id="t-add-title" placeholder="教程标题" />
+                <button type="button" class="admin__btn" id="t-add">添加</button>
+              </div>
+              <p class="admin__hint">封面会自动压成 720 宽的 WebP 再上传，编号顺延（如 c52）。添加后补分类和链接，最后点「保存全部」。</p>
             </div>
 
             <div class="admin__list" id="t-list"></div>
@@ -153,6 +163,6 @@
     </script>
     <script src="assets/js/admin.js"></script>
     <script src="assets/js/notices-admin.js"></script>
-    <script src="assets/js/tutorial-links-admin.js"></script>
+    <script src="assets/js/tutorials-admin.js"></script>
   </body>
 </html>

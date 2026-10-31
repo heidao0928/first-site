@@ -3949,3 +3949,120 @@ pre {
     grid-template-columns: 6rem minmax(0, 1fr);
   }
 }
+/* 后台教程编辑行 */
+.tut-edit {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.tut-edit__cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.tut-edit__body {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.tut-edit__title,
+.tut-edit__link {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.tut-edit__title {
+  font-weight: 700;
+}
+
+.tut-edit__cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.7rem;
+  color: var(--ink-2);
+  font-size: 0.76rem;
+}
+
+.tut-edit__cats input,
+.tut-edit__pins input {
+  accent-color: var(--accent);
+}
+
+.tut-edit__pins {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.9rem;
+  color: var(--ink-2);
+  font-size: 0.76rem;
+}
+
+.tut-edit__pins select {
+  margin-left: 0.25rem;
+  padding: 0.15rem 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.76rem;
+}
+
+.tut-edit__order {
+  margin-left: auto;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.admin__btn--tiny {
+  padding: 0.15rem 0.5rem;
+  font-size: 0.72rem;
+}
+
+/* 新建教程那一块 */
+.admin__field--new {
+  margin-bottom: 0.9rem;
+}
+
+.admin__new-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.admin__new-row input[type="file"] {
+  font-size: 0.76rem;
+  color: var(--ink-2);
+  max-width: 15rem;
+}
+
+.admin__new-row input[type="text"] {
+  flex: 1;
+  min-width: 10rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.admin__hint {
+  margin: 0.45rem 0 0;
+  color: var(--ink-3);
+  font-size: 0.74rem;
+  line-height: 1.6;
+}
