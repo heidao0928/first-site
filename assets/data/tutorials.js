@@ -2,16 +2,16 @@
 window.TUTORIAL_DATA = {
   "updated": "2026-10-31",
   "featured": [
-    "c48",
+    "c02",
     "c19",
-    "c49",
-    "c02"
+    "c48",
+    "c49"
   ],
   "catFeatured": {
-    "ana": "c48",
-    "brio": "c49",
     "other": "c02",
-    "weiyue": "c19"
+    "weiyue": "c19",
+    "ana": "c48",
+    "brio": "c49"
   },
   "items": [
     {
@@ -28,7 +28,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "other"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/AHhkuZnz1pt"
     },
     {
       "cover": "c04",
@@ -42,8 +42,8 @@ window.TUTORIAL_DATA = {
       "cover": "c05",
       "title": "模型幼年体",
       "cats": [
-        "ana",
-        "brio"
+        "brio",
+        "ana"
       ],
       "link": ""
     },
@@ -67,8 +67,8 @@ window.TUTORIAL_DATA = {
       "cover": "c09",
       "title": "brio 角色的待机动作",
       "cats": [
-        "ana",
-        "brio"
+        "brio",
+        "ana"
       ],
       "link": ""
     },
@@ -84,8 +84,8 @@ window.TUTORIAL_DATA = {
       "cover": "c12",
       "title": "骨骼相关碎碎念",
       "cats": [
-        "ana",
-        "brio"
+        "brio",
+        "ana"
       ],
       "link": ""
     },
@@ -93,8 +93,8 @@ window.TUTORIAL_DATA = {
       "cover": "c13",
       "title": "宠物动作详解",
       "cats": [
-        "ana",
-        "brio"
+        "brio",
+        "ana"
       ],
       "link": ""
     },
@@ -166,8 +166,8 @@ window.TUTORIAL_DATA = {
       "cover": "c23",
       "title": "ana 和 brio 的保存",
       "cats": [
-        "ana",
-        "brio"
+        "brio",
+        "ana"
       ],
       "link": ""
     },
@@ -183,8 +183,8 @@ window.TUTORIAL_DATA = {
       "cover": "c26",
       "title": "简单组装可爱小物",
       "cats": [
-        "ana",
-        "brio"
+        "brio",
+        "ana"
       ],
       "link": ""
     },
@@ -200,8 +200,8 @@ window.TUTORIAL_DATA = {
       "cover": "c29",
       "title": "怎么给动作添加面部表情",
       "cats": [
-        "ana",
-        "brio"
+        "brio",
+        "ana"
       ],
       "link": ""
     },
@@ -209,8 +209,8 @@ window.TUTORIAL_DATA = {
       "cover": "c30",
       "title": "如何使用主手道具",
       "cats": [
-        "ana",
-        "brio"
+        "brio",
+        "ana"
       ],
       "link": ""
     },
@@ -258,8 +258,8 @@ window.TUTORIAL_DATA = {
       "cover": "c36",
       "title": "怎么把数据发给约拍",
       "cats": [
-        "ana",
-        "brio"
+        "brio",
+        "ana"
       ],
       "link": ""
     },
@@ -267,8 +267,8 @@ window.TUTORIAL_DATA = {
       "cover": "c37",
       "title": "怎么拍第一人称",
       "cats": [
-        "ana",
-        "brio"
+        "brio",
+        "ana"
       ],
       "link": ""
     },
@@ -276,8 +276,8 @@ window.TUTORIAL_DATA = {
       "cover": "c38",
       "title": "如何添加宠物 NPC 配饰",
       "cats": [
-        "ana",
-        "brio"
+        "brio",
+        "ana"
       ],
       "link": ""
     },
@@ -367,7 +367,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/1Frvynf6Ibx"
     }
   ]
 };
