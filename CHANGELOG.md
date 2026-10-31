@@ -2,6 +2,11 @@
 
 每条都尽量写清「改了什么 / 为什么」，方便以后回退或让 AI 接手。
 
+## 2026-10-31 · 修复置顶在翻页后仍显示
+
+- 原因：`.tut-featured { display: grid }` 是作者样式，优先级高于浏览器默认的 `[hidden] { display: none }`，`hidden` 属性设了但不生效。
+- 补 `.tut-featured[hidden] { display: none !important; }`。
+- 实测：第 1 页显示（高 210px），第 2 页 / 切分类后 `display: none`、高度 0，切回「全部」恢复。
 ## 2026-10-31 · 教程页顶部三个置顶
 
 - 顶部加三张放大封面（科技拍照流程 / 4k 拍照插件 / 30s 找 mod），各带「置顶」角标。

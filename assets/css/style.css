@@ -3245,3 +3245,7 @@ pre {
     scroll-snap-align: start;
   }
 }
+/* hidden 属性必须压过 .tut-featured 的 display: grid */
+.tut-featured[hidden] {
+  display: none !important;
+}
