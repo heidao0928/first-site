@@ -33,6 +33,7 @@
         <nav class="admin__side" aria-label="管理分区">
           <button type="button" class="admin__tab is-active" data-pane="general">总管理</button>
           <button type="button" class="admin__tab" data-pane="notice">公告</button>
+          <button type="button" class="admin__tab" data-pane="thanks">致谢</button>
           <button type="button" class="admin__tab" data-pane="links">下载链接</button>
           <button type="button" class="admin__tab" data-pane="tutorial">教程</button>
           <a class="admin__side-link" href="resources.html">看资源页 →</a>
@@ -87,6 +88,22 @@
               </div>
               <p class="admin__status" id="n-status" role="status"></p>
             </div>
+          </section>
+
+          <!-- 致谢 -->
+          <section class="admin__pane" data-pane-panel="thanks" aria-label="致谢" hidden>
+            <div class="admin__bar">
+              <div class="admin__bar-actions">
+                <button type="button" class="admin__btn" id="th-load">重新读取</button>
+                <button type="button" class="admin__btn" id="th-add">加一行</button>
+                <button type="button" class="admin__btn admin__btn--primary" id="th-save">保存</button>
+              </div>
+              <p class="admin__status" id="th-status" role="status"></p>
+            </div>
+
+            <p class="admin__hint">显示在首页「公告」下方的一条小字。名字留空的行保存时会被忽略。</p>
+
+            <div class="admin__list" id="th-list"></div>
           </section>
 
           <!-- 教程 -->
@@ -164,5 +181,6 @@
     <script src="assets/js/admin.js"></script>
     <script src="assets/js/notices-admin.js"></script>
     <script src="assets/js/tutorials-admin.js"></script>
+    <script src="assets/js/thanks-admin.js"></script>
   </body>
 </html>

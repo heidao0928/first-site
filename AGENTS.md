@@ -26,8 +26,8 @@
 ## 内容数据
 
 - 教程：`assets/data/tutorials.js`（`window.TUTORIAL_DATA`），`items` 里每条 `{cover,title,cats[],link}`，`featured` 是「全部」置顶的封面顺序，`catFeatured` 是分类置顶 `{ana:brio:...}`。教程页由 `initTutorialData()` 渲染出宫格和两个置顶区，改数据即可改页面。
-- 资源：`assets/data/resources.js`；公告：`assets/data/notices.js`。
-- 后台 `admin.html` 的「教程」页可增删改教程、上传封面（自动压成 720 宽 WebP）、设置全部置顶与分类置顶。
+- 资源：`assets/data/resources.js`；公告：`assets/data/notices.js`；致谢：`assets/data/thanks.js`（首页公告下方那条小字，`items` 里每条 `{name,note,link}`）。
+- 后台 `admin.html` 的「教程」页可增删改教程、上传封面（自动压成 720 宽 WebP）、设置全部置顶与分类置顶；「致谢」页维护首页致谢名单。
 
 ## 修改流程
 

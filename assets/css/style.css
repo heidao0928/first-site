@@ -4066,3 +4066,88 @@ pre {
   font-size: 0.74rem;
   line-height: 1.6;
 }
+/* 首页致谢条 */
+.hub__thanks {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 0.95rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-top-color: var(--panel-gloss);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  overflow: hidden;
+}
+
+.hub__thanks-title {
+  margin: 0;
+  flex: none;
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.hub__thanks-list {
+  margin: 0;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.6rem;
+  color: var(--ink-2);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.hub__thanks-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.hub__thanks-item a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.hub__thanks-item a:hover {
+  text-decoration: underline;
+}
+
+.hub__thanks-item em {
+  color: var(--ink-3);
+  font-style: normal;
+}
+
+.hub__thanks-empty {
+  color: var(--ink-3);
+}
+/* 后台致谢编辑行 */
+.thanks-edit {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 1.4fr) auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.thanks-edit input {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 56rem) {
+  .thanks-edit {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

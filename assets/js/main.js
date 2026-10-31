@@ -734,6 +734,40 @@
       .join("");
   }
 
+  /* ---------------------------------------------------------------- 致谢 */
+  function initThanks() {
+    var box = document.querySelector("[data-thanks-list]");
+    if (!box) return;
+
+    var data = window.THANKS_DATA || {};
+    var items = Array.isArray(data.items) ? data.items : [];
+
+    if (!items.length) {
+      box.innerHTML = '<span class="hub__thanks-empty">还没有名单，欢迎通过爱发电支持。</span>';
+      return;
+    }
+
+    function esc(value) {
+      return String(value == null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    box.innerHTML = items
+      .map(function (item) {
+        var name = esc(item.name);
+        var link = (item.link || "").trim();
+        var label = link
+          ? '<a href="' + esc(link) + '" target="_blank" rel="noopener noreferrer">' + name + "</a>"
+          : "<span>" + name + "</span>";
+        var note = item.note ? '<em>' + esc(item.note) + "</em>" : "";
+        return '<span class="hub__thanks-item">' + label + note + "</span>";
+      })
+      .join("");
+  }
+
   /* ---------------------------------------------------------------- 启动 */
   function boot() {
     // 先让内容可见，再逐个启用交互；某个模块出错不会连累其他功能
@@ -750,6 +784,7 @@
       initLightbox,
       initResourcesTable,
       initNotices,
+      initThanks,
       initCopyButtons,
     ];
 
