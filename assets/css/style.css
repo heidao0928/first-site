@@ -3363,8 +3363,8 @@ pre {
 }
 
 .res-table__file {
-  width: 6rem;
-  text-align: center;
+  width: auto;
+  text-align: right;
   white-space: nowrap;
 }
 
@@ -3486,8 +3486,8 @@ pre {
   text-decoration: underline;
 }
 .res-hint {
-  display: block;
-  margin-top: 0.25rem;
+  display: inline-block;
+  margin-right: 0.45rem;
   color: var(--ink-3);
   font-size: 0.68rem;
   white-space: nowrap;
