@@ -198,27 +198,24 @@ button {
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  /* 想换成一整张水下照片：把下面这段换成
-     background: url("../img/water.jpg") center / cover no-repeat;
-     再把 .scene__rays 的 opacity 调到 0.2 左右即可。 */
-  background:
-    radial-gradient(
-      52% 36% at 50% -4%,
-      rgba(255, 255, 255, 0.96) 0%,
-      rgba(230, 255, 255, 0.55) 34%,
-      rgba(210, 250, 255, 0) 70%
-    ),
-    linear-gradient(
-      180deg,
-      #9fe9fa 0%,
-      #7bdcf2 12%,
-      #52cde7 28%,
-      #2bb6d5 45%,
-      #16a0c2 62%,
-      #0e88ad 78%,
-      #0a769a 90%,
-      #076a8b 100%
-    );
+  /* 用一张实拍水面照当底：换图只改下面这一行 */
+  background: #9fe9fa url("../img/bg-water.jpg") center / cover no-repeat;
+}
+
+/* 照片底之上只留一点点压暗，保证玻璃面板的文字对比度 */
+.scene::before,
+.scene::after,
+.scene__rays,
+.scene__caustics,
+.scene__grain {
+  display: none;
+}
+
+/* 暂时隐藏气泡与光点（想恢复就把这两条删掉） */
+.scene__bubbles,
+.bubble,
+.sparkle {
+  display: none !important;
 }
 
 /* 水面正上方的太阳光晕 */

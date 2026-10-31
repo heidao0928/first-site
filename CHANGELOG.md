@@ -5,6 +5,11 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-10-31 · 背景换成实拍水面照
+
+- 新增 `assets/img/bg-water.jpg`（1920×1081，149KB），`.scene` 改为 `center / cover` 铺这张图。
+- 暂时隐藏：太阳光晕、水面波光、光束 `.scene__rays`、光斑 `.scene__caustics`、颗粒 `.scene__grain`，以及气泡与光点（`.scene__bubbles / .bubble / .sparkle`）。
+- 想恢复气泡和光点：删掉 CSS 末尾那三条 `display: none !important` 即可。
 ## 2026-10-31 · 相关网站页小字
 
 - 左卡说明改为「各种资源网，友情代挂」。
