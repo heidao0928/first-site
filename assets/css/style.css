@@ -4249,3 +4249,15 @@ pre {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+/* 公告在左、更大；致谢在右、略小 */
+.hub__duo {
+  grid-template-columns: minmax(0, 1.42fr) minmax(0, 1fr);
+}
+
+.hub__duo .hub__notice .hub__feed {
+  font-size: 0.73rem;
+}
+
+.hub__duo .hub__thanks .hub__thanks-list {
+  font-size: 0.75rem;
+}
