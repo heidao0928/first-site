@@ -2614,8 +2614,8 @@ pre {
 
 .tut-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
-  gap: 1.1rem 0.85rem;
+  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+  gap: 1.2rem 0.9rem;
 }
 
 .tut-card {
@@ -2631,7 +2631,7 @@ pre {
 
 .tut-card__cover {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 16 / 9;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.55);
@@ -2887,4 +2887,12 @@ pre {
   .tut-top__grid {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+.tut-card__cover img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
