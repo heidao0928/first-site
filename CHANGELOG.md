@@ -2,6 +2,9 @@
 
 每条都尽量写清「改了什么 / 为什么」，方便以后回退或让 AI 接手。
 
+## 2026-10-31 · 第 03 条说明只保留链接
+
+- 去掉「【腾讯文档】主手道具：」前缀，说明列只留 `https://docs.qq.com/sheet/DYWhRZ1RabnV4U1Ns?tab=BB08J2`。
 ## 2026-10-31 · 资源表第 03 条链接更正
 
 - 说明改为「【腾讯文档】主手道具：…」，链接换成 `https://docs.qq.com/sheet/DYWhRZ1RabnV4U1Ns?tab=BB08J2`。
