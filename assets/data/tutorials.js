@@ -368,6 +368,14 @@ window.TUTORIAL_DATA = {
         "brio"
       ],
       "link": "https://xhslink.cn/o/1Frvynf6Ibx"
+    },
+    {
+      "cover": "c52",
+      "title": "brio 新功能讲解",
+      "cats": [
+        "brio"
+      ],
+      "link": ""
     }
   ]
 };

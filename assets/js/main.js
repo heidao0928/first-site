@@ -641,6 +641,12 @@
     var grid = document.querySelector(".tut-grid");
     if (!grid) return;
 
+    var meta = document.querySelector("[data-tut-meta]");
+    if (meta) {
+      var stamp = String(data.updated || "").replace(/-/g, ".").slice(0, 7);
+      meta.textContent = "共 " + data.items.length + " 篇" + (stamp ? " · 更新于 " + stamp : "");
+    }
+
     var byCover = {};
     data.items.forEach(function (item) {
       byCover[item.cover] = item;
