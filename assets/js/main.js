@@ -400,6 +400,35 @@
 
     render(false);
   }
+  /* ------------------------------------------------------------ 图片灯箱 */
+  function initLightbox() {
+    var dialogs = $$("dialog.lightbox");
+    if (!dialogs.length) return;
+
+    document.addEventListener("click", function (event) {
+      var trigger = event.target.closest("[data-lightbox]");
+      if (trigger) {
+        var dialog = document.getElementById(trigger.getAttribute("data-lightbox"));
+        if (dialog && typeof dialog.showModal === "function") {
+          event.preventDefault();
+          dialog.showModal();
+        }
+        return;
+      }
+
+      var closer = event.target.closest("[data-lightbox-close]");
+      if (closer) {
+        var open = closer.closest("dialog");
+        if (open) open.close();
+        return;
+      }
+
+      // 点遮罩关闭
+      if (event.target.tagName === "DIALOG") {
+        event.target.close();
+      }
+    });
+  }
   /* ---------------------------------------------------------------- 启动 */
   function boot() {
     // 先让内容可见，再逐个启用交互；某个模块出错不会连累其他功能
@@ -413,6 +442,7 @@
       initCopyCode,
       initBubbles,
       initTutorialGallery,
+      initLightbox,
     ];
 
     steps.forEach(function (step) {

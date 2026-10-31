@@ -3492,3 +3492,59 @@ pre {
   font-size: 0.68rem;
   white-space: nowrap;
 }
+/* --------------------------------------------------------------------------
+   25 图片灯箱
+   -------------------------------------------------------------------------- */
+.lightbox {
+  position: relative;
+  max-width: 92vw;
+  max-height: 88vh;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.lightbox::backdrop {
+  background: rgba(3, 26, 38, 0.68);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.lightbox__img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 92vw;
+  max-height: 86vh;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 30px 70px -34px rgba(1, 18, 28, 0.95);
+}
+
+.lightbox__close {
+  position: fixed;
+  top: 1.1rem;
+  right: 1.1rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  background: linear-gradient(180deg, #7fdcf5 0%, #23a5cb 48%, #0d86aa 100%);
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -12px rgba(2, 30, 44, 0.9);
+}
+
+.lightbox__close:hover {
+  filter: brightness(1.08);
+}
+
+.lightbox__close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
