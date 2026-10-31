@@ -13,7 +13,7 @@ window.RESOURCE_DATA = {
       "file": {
         "kind": "download",
         "href": "https://wwawr.lanzouc.com/iic2s4e59kxg",
-        "hint": "ff14"
+        "hint": "提取码 ff14"
       }
     },
     {
@@ -49,7 +49,7 @@ window.RESOURCE_DATA = {
       "file": {
         "kind": "download",
         "href": "https://wwawr.lanzouc.com/ih11c4e59kyh",
-        "hint": "ff14"
+        "hint": "提取码 ff14"
       }
     },
     {
@@ -89,7 +89,7 @@ window.RESOURCE_DATA = {
       "file": {
         "kind": "download",
         "href": "https://wwawr.lanzouc.com/iC2W64e59ojg",
-        "hint": "ff14"
+        "hint": "提取码 ff14"
       }
     },
     {
@@ -101,7 +101,8 @@ window.RESOURCE_DATA = {
       "link": "",
       "file": {
         "kind": "download",
-        "href": "https://wwawr.lanzouc.com/iZNtj4e59nxe"
+        "href": "https://wwawr.lanzouc.com/iZNtj4e59nxe",
+        "hint": "提取码 ff14"
       }
     },
     {
