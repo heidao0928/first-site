@@ -3884,3 +3884,19 @@ pre {
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
+.links-promo__card {
+  text-decoration: none;
+  transition: transform var(--dur) var(--ease);
+}
+
+.links-promo__card:hover {
+  transform: translateY(-2px);
+}
+
+.links-promo__card:hover .links-promo__title {
+  color: var(--accent);
+}
+
+.links-promo__card:hover .links-promo__cover {
+  filter: brightness(1.04);
+}
