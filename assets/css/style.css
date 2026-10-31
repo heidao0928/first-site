@@ -3683,3 +3683,24 @@ pre {
   font-size: 0.85rem;
   text-align: center;
 }
+/* 分类里的置顶大卡：只显示一张，比宫格明显大一点 */
+.tut-featured--cat {
+  grid-template-columns: minmax(0, 34rem);
+  margin-bottom: 1.3rem;
+}
+
+.tut-featured--cat .tut-featured__title {
+  font-size: 1.05rem;
+}
+
+@media (max-width: 56rem) {
+  .tut-featured--cat {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-flow: row;
+    overflow: visible;
+  }
+}
+/* hidden 必须压过 display: grid，否则分类置顶会两张一起露出来 */
+.tut-featured__item[hidden] {
+  display: none !important;
+}

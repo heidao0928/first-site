@@ -294,6 +294,7 @@
     var pager = document.querySelector("[data-tut-pager]");
     var featured = document.querySelector("[data-tut-featured]");
     var emptyHint = document.querySelector("[data-tut-empty]");
+    var catFeatured = document.querySelector("[data-tut-cat-featured]");
     if (!bar || !grid) return;
 
     var cards = $$(".tut-card", grid);
@@ -311,6 +312,8 @@
       if (filter === "all") {
         return !card.getAttribute("data-pin");
       }
+      // 该分类的「置顶」会单独显示成一张大卡，宫格里不再重复
+      if (card.getAttribute("data-cat-featured") === filter) return false;
       return catsOf(card).indexOf(filter) !== -1;
     }
 
@@ -363,6 +366,14 @@
 
       if (featured) {
         featured.hidden = !(filter === "all" && page === 1);
+      }
+
+      if (catFeatured) {
+        var pinnedCat = filter === "ana" || filter === "weiyue" ? filter : null;
+        catFeatured.hidden = !pinnedCat;
+        $$("[data-cat-featured]", catFeatured).forEach(function (item) {
+          item.hidden = item.getAttribute("data-cat-featured") !== pinnedCat;
+        });
       }
 
       if (scroll) {
