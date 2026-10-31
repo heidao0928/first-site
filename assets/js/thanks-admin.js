@@ -38,6 +38,15 @@
     return fetch("https://api.github.com/repos/" + repo() + "/" + path, Object.assign({ headers: headers }, options || {}));
   }
 
+  function parseData(body) {
+    try {
+      return JSON.parse(body);
+    } catch (error) {
+      /* 手写时可能省了键的引号，退一步按 JS 字面量求值 */
+      return new Function("return (" + body + ")")();
+    }
+  }
+
   function decodeBase64(b64) {
     var text = atob(String(b64).replace(/\s/g, ""));
     try {
@@ -125,7 +134,7 @@
         var start = raw.indexOf("window.THANKS_DATA");
         var eq = raw.indexOf("=", start);
         var body = raw.slice(eq + 1).trim().replace(/;$/, "");
-        var data = JSON.parse(body) || {};
+        var data = parseData(body) || {};
         state.updated = data.updated || "";
         state.items = (data.items || []).map(function (item) {
           return { name: item.name || "", note: item.note || "", link: item.link || "" };
