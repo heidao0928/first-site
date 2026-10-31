@@ -2811,7 +2811,7 @@ pre {
       rgba(236, 250, 255, 0) 82%
     ),
     url("../img/tips-bg.jpg");
-  background-position: 0 0, 58% 36%;
+  background-position: 0 0, 82% 52%;
   background-size: auto, cover;
   background-repeat: no-repeat, no-repeat;
 }
@@ -2841,6 +2841,8 @@ pre {
 
   /* 窄屏文字会压到图上，把左侧的托底加重一点 */
   .tut-tips {
+    background-position: 0 0, 6% 46%;
+    background-size: auto, 165% auto;
     background-image: linear-gradient(
         100deg,
         rgba(246, 253, 255, 0.96) 0%,
