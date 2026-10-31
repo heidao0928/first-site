@@ -3158,3 +3158,103 @@ pre {
   font-weight: 700;
   letter-spacing: 0.12em;
 }
+/* 最近更新：玻璃便签质感 */
+.hub__rail {
+  position: relative;
+  transform: rotate(-0.35deg);
+  transform-origin: 50% 45%;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.16) 55%),
+    var(--panel);
+  box-shadow:
+    var(--shadow-panel),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -18px 28px -22px rgba(4, 60, 80, 0.45);
+}
+
+/* 顶部的半透明胶带 */
+.hub__rail::before {
+  content: "";
+  position: absolute;
+  top: -0.58rem;
+  left: 50%;
+  width: min(9.5rem, 46%);
+  height: 1.45rem;
+  transform: translateX(-50%) rotate(-2.4deg);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.58),
+    rgba(206, 240, 252, 0.26)
+  );
+  box-shadow:
+    0 8px 16px -12px rgba(3, 60, 80, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  opacity: 0.9;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+/* 封面像贴上去的照片，轻微歪一点 */
+.hub__rail-list li:nth-child(1) a {
+  transform: rotate(-0.9deg);
+}
+
+.hub__rail-list li:nth-child(3) a {
+  transform: rotate(0.9deg);
+}
+
+.hub__rail-list a {
+  transition: transform var(--dur) var(--ease);
+}
+
+.hub__rail-list a:hover {
+  transform: rotate(0deg) translateY(-2px);
+}
+
+/* 动态做成便签上的手写行 */
+.hub__feed {
+  border-top: 1px dashed rgba(255, 255, 255, 0.9);
+  padding-top: 0.7rem;
+}
+
+.hub__feed li {
+  padding-bottom: 0.32rem;
+  border-bottom: 1px dashed rgba(150, 214, 236, 0.55);
+}
+
+.hub__feed li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.hub__feed time {
+  padding: 0.05rem 0.42rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.55);
+  font-size: 0.68rem;
+}
+
+:root[data-theme="dark"] .hub__rail::before {
+  border-color: rgba(150, 230, 255, 0.25);
+  background: linear-gradient(
+    180deg,
+    rgba(140, 226, 255, 0.22),
+    rgba(60, 150, 190, 0.12)
+  );
+}
+
+:root[data-theme="dark"] .hub__feed {
+  border-top-color: rgba(150, 230, 255, 0.26);
+}
+
+:root[data-theme="dark"] .hub__feed li {
+  border-bottom-color: rgba(150, 230, 255, 0.18);
+}
+
+:root[data-theme="dark"] .hub__feed time {
+  border-color: rgba(150, 230, 255, 0.22);
+  background: rgba(140, 226, 255, 0.14);
+}
