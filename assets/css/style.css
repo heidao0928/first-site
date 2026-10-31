@@ -4151,3 +4151,11 @@ pre {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+/* 还没填链接的教程卡：不可点 */
+.tut-card:not([href]) {
+  cursor: default;
+}
+
+.tut-featured__item:not([href]) {
+  cursor: default;
+}

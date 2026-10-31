@@ -670,7 +670,8 @@
 
     function linkAttrs(item) {
       var link = (item.link || "").trim();
-      if (!link) return ' href="#"';
+      // 没链接时不给 href：卡片不可点，也不会跳回页首
+      if (!link) return "";
       return ' href="' + esc(link) + '" target="_blank" rel="noopener noreferrer"';
     }
 
