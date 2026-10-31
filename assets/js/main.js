@@ -303,30 +303,96 @@
     }
   }
 
-  /* ---------------------------------------------------------- 教程分类筛选 */
-  function initTutorialFilter() {
+  /* ------------------------------------------------------ 教程筛选与分页 */
+  function initTutorialGallery() {
     var bar = document.querySelector("[data-tut-filters]");
-    if (!bar) return;
+    var grid = document.querySelector(".tut-grid");
+    var pager = document.querySelector("[data-tut-pager]");
+    if (!bar || !grid) return;
 
-    var cards = $$(".tut-card");
+    var cards = $$(".tut-card", grid);
+    var perPage = 12;
+    var filter = "all";
+    var page = 1;
+
+    function matches(card) {
+      return filter === "all" || card.getAttribute("data-cat") === filter;
+    }
+
+    function setPageButtons(total) {
+      if (!pager) return;
+      pager.innerHTML = "";
+      if (total <= 1) {
+        pager.hidden = true;
+        return;
+      }
+      pager.hidden = false;
+
+      function add(label, target, options) {
+        var button = document.createElement("button");
+        button.type = "button";
+        button.textContent = label;
+        if (target) button.setAttribute("data-page", String(target));
+        if (options && options.active) {
+          button.classList.add("is-active");
+          button.setAttribute("aria-current", "page");
+        }
+        if (options && options.disabled) button.disabled = true;
+        pager.appendChild(button);
+      }
+
+      add("‹", page - 1, { disabled: page === 1 });
+      for (var i = 1; i <= total; i++) {
+        add(String(i), i, { active: i === page });
+      }
+      add("›", page + 1, { disabled: page === total });
+    }
+
+    function render(scroll) {
+      var list = cards.filter(matches);
+      var total = Math.max(1, Math.ceil(list.length / perPage));
+      if (page > total) page = total;
+
+      var start = (page - 1) * perPage;
+      var visible = new Set(list.slice(start, start + perPage));
+
+      cards.forEach(function (card) {
+        card.classList.toggle("is-hidden", !visible.has(card));
+      });
+
+      setPageButtons(total);
+
+      if (scroll) {
+        var top = grid.getBoundingClientRect().top + window.scrollY - 160;
+        window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+      }
+    }
 
     bar.addEventListener("click", function (event) {
       var button = event.target.closest("button[data-filter]");
       if (!button) return;
-
-      var filter = button.getAttribute("data-filter");
-
+      filter = button.getAttribute("data-filter");
+      page = 1;
       $$("button", bar).forEach(function (item) {
         var active = item === button;
         item.classList.toggle("is-active", active);
         item.setAttribute("aria-pressed", String(active));
       });
-
-      cards.forEach(function (card) {
-        var match = filter === "all" || card.getAttribute("data-cat") === filter;
-        card.classList.toggle("is-hidden", !match);
-      });
+      render(false);
     });
+
+    if (pager) {
+      pager.addEventListener("click", function (event) {
+        var button = event.target.closest("button[data-page]");
+        if (!button || button.disabled) return;
+        var next = Number(button.getAttribute("data-page"));
+        if (!next || next === page) return;
+        page = next;
+        render(true);
+      });
+    }
+
+    render(false);
   }
   /* ---------------------------------------------------------------- 启动 */
   function boot() {
@@ -340,7 +406,7 @@
       initYear,
       initCopyCode,
       initBubbles,
-      initTutorialFilter,
+      initTutorialGallery,
     ];
 
     steps.forEach(function (step) {
