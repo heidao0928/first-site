@@ -369,7 +369,7 @@
       }
 
       if (catFeatured) {
-        var pinnedCat = filter === "ana" || filter === "weiyue" ? filter : null;
+        var pinnedCat = ["ana", "weiyue", "brio"].indexOf(filter) !== -1 ? filter : null;
         catFeatured.hidden = !pinnedCat;
         $$("[data-cat-featured]", catFeatured).forEach(function (item) {
           item.hidden = item.getAttribute("data-cat-featured") !== pinnedCat;
