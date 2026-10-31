@@ -8,7 +8,7 @@
 1. **不引入构建步骤或 npm 依赖**，页面必须能双击 `index.html` 直接打开。
 2. 所有资源用**相对路径**（站点可能部署在 GitHub Pages 的子路径下）。
 3. 颜色、圆角、间距一律走 `assets/css/style.css` 顶部的 CSS 变量，不要在组件里写死颜色。
-4. 必须保留**明暗两套主题**（`data-theme="light" / "dark"`），以及 `prefers-reduced-motion` 降级。
+4. **只有浅色一套主题**（2026-10-31 起取消暗色模式，`data-theme` 已移除）；但 `prefers-reduced-motion` 降级必须保留。
 5. 文案用中文；**不要出现沙滩、沙子、暖黄色**——用户明确要求「水下，不能有沙滩」。
 6. 改完必须用浏览器自查：首页、一篇文章页、390px 手机宽度，各看一眼。
 
@@ -16,12 +16,11 @@
 
 - **首页是单屏门户**：`.page-hub` + `.hub` 两栏（左介绍、右入口），桌面端 `height: 100svh; overflow: hidden`，不允许出现滚动条；手机端自动堆叠、允许轻微滚动。改字号/间距时必须回来确认 1366×768 和 1920×963 都不溢出。
 - 导航固定为：首页 / 教程 / 资源 / 相关网站，对应 `index.html`、`tutorials.html`、`resources.html`、`links.html`；正文模板是 `post.html`。
-- 背景是固定的水下场景：`.scene`（水色渐变）+ `::before`（太阳光晕）+ `::after`（水面波光）+ `.scene__rays`（光束）+ `.scene__swell`（缓慢漂移的水光）+ `.scene__caustics`（光斑）+ `.scene__grain`（细颗粒）+ `.scene__bubbles`（气泡）+ `.scene__vignette`（暗角）。新加的层只允许动 transform/opacity，别用 filter/background-position 做动画。
+- 背景是一张实拍水面照（`assets/img/bg-water.jpg`），铺在固定的 `.scene` 上（`center / cover`），`.scene::after` 是四周白色柔化，用来掩盖底图分辨率。原来的光束 `.scene__rays`、光斑 `.scene__caustics`、颗粒 `.scene__grain`、气泡 `.scene__bubbles`、光点 `.sparkle` 目前都设了 `display: none`，想恢复删掉对应规则即可。新加的层只允许动 transform/opacity，别用 filter/background-position 做动画。
 - 页面内容是一层层「玻璃窗」：`.hero / .section / .page-head / .post`，每块顶部有 `.window-bar`（红黄绿三个点的标题栏）。
 - 气泡用的是 **Minecraft 里的 8×8 像素精灵**（从游戏截图里抠出来、去掉深蓝底后转成透明 PNG，内联成 data URI），尺寸只有 32px / 40px 两种，**只在窗口宽度 ≥ 1024px、且两侧水面 ≥ 90px 时生成**。
 - 气泡位置不是按视口百分比，而是用 `.hero` 的实际宽度算出内容栏边缘，再贴着窗口外侧 12–110px 生成（见 `initBubbles`）；改内容栏宽度时这里会跟着变。
 - 原素材的浅蓝色（`#6fccf7`）在浅海水面上几乎看不见，所以把右下那半圈压深成了 `#3f9fd0`，并加了一圈 1px 深色描影。想完全还原原色，改 `.bubble` 里的 data URI 即可（`版本存档/` 与 git 历史里都有替换前的版本）。
-- 主题切换按钮的图标是 CSS 遮罩画的**像素月亮 / 像素太阳**，不是 SVG 元素，改的时候注意 `mask-image`。
 - 文章页的排版在 `.prose` 里，代码块是深色终端样式。
 
 ## 修改流程
@@ -41,6 +40,6 @@
 ## 常见坑
 
 - 面板是半透明的（`--panel`），背景元素会透出来；不要把动画元素放到会被面板遮挡的位置。
-- 改 `.scene` 的渐变会影响整页氛围，浅色和深色两套都要看。
+- 改 `.scene` 的背景会影响整页氛围，改完在桌面和手机上各看一眼。
 - 文件保存为无 BOM 的 UTF-8；Windows 下用 PowerShell 写中文时注意编码。
 - `.gitignore` 里忽略了 `preview/` 和 `版本存档/`，不要把它们提交进去。

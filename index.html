@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="light">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,20 +11,6 @@
     <meta property="og:description" content="FF14 拍照科技教程、资源与相关网站，都在三个入口里。" />
     <meta name="twitter:card" content="summary" />
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-
-    <!-- 在样式表之前决定明暗主题，避免首屏闪白 -->
-    <script>
-      (function () {
-        document.documentElement.classList.add("js");
-        try {
-          var saved = localStorage.getItem("theme");
-          var dark = saved
-            ? saved === "dark"
-            : window.matchMedia("(prefers-color-scheme: dark)").matches;
-          document.documentElement.dataset.theme = dark ? "dark" : "light";
-        } catch (e) {}
-      })();
-    </script>
 
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
@@ -67,13 +53,6 @@
         </nav>
 
         <div class="site-header__actions">
-          <button
-            class="icon-btn theme-toggle"
-            id="theme-toggle"
-            type="button"
-            aria-label="切换深色模式"
-            aria-pressed="false"
-          ></button>
 
           <button
             class="icon-btn nav-toggle"

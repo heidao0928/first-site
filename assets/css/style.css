@@ -62,33 +62,6 @@
   --header-h: 4.6rem;
 }
 
-/* 深海夜色 */
-:root[data-theme="dark"] {
-  color-scheme: dark;
-
-  --panel: rgba(4, 30, 43, 0.55);
-  --panel-strong: rgba(4, 30, 43, 0.82);
-  --panel-line: rgba(150, 230, 255, 0.22);
-  --panel-gloss: rgba(190, 245, 255, 0.3);
-  --panel-edge: rgba(0, 0, 0, 0.45);
-
-  --ink: #ecfcff;
-  --ink-2: #aedcea;
-  --ink-3: #6ea6b8;
-  --on-dark: #ecfcff;
-
-  --accent: #6fe0ff;
-  --accent-2: #9beaff;
-  --accent-ink: #04222e;
-  --accent-soft: rgba(111, 224, 255, 0.14);
-  --glow: rgba(120, 225, 255, 0.45);
-
-  --shadow-panel: inset 0 1px 0 rgba(190, 245, 255, 0.18),
-    0 30px 60px -30px rgba(0, 0, 0, 0.8), 0 2px 6px rgba(0, 0, 0, 0.3);
-  --shadow-soft: 0 12px 24px -16px rgba(0, 0, 0, 0.6);
-  --shadow-pop: 0 20px 40px -22px rgba(0, 0, 0, 0.8);
-}
-
 /* --------------------------------------------------------------------------
    02 基础重置
    -------------------------------------------------------------------------- */
@@ -183,18 +156,6 @@ html {
   background: linear-gradient(180deg, #ffffff, #8fe4f7 45%, #1f8fb0);
 }
 
-:root[data-theme="dark"] {
-  scrollbar-color: #2a9cbe rgba(8, 38, 50, 0.6);
-}
-
-:root[data-theme="dark"] ::-webkit-scrollbar-track {
-  background: rgba(8, 38, 50, 0.6);
-}
-
-:root[data-theme="dark"] ::-webkit-scrollbar-thumb {
-  border-color: rgba(8, 38, 50, 0.6);
-}
-
 .skip-link {
   position: fixed;
   top: 0.75rem;
@@ -240,40 +201,6 @@ html {
 }
 
 /* 水面正上方的太阳光晕 */
-.scene::before {
-  content: "";
-  position: absolute;
-  inset: -14%;
-  background-image:
-    repeating-radial-gradient(
-      ellipse 46% 32% at 64% 36%,
-      rgba(255, 255, 255, 0.34) 0 2.5px,
-      rgba(255, 255, 255, 0) 2.5px 30px
-    ),
-    repeating-radial-gradient(
-      ellipse 38% 26% at 34% 68%,
-      rgba(255, 255, 255, 0.26) 0 2px,
-      rgba(255, 255, 255, 0) 2px 42px
-    );
-  opacity: 0.75;
-  mix-blend-mode: screen;
-  filter: blur(0.8px);
-  animation: ripple-drift 40s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes ripple-drift {
-  0% {
-    transform: translate3d(-2.4%, -1.6%, 0) scale(1.06) rotate(-0.8deg);
-  }
-  50% {
-    transform: translate3d(0.8%, 0.6%, 0) scale(1.1) rotate(0.2deg);
-  }
-  100% {
-    transform: translate3d(2.6%, -1.2%, 0) scale(1.07) rotate(0.9deg);
-  }
-}
-
 /* 四周白色柔化：掩盖底图像素不足 */
 .scene::after {
   content: "";
@@ -394,40 +321,6 @@ html {
   mix-blend-mode: multiply;
 }
 
-:root[data-theme="dark"] .scene {
-  background:
-    radial-gradient(
-      58% 38% at 50% -8%,
-      rgba(150, 232, 255, 0.35) 0%,
-      rgba(120, 220, 255, 0.08) 38%,
-      rgba(120, 220, 255, 0) 70%
-    ),
-    linear-gradient(
-      180deg,
-      #0a4058 0%,
-      #08374d 18%,
-      #062b3e 40%,
-      #04212f 66%,
-      #02151f 100%
-    );
-}
-
-:root[data-theme="dark"] .scene__rays {
-  opacity: 0.5;
-}
-
-:root[data-theme="dark"] .scene__caustics {
-  opacity: 0.3;
-}
-
-:root[data-theme="dark"] .scene__vignette {
-  background: radial-gradient(
-    120% 90% at 50% 32%,
-    transparent 48%,
-    rgba(0, 12, 20, 0.6) 100%
-  );
-}
-
 /* --------------------------------------------------------------------------
    04 排版
    -------------------------------------------------------------------------- */
@@ -495,16 +388,6 @@ pre {
   color: var(--ink-3);
   letter-spacing: 0.08em;
   user-select: none;
-}
-
-:root[data-theme="dark"] .window-bar {
-  background: linear-gradient(
-    180deg,
-    rgba(26, 84, 108, 0.85),
-    rgba(5, 28, 40, 0.85)
-  );
-  border-bottom-color: rgba(150, 230, 255, 0.18);
-  color: #b7e3f2;
 }
 
 .window-bar__dots {
@@ -592,14 +475,6 @@ pre {
   mask-image: linear-gradient(180deg, #000 55%, transparent);
   -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent);
   pointer-events: none;
-}
-
-:root[data-theme="dark"] .site-header::before {
-  background: linear-gradient(
-    180deg,
-    rgba(2, 26, 38, 0.55),
-    rgba(2, 26, 38, 0)
-  );
 }
 
 .site-header__inner {
@@ -726,11 +601,6 @@ pre {
     box-shadow var(--dur) var(--ease);
 }
 
-:root[data-theme="dark"] .icon-btn {
-  background: linear-gradient(180deg, rgba(120, 210, 240, 0.22), rgba(6, 40, 55, 0.5));
-  color: var(--ink);
-}
-
 .icon-btn:hover {
   color: var(--accent);
   transform: translateY(-1px);
@@ -765,11 +635,6 @@ pre {
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
-}
-
-[data-theme="dark"] .theme-toggle::before {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Cpath fill='%23000' d='M3 0h2v2H3zM3 6h2v2H3zM0 3h2v2H0zM6 3h2v2H6zM2 2h4v4H2zM0 0h1v1H0zM7 0h1v1H7zM0 7h1v1H0zM7 7h1v1H7z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Cpath fill='%23000' d='M3 0h2v2H3zM3 6h2v2H3zM0 3h2v2H0zM6 3h2v2H6zM2 2h4v4H2zM0 0h1v1H0zM7 0h1v1H7zM0 7h1v1H0zM7 7h1v1H7z'/%3E%3C/svg%3E");
 }
 
 /* 汉堡按钮 */
@@ -846,15 +711,6 @@ pre {
   pointer-events: none;
 }
 
-/* 深色主题里不要那道斜向光带，否则像屏幕漏光 */
-:root[data-theme="dark"] .hero::after {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.14),
-    rgba(255, 255, 255, 0) 70%
-  );
-}
-
 .hero__inner {
   position: relative;
   z-index: 1;
@@ -888,16 +744,6 @@ pre {
   color: var(--accent-2);
 }
 
-:root[data-theme="dark"] .hero__eyebrow {
-  background: rgba(120, 220, 250, 0.14);
-  border-color: rgba(150, 230, 255, 0.25);
-  color: #8fecff;
-}
-
-:root[data-theme="dark"] .hero__eyebrow::before {
-  color: #c8f6ff;
-}
-
 .hero__title {
   font-size: clamp(2.4rem, 6vw, 4rem);
   line-height: 1.02;
@@ -915,19 +761,6 @@ pre {
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.95))
     drop-shadow(0 10px 18px rgba(2, 50, 70, 0.18));
-}
-
-:root[data-theme="dark"] .hero__title {
-  background: linear-gradient(
-    176deg,
-    #ffffff 6%,
-    #d9f8ff 40%,
-    #6fd8f2 58%,
-    #eafdff 96%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  filter: drop-shadow(0 2px 10px rgba(90, 220, 255, 0.4));
 }
 
 .hero__title-en {
@@ -964,10 +797,6 @@ pre {
   border-top: 1px solid rgba(6, 70, 95, 0.12);
   font-size: 0.8125rem;
   color: var(--ink-3);
-}
-
-:root[data-theme="dark"] .hero__meta {
-  border-top-color: rgba(160, 230, 255, 0.16);
 }
 
 .hero__meta > div {
@@ -1064,10 +893,6 @@ pre {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-:root[data-theme="dark"] .section__title {
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
-}
-
 .section__title em {
   font-style: normal;
   color: var(--ink-3);
@@ -1102,22 +927,6 @@ pre {
 
 .section__link:hover::after {
   transform: translateX(3px);
-}
-
-:root[data-theme="dark"] .section__link {
-  border-color: rgba(150, 230, 255, 0.25);
-  background: rgba(9, 45, 60, 0.5);
-  color: #9fe9ff;
-  box-shadow: inset 0 1px 0 rgba(180, 245, 255, 0.16);
-}
-
-:root[data-theme="dark"] .section__link:hover {
-  background: rgba(120, 220, 250, 0.16);
-  color: #eafcff;
-}
-
-:root[data-theme="dark"] .section__title em {
-  color: var(--ink-2);
 }
 
 /* --------------------------------------------------------------------------
@@ -1169,15 +978,6 @@ pre {
     0 14px 26px -20px rgba(1, 45, 62, 0.45);
 }
 
-:root[data-theme="dark"] .about__aside {
-  background: linear-gradient(
-    180deg,
-    rgba(120, 210, 240, 0.14),
-    rgba(6, 40, 55, 0.35)
-  );
-  border-color: var(--panel-line);
-}
-
 .about__group-title {
   margin: 0 0 0.65rem;
   font-size: 0.6875rem;
@@ -1203,12 +1003,6 @@ pre {
   font-size: 0.8125rem;
   line-height: 1.7;
   box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(1, 45, 62, 0.12);
-}
-
-:root[data-theme="dark"] .tag {
-  background: linear-gradient(180deg, rgba(140, 225, 255, 0.2), rgba(6, 40, 55, 0.4));
-  border-color: rgba(150, 230, 255, 0.22);
-  color: var(--ink-2);
 }
 
 .fact-list {
@@ -1257,15 +1051,6 @@ pre {
     box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
 
-:root[data-theme="dark"] .card {
-  background: linear-gradient(
-    180deg,
-    rgba(120, 210, 240, 0.16),
-    rgba(6, 40, 55, 0.4)
-  );
-  border-color: rgba(150, 230, 255, 0.2);
-}
-
 .card:hover {
   transform: translateY(-3px);
   border-color: rgba(255, 255, 255, 1);
@@ -1300,11 +1085,6 @@ pre {
   box-shadow: inset 0 1px 0 #fff;
   transition: transform var(--dur) var(--ease),
     background-color var(--dur) var(--ease);
-}
-
-:root[data-theme="dark"] .card__arrow {
-  background: linear-gradient(180deg, rgba(140, 225, 255, 0.24), rgba(6, 40, 55, 0.5));
-  border-color: rgba(150, 230, 255, 0.25);
 }
 
 .card:hover .card__arrow {
@@ -1362,10 +1142,6 @@ pre {
   border-top: 1px solid rgba(6, 70, 95, 0.1);
 }
 
-:root[data-theme="dark"] .post-item + .post-item {
-  border-top-color: rgba(160, 230, 255, 0.14);
-}
-
 .post-item__link {
   display: grid;
   grid-template-columns: 7rem minmax(0, 1fr) auto;
@@ -1378,10 +1154,6 @@ pre {
 
 .post-item__link:hover {
   background: rgba(255, 255, 255, 0.45);
-}
-
-:root[data-theme="dark"] .post-item__link:hover {
-  background: rgba(130, 220, 250, 0.08);
 }
 
 .post-item__date {
@@ -1440,15 +1212,6 @@ pre {
   color: var(--on-dark);
   box-shadow: inset 0 1px 0 rgba(200, 250, 255, 0.35),
     inset 0 -20px 40px rgba(0, 10, 18, 0.45), 0 20px 40px -24px rgba(0, 20, 30, 0.7);
-}
-
-:root[data-theme="dark"] .contact {
-  background: radial-gradient(
-      120% 140% at 12% 0%,
-      rgba(90, 220, 255, 0.18),
-      transparent 55%
-    ),
-    linear-gradient(160deg, #062f42 0%, #041e2b 60%, #010d16 100%);
 }
 
 .contact .section__kicker {
@@ -1540,12 +1303,6 @@ pre {
   font-size: 0.8rem;
 }
 
-:root[data-theme="dark"] .site-footer {
-  border-color: rgba(150, 230, 255, 0.2);
-  background: rgba(4, 30, 43, 0.45);
-  color: var(--ink-2);
-}
-
 .site-footer__inner {
   display: flex;
   flex-wrap: wrap;
@@ -1568,11 +1325,6 @@ pre {
   font-size: 0.6875rem;
   letter-spacing: 0.06em;
   white-space: nowrap;
-}
-
-:root[data-theme="dark"] .site-footer__badge {
-  border-color: rgba(150, 230, 255, 0.25);
-  background: rgba(120, 220, 250, 0.1);
 }
 
 .site-footer__links {
@@ -1600,10 +1352,6 @@ pre {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-:root[data-theme="dark"] .page-head__title {
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
-}
-
 .page-head__lede {
   max-width: 36rem;
   margin: 0.9rem 0 0;
@@ -1619,10 +1367,6 @@ pre {
   border-top: 1px solid rgba(6, 70, 95, 0.12);
   color: var(--ink-3);
   font-size: 0.78rem;
-}
-
-:root[data-theme="dark"] .page-head__meta {
-  border-top-color: rgba(160, 230, 255, 0.16);
 }
 
 .page-head__meta strong {
@@ -1683,27 +1427,11 @@ pre {
   background: rgba(255, 255, 255, 0.85);
 }
 
-:root[data-theme="dark"] .post__back {
-  border-color: rgba(150, 230, 255, 0.25);
-  background: rgba(9, 45, 60, 0.5);
-  color: #cfeeff;
-  box-shadow: inset 0 1px 0 rgba(180, 245, 255, 0.16);
-}
-
-:root[data-theme="dark"] .post__back:hover {
-  color: #eafcff;
-  background: rgba(120, 220, 250, 0.16);
-}
-
 .post__title {
   font-size: clamp(1.7rem, 4vw, 2.5rem);
   line-height: 1.25;
   color: var(--ink);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
-}
-
-:root[data-theme="dark"] .post__title {
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 }
 
 .post__meta {
@@ -1742,12 +1470,6 @@ pre {
   color: var(--ink);
   scroll-margin-top: calc(var(--header-h) + 1.5rem);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-
-:root[data-theme="dark"] .prose h2,
-:root[data-theme="dark"] .prose h3,
-:root[data-theme="dark"] .prose h4 {
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 }
 
 .prose h2 {
@@ -1805,10 +1527,6 @@ pre {
   font-size: 1.03em;
 }
 
-:root[data-theme="dark"] .prose blockquote {
-  background: rgba(120, 220, 250, 0.08);
-}
-
 .prose blockquote p:last-child {
   margin-bottom: 0;
 }
@@ -1821,12 +1539,6 @@ pre {
   color: #0a6a8c;
   font-size: 0.85em;
   box-shadow: inset 0 1px 0 #fff;
-}
-
-:root[data-theme="dark"] .prose :not(pre) > code {
-  border-color: rgba(150, 230, 255, 0.2);
-  background: rgba(120, 220, 250, 0.14);
-  color: #9fe9ff;
 }
 
 /* 代码块：一小块深水终端 */
@@ -1854,10 +1566,6 @@ pre {
   border-top: 1px solid rgba(6, 70, 95, 0.15);
 }
 
-:root[data-theme="dark"] .prose hr {
-  border-top-color: rgba(160, 230, 255, 0.18);
-}
-
 .prose img {
   border: 4px solid rgba(255, 255, 255, 0.9);
   border-radius: var(--radius-sm);
@@ -1877,19 +1585,10 @@ pre {
   text-align: left;
 }
 
-:root[data-theme="dark"] .prose th,
-:root[data-theme="dark"] .prose td {
-  border-bottom-color: rgba(160, 230, 255, 0.16);
-}
-
 .prose th {
   color: var(--ink);
   font-weight: 700;
   background: rgba(255, 255, 255, 0.4);
-}
-
-:root[data-theme="dark"] .prose th {
-  background: rgba(120, 220, 250, 0.08);
 }
 
 .copy-btn {
@@ -1930,10 +1629,6 @@ pre {
   border-top: 1px solid rgba(6, 70, 95, 0.12);
   color: var(--ink-3);
   font-size: 0.8125rem;
-}
-
-:root[data-theme="dark"] .post__foot {
-  border-top-color: rgba(160, 230, 255, 0.16);
 }
 
 .post__foot p {
@@ -1996,18 +1691,6 @@ pre {
   color: var(--accent);
   background: rgba(255, 255, 255, 0.85);
   transform: translateY(-1px);
-}
-
-:root[data-theme="dark"] .btn--ghost {
-  border-color: rgba(150, 230, 255, 0.32);
-  background: rgba(9, 45, 60, 0.55);
-  color: #cfeeff;
-  box-shadow: inset 0 1px 0 rgba(180, 245, 255, 0.18);
-}
-
-:root[data-theme="dark"] .btn--ghost:hover {
-  background: rgba(120, 220, 250, 0.16);
-  color: #f2fdff;
 }
 
 .btn:active {
@@ -2190,10 +1873,6 @@ pre {
     /* 下拉面板用实色，避免透过它看到后面的内容 */
     background: #f7fdff;
     box-shadow: var(--shadow-pop);
-  }
-
-  :root[data-theme="dark"] .nav {
-    background: #05222f;
   }
 
   .nav.is-open {
@@ -2405,19 +2084,6 @@ pre {
     drop-shadow(0 10px 18px rgba(2, 50, 70, 0.16));
 }
 
-:root[data-theme="dark"] .hub__title {
-  background: linear-gradient(
-    176deg,
-    #ffffff 6%,
-    #d9f8ff 40%,
-    #6fd8f2 58%,
-    #eafdff 96%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  filter: drop-shadow(0 2px 10px rgba(90, 220, 255, 0.35));
-}
-
 .hub__sub {
   margin: 0;
   color: var(--ink-2);
@@ -2508,17 +2174,6 @@ pre {
   transform: translateX(4px);
 }
 
-:root[data-theme="dark"] .entry {
-  background: linear-gradient(
-    180deg,
-    rgba(120, 220, 250, 0.16),
-    rgba(6, 40, 55, 0.55)
-  );
-  border-color: rgba(150, 230, 255, 0.25);
-  box-shadow: inset 0 1px 0 rgba(180, 245, 255, 0.2),
-    0 12px 20px -14px rgba(0, 0, 0, 0.7);
-}
-
 @media (max-width: 56rem) {
   .hub {
   flex: 1;
@@ -2557,10 +2212,6 @@ pre {
   pointer-events: none;
 }
 
-:root[data-theme="dark"] .scene__swell {
-  opacity: 0.28;
-}
-
 .scene__grain {
   position: absolute;
   inset: 0;
@@ -2569,10 +2220,6 @@ pre {
   opacity: 0.14;
   mix-blend-mode: overlay;
   pointer-events: none;
-}
-
-:root[data-theme="dark"] .scene__grain {
-  opacity: 0.1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2640,12 +2287,6 @@ pre {
   background: linear-gradient(180deg, #7fdcf5 0%, #23a5cb 48%, #0d86aa 100%);
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 50, 70, 0.4);
-}
-
-:root[data-theme="dark"] .chip {
-  background: rgba(120, 220, 250, 0.14);
-  border-color: rgba(150, 230, 255, 0.22);
-  color: var(--ink-2);
 }
 
 .tut-grid {
@@ -2765,11 +2406,6 @@ pre {
   font-weight: 600;
 }
 
-:root[data-theme="dark"] .tut-card__tag {
-  background: rgba(111, 224, 255, 0.16);
-  color: var(--accent);
-}
-
 @media (max-width: 40rem) {
   .tut-grid {
     grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
@@ -2848,19 +2484,6 @@ pre {
   background-repeat: no-repeat, no-repeat;
 }
 
-:root[data-theme="dark"] .page-tips {
-  background-image:
-    linear-gradient(
-      100deg,
-      rgba(6, 34, 46, 0.96) 0%,
-      rgba(6, 34, 46, 0.93) 32%,
-      rgba(6, 34, 46, 0.72) 50%,
-      rgba(6, 34, 46, 0.28) 68%,
-      rgba(6, 34, 46, 0) 82%
-    ),
-    url("../img/tips-bg.jpg");
-}
-
 .page-tips > * {
   position: relative;
   max-width: 66%;
@@ -2881,17 +2504,6 @@ pre {
         rgba(246, 253, 255, 0.92) 55%,
         rgba(246, 253, 255, 0.6) 82%,
         rgba(246, 253, 255, 0.3) 100%
-      ),
-      url("../img/tips-bg.jpg");
-  }
-
-  :root[data-theme="dark"] .page-tips {
-    background-image: linear-gradient(
-        100deg,
-        rgba(6, 34, 46, 0.95) 0%,
-        rgba(6, 34, 46, 0.9) 55%,
-        rgba(6, 34, 46, 0.6) 82%,
-        rgba(6, 34, 46, 0.3) 100%
       ),
       url("../img/tips-bg.jpg");
   }
@@ -2984,12 +2596,6 @@ pre {
 .tut-pager button:disabled {
   opacity: 0.4;
   cursor: default;
-}
-
-:root[data-theme="dark"] .tut-pager button {
-  background: rgba(120, 220, 250, 0.14);
-  border-color: rgba(150, 230, 255, 0.22);
-  color: var(--ink-2);
 }
 /* --------------------------------------------------------------------------
    22 首页「最近更新」通栏

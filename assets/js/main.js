@@ -17,54 +17,6 @@
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
-  /* ---------------------------------------------------------------- 主题切换 */
-  function initTheme() {
-    var root = document.documentElement;
-    var toggle = $("#theme-toggle");
-    if (!toggle) return;
-
-    var sync = function () {
-      var isDark = root.dataset.theme === "dark";
-      toggle.setAttribute("aria-pressed", String(isDark));
-      toggle.setAttribute("aria-label", isDark ? "切换到浅色模式" : "切换到深色模式");
-      var meta = $('meta[name="theme-color"]');
-      if (meta) meta.setAttribute("content", isDark ? "#010c15" : "#0a6383");
-    };
-
-    toggle.addEventListener("click", function () {
-      var next = root.dataset.theme === "dark" ? "light" : "dark";
-      root.dataset.theme = next;
-      try {
-        localStorage.setItem("theme", next);
-      } catch (err) {
-        /* 隐私模式下写入失败，忽略即可 */
-      }
-      sync();
-    });
-
-    /* 用户没手动选过时，跟随系统明暗变化 */
-    var media = window.matchMedia("(prefers-color-scheme: dark)");
-    var onSystemChange = function (event) {
-      var stored = null;
-      try {
-        stored = localStorage.getItem("theme");
-      } catch (err) {
-        stored = null;
-      }
-      if (stored) return;
-      root.dataset.theme = event.matches ? "dark" : "light";
-      sync();
-    };
-
-    if (typeof media.addEventListener === "function") {
-      media.addEventListener("change", onSystemChange);
-    } else if (typeof media.addListener === "function") {
-      media.addListener(onSystemChange);
-    }
-
-    sync();
-  }
-
   /* -------------------------------------------------------------- 移动端菜单 */
   function initNav() {
     var toggle = $("#nav-toggle");
@@ -537,7 +489,6 @@
     // 先让内容可见，再逐个启用交互；某个模块出错不会连累其他功能
     var steps = [
       initReveal,
-      initTheme,
       initNav,
       initScrollSpy,
       initToTop,
