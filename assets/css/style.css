@@ -3475,3 +3475,13 @@ pre {
     text-align: left;
   }
 }
+/* 说明列里的链接 */
+.res-link {
+  color: var(--accent);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.res-link:hover {
+  text-decoration: underline;
+}
