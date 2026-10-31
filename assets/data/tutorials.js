@@ -322,14 +322,6 @@ window.TUTORIAL_DATA = {
       "link": ""
     },
     {
-      "cover": "c45",
-      "title": "6.0 旧 mod 升级 7.0",
-      "cats": [
-        "other"
-      ],
-      "link": ""
-    },
-    {
       "cover": "c46",
       "title": "ANA 的常见问题解答",
       "cats": [
