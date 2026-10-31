@@ -255,12 +255,45 @@
     }
   }
 
+  /* ------------------------------------------------------ 教程卡片标签 */
+  var TUT_CAT_LABELS = {
+    weiyue: "卫月",
+    brio: "brio",
+    ana: "ana",
+    filter: "滤镜",
+    ps: "PS",
+    other: "其他",
+  };
+
+  function renderCardTags() {
+    $$(".tut-card").forEach(function (card) {
+      var cover = card.querySelector(".tut-card__cover");
+      if (!cover) return;
+
+      var old = cover.querySelector(".tut-card__cats");
+      if (old) old.parentNode.removeChild(old);
+
+      var cats = (card.getAttribute("data-cat") || "").split(/\s+/).filter(Boolean);
+      if (!cats.length) return;
+
+      var box = document.createElement("span");
+      box.className = "tut-card__cats";
+      box.innerHTML = cats
+        .map(function (cat) {
+          return '<span class="tut-card__tag">' + (TUT_CAT_LABELS[cat] || cat) + "</span>";
+        })
+        .join("");
+      cover.appendChild(box);
+    });
+  }
+
   /* ------------------------------------------------------ 教程筛选与分页 */
   function initTutorialGallery() {
     var bar = document.querySelector("[data-tut-filters]");
     var grid = document.querySelector(".tut-grid");
     var pager = document.querySelector("[data-tut-pager]");
     var featured = document.querySelector("[data-tut-featured]");
+    var emptyHint = document.querySelector("[data-tut-empty]");
     if (!bar || !grid) return;
 
     var cards = $$(".tut-card", grid);
@@ -268,9 +301,17 @@
     var filter = "all";
     var page = 1;
 
+    function catsOf(card) {
+      return (card.getAttribute("data-cat") || "")
+        .split(/\s+/)
+        .filter(Boolean);
+    }
+
     function matches(card) {
-      if (filter === "all" && card.getAttribute("data-pin")) return false;
-      return filter === "all" || card.getAttribute("data-cat") === filter;
+      if (filter === "all") {
+        return !card.getAttribute("data-pin");
+      }
+      return catsOf(card).indexOf(filter) !== -1;
     }
 
     function setPageButtons(total) {
@@ -313,6 +354,10 @@
       cards.forEach(function (card) {
         card.classList.toggle("is-hidden", !visible.has(card));
       });
+
+        renderCardTags();
+
+      if (emptyHint) emptyHint.hidden = list.length !== 0;
 
       setPageButtons(total);
 
