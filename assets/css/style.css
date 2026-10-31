@@ -4434,3 +4434,104 @@ pre {
     line-height: 1.42;
   }
 }
+/* ============================================================
+   手机端首页重排：上排「摄影手册 + 公告」，中间「内容入口」，最后「致谢」
+   ============================================================ */
+@media (max-width: 56rem) {
+  .hub {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+    grid-template-areas:
+      "intro notice"
+      "entry entry"
+      "thanks thanks";
+    align-items: start;
+    gap: 0.55rem;
+    padding-block: 0.6rem 1rem;
+  }
+
+  /* 让两层容器不参与布局，子块直接进网格 */
+  .hub__col,
+  .hub__duo {
+    display: contents;
+  }
+
+  .hub__intro {
+    grid-area: intro;
+    padding: 0.7rem 0.75rem 0.75rem;
+    gap: 0.28rem;
+  }
+
+  .hub__notice {
+    grid-area: notice;
+    padding: 0.6rem 0.65rem 0.7rem;
+  }
+
+  .hub__panel {
+    grid-area: entry;
+  }
+
+  .hub__thanks {
+    grid-area: thanks;
+  }
+
+  /* 摄影手册缩小，塞进半栏 */
+  .hub__eyebrow {
+    font-size: 0.62rem;
+    padding: 0.1rem 0.4rem;
+  }
+
+  .hub__title {
+    font-size: 1.42rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .hub__sub {
+    font-size: 0.72rem;
+    line-height: 1.45;
+  }
+
+  .hub__meta {
+    margin-top: 0.2rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.04em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.3rem;
+  }
+
+  /* 公告在半栏里也要排得下 */
+  .hub__notice .hub__rail-head {
+    flex-wrap: wrap;
+    gap: 0.15rem 0.4rem;
+  }
+
+  .hub__notice .hub__rail-title {
+    font-size: 0.78rem;
+  }
+
+  .hub__notice-updated {
+    font-size: 0.6rem;
+  }
+
+  .hub__notice .hub__feed {
+    gap: 0.2rem;
+    padding-top: 0.4rem;
+    font-size: 0.64rem;
+    line-height: 1.4;
+  }
+
+  .hub__notice .hub__feed li {
+    gap: 0.3rem;
+  }
+
+  .hub__panel {
+    padding: 0.8rem 0.85rem 0.9rem;
+  }
+
+  .hub__panel-title {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+}
