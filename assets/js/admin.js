@@ -14,7 +14,8 @@
     save: document.getElementById("a-save"),
     load: document.getElementById("a-load"),
     add: document.getElementById("a-add"),
-    test: document.getElementById("a-test")
+    test: document.getElementById("a-test"),
+    tokenState: document.getElementById("a-token-state")
   };
 
   if (!el.list) return;
@@ -287,12 +288,40 @@
   el.save.addEventListener("click", save);
   el.load.addEventListener("click", load);
 
+  document.addEventListener("click", function (event) {
+    if (event.target.matches("[data-clear-token]")) {
+      localStorage.removeItem(TOKEN_KEY);
+      el.token.value = "";
+      renderTokenState();
+      status("已清除本机保存的 token", "ok");
+    }
+  });
+
   el.token.addEventListener("change", function () {
     localStorage.setItem(TOKEN_KEY, el.token.value.trim());
+    renderTokenState();
     status(el.token.value.trim() ? "token 已存在本机浏览器" : "token 已清空", "ok");
   });
 
+  function renderTokenState() {
+    if (!el.tokenState) return;
+    var saved = (localStorage.getItem(TOKEN_KEY) || "").trim();
+    if (!saved) {
+      el.tokenState.hidden = true;
+      el.tokenState.innerHTML = "";
+      return;
+    }
+    el.tokenState.hidden = false;
+    el.tokenState.innerHTML =
+      "本机已存 token：" +
+      saved.slice(0, 7) +
+      "…" +
+      saved.slice(-4) +
+      ' <button type="button" class="admin__link" data-clear-token>清除</button>';
+  }
+
   el.token.value = localStorage.getItem(TOKEN_KEY) || "";
+  renderTokenState();
   el.repo.value = localStorage.getItem("dsh_gh_repo") || "heidao0928/first-site";
   el.repo.addEventListener("change", function () {
     localStorage.setItem("dsh_gh_repo", el.repo.value.trim());

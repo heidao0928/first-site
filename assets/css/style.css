@@ -3780,3 +3780,20 @@ pre {
     grid-template-columns: 1fr;
   }
 }
+.admin__token-state {
+  grid-column: 1 / -1;
+  margin: -0.2rem 0 0;
+  color: var(--ink-3);
+  font-size: 0.76rem;
+}
+
+.admin__link {
+  margin-left: 0.35rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
