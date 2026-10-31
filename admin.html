@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>资源表管理 · 黑岛摄影手册</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0a6383" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body class="page-sub">
+    <div class="scene" aria-hidden="true">
+      <div class="scene__caustics"></div>
+      <div class="scene__bubbles"></div>
+      <div class="scene__vignette"></div>
+    </div>
+
+    <main class="admin">
+      <header class="admin__head">
+        <div>
+          <p class="admin__kicker">Admin</p>
+          <h1 class="admin__title">资源表管理</h1>
+          <p class="admin__hint">
+            填链接 → 点「保存到 GitHub」，它会把 <code>assets/data/resources.js</code>
+            提交到仓库，Pages 约 1 分钟后生效。token 只存在这台电脑的浏览器里。
+          </p>
+        </div>
+        <a class="admin__back" href="resources.html">← 回到资源页</a>
+      </header>
+
+      <section class="admin__bar" aria-label="连接设置">
+        <label class="admin__field">
+          <span>仓库</span>
+          <input id="a-repo" value="heidao0928/first-site" spellcheck="false" />
+        </label>
+        <label class="admin__field">
+          <span>分支</span>
+          <input id="a-branch" value="main" spellcheck="false" />
+        </label>
+        <label class="admin__field admin__field--wide">
+          <span>GitHub token（fine-grained，只需该仓库 Contents 读写）</span>
+          <input id="a-token" type="password" placeholder="github_pat_..." spellcheck="false" />
+        </label>
+        <div class="admin__bar-actions">
+          <button type="button" class="admin__btn" id="a-load">读取</button>
+          <button type="button" class="admin__btn admin__btn--primary" id="a-save">保存到 GitHub</button>
+          <button type="button" class="admin__btn" id="a-add">新增一条</button>
+        </div>
+        <p class="admin__status" id="a-status" role="status"></p>
+      </section>
+
+      <ol class="admin__list" id="a-list"></ol>
+    </main>
+
+    <script src="assets/js/admin.js"></script>
+  </body>
+</html>

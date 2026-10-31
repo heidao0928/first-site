@@ -2,6 +2,13 @@
 
 每条都尽量写清「改了什么 / 为什么」，方便以后回退或让 AI 接手。
 
+## 2026-10-31 · 资源表改为数据驱动 + 管理页
+
+- 资源表数据抽到 `assets/data/resources.js`（`window.RESOURCE_DATA`），用 `<script src>` 加载，`file://` 双击也能读（fetch 会被 CORS 挡）。
+- `resources.html` 的 tbody 由 `initResourcesTable()` 渲染；无数据时给出提示。
+- 新增 `admin.html` + `assets/js/admin.js`：填仓库/分支/token → 读取现有 JSON → 表单改名称/类型/说明/链接/附件 → 保存时用 GitHub Contents API 提交。
+- token 只存 localStorage，不经过任何服务器；页面带 `noindex`，不进导航。
+- 注意：这不是传统后端，GitHub Pages 本身不能接收文件上传。
 ## 2026-10-31 · 更正两条腾讯文档链接
 
 - 第 09 条「种族幼体表格」→ `https://docs.qq.com/sheet/DYWd2Yk92anZQbmFP?tab=BB08J2`

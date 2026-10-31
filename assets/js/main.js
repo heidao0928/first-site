@@ -429,6 +429,76 @@
       }
     });
   }
+  /* ---------------------------------------------------------- 资源表渲染 */
+  function initResourcesTable() {
+    var body = document.querySelector("[data-res-body]");
+    if (!body) return;
+
+    function esc(value) {
+      return String(value == null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    var data = window.RESOURCE_DATA;
+    if (!data || !data.items || !data.items.length) {
+      body.innerHTML = '<tr><td class="res-table__empty" colspan="5">资源列表暂时为空。</td></tr>';
+      return;
+    }
+
+    body.innerHTML = data.items
+      .map(function (item, index) {
+        var tags = (item.tags || [])
+          .map(function (tag) {
+            return '<span class="res-tag">' + esc(tag) + "</span>";
+          })
+          .join("");
+
+        var desc = esc(item.desc || "");
+        if (item.link) {
+          desc +=
+            '<a class="res-link" href="' +
+            esc(item.link) +
+            '" target="_blank" rel="noopener noreferrer">' +
+            esc(item.link) +
+            "</a>";
+        }
+
+        var file = item.file || { kind: "none" };
+        var fileHtml;
+        if (file.kind === "download") {
+          fileHtml =
+            (file.hint ? '<span class="res-hint">' + esc(file.hint) + "</span>" : "") +
+            '<a class="res-dl" href="' +
+            esc(file.href) +
+            '" target="_blank" rel="noopener noreferrer">下载</a>';
+        } else if (file.kind === "view") {
+          fileHtml =
+            '<a class="res-dl" href="' +
+            esc(file.href) +
+            '" data-lightbox="guide-lightbox" target="_blank" rel="noopener noreferrer">查看</a>';
+        } else if (file.kind === "pending") {
+          fileHtml = '<span class="res-dl res-dl--muted" title="网盘链接待补">待补</span>';
+        } else {
+          fileHtml = '<span class="res-dl res-dl--muted">—</span>';
+        }
+
+        var num = ("0" + (index + 1)).slice(-2);
+        return (
+          "<tr>" +
+          '<td class="res-table__num">' + num + "</td>" +
+          '<td class="res-table__name">' + esc(item.name) + "</td>" +
+          '<td class="res-table__tags">' + tags + "</td>" +
+          '<td class="res-table__desc">' + desc + "</td>" +
+          '<td class="res-table__file">' + fileHtml + "</td>" +
+          "</tr>"
+        );
+      })
+      .join("");
+  }
+
   /* ---------------------------------------------------------------- 启动 */
   function boot() {
     // 先让内容可见，再逐个启用交互；某个模块出错不会连累其他功能
@@ -443,6 +513,7 @@
       initBubbles,
       initTutorialGallery,
       initLightbox,
+      initResourcesTable,
     ];
 
     steps.forEach(function (step) {
