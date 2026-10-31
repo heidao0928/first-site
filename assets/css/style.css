@@ -2326,7 +2326,7 @@ pre {
 
 /* 左边也做成一块玻璃窗，和右侧入口卡同一套语言 */
 .hub__intro {
-  flex: 1;
+  flex: 1.15;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -2967,7 +2967,7 @@ pre {
    22 首页「最近更新」通栏
    -------------------------------------------------------------------------- */
 .hub__rail {
-  flex: 0 0 auto;
+  flex: 1;
   display: grid;
   gap: 0.6rem;
   padding: clamp(0.85rem, 1.8vw, 1.15rem) clamp(0.95rem, 2vw, 1.35rem) clamp(1rem, 2vw, 1.25rem);
