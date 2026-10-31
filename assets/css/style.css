@@ -3980,3 +3980,11 @@ pre {
 .admin[hidden] {
   display: none !important;
 }
+/* 页脚右侧的一句小字 */
+.site-footer__wish {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
