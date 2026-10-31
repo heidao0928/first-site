@@ -136,7 +136,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/8xMdUjiPv0t"
     },
     {
       "cover": "c19",
@@ -144,7 +144,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "weiyue"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/ARucphSrYlz"
     },
     {
       "cover": "c20",
@@ -152,7 +152,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/1RMUX4aXtj1"
     },
     {
       "cover": "c21",
@@ -160,7 +160,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/A7Rv8gVA55V"
     },
     {
       "cover": "c23",
@@ -186,7 +186,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/9Ph4zA5GdVt"
     },
     {
       "cover": "c28",
@@ -194,7 +194,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "other"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/89jrW67tYEs"
     },
     {
       "cover": "c29",
@@ -203,7 +203,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/7yh4YycUAi5"
     },
     {
       "cover": "c30",
@@ -212,7 +212,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/6AViI9Mx44m"
     },
     {
       "cover": "c31",
@@ -311,7 +311,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/5hgLAO2kl6h"
     },
     {
       "cover": "c44",
@@ -319,7 +319,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "other"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/98lWuhsoTcq"
     },
     {
       "cover": "c46",
@@ -363,11 +363,11 @@ window.TUTORIAL_DATA = {
     },
     {
       "cover": "c52",
-      "title": "brio 新功能讲解",
+      "title": "brio 新功能讲解（造景）",
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/5qDlN10V1gH"
     }
   ]
 };
