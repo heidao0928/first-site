@@ -4,7 +4,7 @@
 
 ## 2026-10-31 · 首页加爱发电
 
-- `.hub__meta` 增加「爱发电@黑岛」，链接 <https://afdian.com/a/hedao0928>（`target="_blank"` + `noopener`），排在 b 站之后。
+- `.hub__meta` 增加「爱发电@黑岛」，链接 <https://afdian.com/a/heidao0928>（`target="_blank"` + `noopener`），排在 b 站之后。
 - 1440 与 390 宽都是一行放得下，单屏不溢出。
 ## 2026-10-31 · 下掉「眼睛怎么亮晶晶」
 
