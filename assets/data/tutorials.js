@@ -15,6 +15,14 @@ window.TUTORIAL_DATA = {
   },
   "items": [
     {
+      "cover": "c02",
+      "title": "旋转吧大喵 · 4k 拍照插件",
+      "cats": [
+        "other"
+      ],
+      "link": "https://xhslink.cn/o/AHhkuZnz1pt"
+    },
+    {
       "cover": "c01",
       "title": "科技拍照流程",
       "cats": [
@@ -23,12 +31,12 @@ window.TUTORIAL_DATA = {
       "link": "https://xhslink.cn/o/9d8CCRv95tU"
     },
     {
-      "cover": "c02",
-      "title": "旋转吧大喵 · 4k 拍照插件",
+      "cover": "c52",
+      "title": "brio 新功能讲解（造景）",
       "cats": [
-        "other"
+        "brio"
       ],
-      "link": "https://xhslink.cn/o/AHhkuZnz1pt"
+      "link": "https://xhslink.cn/o/5qDlN10V1gH"
     },
     {
       "cover": "c04",
@@ -139,14 +147,6 @@ window.TUTORIAL_DATA = {
       "link": "https://xhslink.cn/o/8xMdUjiPv0t"
     },
     {
-      "cover": "c19",
-      "title": "红卫月转蓝卫月教程",
-      "cats": [
-        "weiyue"
-      ],
-      "link": "https://xhslink.cn/o/ARucphSrYlz"
-    },
-    {
       "cover": "c20",
       "title": "brio 动态面部控制",
       "cats": [
@@ -161,6 +161,14 @@ window.TUTORIAL_DATA = {
         "brio"
       ],
       "link": "https://xhslink.cn/o/A7Rv8gVA55V"
+    },
+    {
+      "cover": "c50",
+      "title": "舞蹈 mod 和镜头（他他他 dj 版）",
+      "cats": [
+        "brio"
+      ],
+      "link": "https://xhslink.cn/o/1Frvynf6Ibx"
     },
     {
       "cover": "c23",
@@ -187,6 +195,14 @@ window.TUTORIAL_DATA = {
         "ana"
       ],
       "link": "https://xhslink.cn/o/9Ph4zA5GdVt"
+    },
+    {
+      "cover": "c46",
+      "title": "ANA 的常见问题解答",
+      "cats": [
+        "ana"
+      ],
+      "link": "https://xhslink.cn/o/9we3k4VUmzp"
     },
     {
       "cover": "c28",
@@ -273,6 +289,14 @@ window.TUTORIAL_DATA = {
       "link": "https://xhslink.cn/o/9ZeMkjluwll"
     },
     {
+      "cover": "c19",
+      "title": "红卫月转蓝卫月教程",
+      "cats": [
+        "weiyue"
+      ],
+      "link": "https://xhslink.cn/o/ARucphSrYlz"
+    },
+    {
       "cover": "c38",
       "title": "如何添加宠物 NPC 配饰",
       "cats": [
@@ -322,28 +346,12 @@ window.TUTORIAL_DATA = {
       "link": "https://xhslink.cn/o/98lWuhsoTcq"
     },
     {
-      "cover": "c46",
-      "title": "ANA 的常见问题解答",
-      "cats": [
-        "ana"
-      ],
-      "link": "https://xhslink.cn/o/9we3k4VUmzp"
-    },
-    {
       "cover": "c47",
       "title": "30s 教你如何找 mod 安装 mod",
       "cats": [
         "other"
       ],
       "link": "https://xhslink.cn/o/2A49YWSSbEu"
-    },
-    {
-      "cover": "c48",
-      "title": "ANA 的安装与使用",
-      "cats": [
-        "ana"
-      ],
-      "link": "https://xhslink.cn/o/2IlwJvTbKEV"
     },
     {
       "cover": "c49",
@@ -354,20 +362,12 @@ window.TUTORIAL_DATA = {
       "link": "https://xhslink.cn/o/4Tgsju7Gjbr"
     },
     {
-      "cover": "c50",
-      "title": "舞蹈 mod 和镜头（他他他 dj 版）",
+      "cover": "c48",
+      "title": "ANA 的安装与使用",
       "cats": [
-        "brio"
+        "ana"
       ],
-      "link": "https://xhslink.cn/o/1Frvynf6Ibx"
-    },
-    {
-      "cover": "c52",
-      "title": "brio 新功能讲解（造景）",
-      "cats": [
-        "brio"
-      ],
-      "link": "https://xhslink.cn/o/5qDlN10V1gH"
+      "link": "https://xhslink.cn/o/2IlwJvTbKEV"
     }
   ]
 };
