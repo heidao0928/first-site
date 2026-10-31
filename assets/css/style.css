@@ -2786,6 +2786,68 @@ pre {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
+  /* 右侧放实拍图，左侧用淡蓝白渐变把文字托住 */
+  background-image:
+    linear-gradient(
+      100deg,
+      rgba(246, 253, 255, 0.97) 0%,
+      rgba(244, 252, 255, 0.95) 32%,
+      rgba(238, 251, 255, 0.78) 50%,
+      rgba(236, 250, 255, 0.3) 68%,
+      rgba(236, 250, 255, 0) 82%
+    ),
+    url("../img/tips-bg.jpg");
+  background-position: 0 0, 58% 36%;
+  background-size: auto, cover;
+  background-repeat: no-repeat, no-repeat;
+}
+
+:root[data-theme="dark"] .tut-tips {
+  background-image:
+    linear-gradient(
+      100deg,
+      rgba(6, 34, 46, 0.96) 0%,
+      rgba(6, 34, 46, 0.93) 32%,
+      rgba(6, 34, 46, 0.72) 50%,
+      rgba(6, 34, 46, 0.28) 68%,
+      rgba(6, 34, 46, 0) 82%
+    ),
+    url("../img/tips-bg.jpg");
+}
+
+.tut-tips > * {
+  position: relative;
+  max-width: 66%;
+}
+
+@media (max-width: 56rem) {
+  .tut-tips > * {
+    max-width: 100%;
+  }
+
+  /* 窄屏文字会压到图上，把左侧的托底加重一点 */
+  .tut-tips {
+    background-image: linear-gradient(
+        100deg,
+        rgba(246, 253, 255, 0.96) 0%,
+        rgba(246, 253, 255, 0.92) 55%,
+        rgba(246, 253, 255, 0.6) 82%,
+        rgba(246, 253, 255, 0.3) 100%
+      ),
+      url("../img/tips-bg.jpg");
+  }
+
+  :root[data-theme="dark"] .tut-tips {
+    background-image: linear-gradient(
+        100deg,
+        rgba(6, 34, 46, 0.95) 0%,
+        rgba(6, 34, 46, 0.9) 55%,
+        rgba(6, 34, 46, 0.6) 82%,
+        rgba(6, 34, 46, 0.3) 100%
+      ),
+      url("../img/tips-bg.jpg");
+  }
 }
 
 .tut-tips__title {
