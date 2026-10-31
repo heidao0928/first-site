@@ -4016,3 +4016,44 @@ html {
   will-change: auto;
   contain: layout paint;
 }
+/* 手机端页脚收小到原来的约 40%（四个页面共用） */
+@media (max-width: 56rem) {
+  .site-footer {
+    margin: 0.15rem auto 0.45rem;
+    padding: 0.22rem 0.6rem;
+    font-size: 0.52rem;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .site-footer__inner {
+    display: block;
+  }
+
+  .site-footer p {
+    margin: 0;
+    font-size: 0.52rem;
+    line-height: 1.22;
+    letter-spacing: 0;
+  }
+
+  .site-footer__note {
+    display: block;
+    margin-top: 0.02rem;
+    font-size: 0.48rem;
+    color: var(--ink-3);
+  }
+
+  .site-footer__wish {
+    margin: 0.02rem 0 0;
+    font-size: 0.5rem;
+  }
+}
+/* 关掉移动端的文字自动放大（font boosting），否则小字号会被系统“抬大” */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
