@@ -295,12 +295,15 @@
     var featured = document.querySelector("[data-tut-featured]");
     var emptyHint = document.querySelector("[data-tut-empty]");
     var catFeatured = document.querySelector("[data-tut-cat-featured]");
+    var searchBox = document.querySelector("[data-tut-search]");
+    var searchClear = document.querySelector("[data-tut-search-clear]");
     if (!bar || !grid) return;
 
     var cards = $$(".tut-card", grid);
     var perPage = 15;
     var filter = "all";
     var page = 1;
+    var query = "";
 
     function catsOf(card) {
       return (card.getAttribute("data-cat") || "")
@@ -309,6 +312,20 @@
     }
 
     function matches(card) {
+      var q = query.trim().toLowerCase();
+      if (q) {
+        var title = card.querySelector(".tut-card__title");
+        var text = title ? title.textContent.toLowerCase() : "";
+        if (text.indexOf(q) === -1) {
+          // 标题没命中时，再按分类标签匹配（搜「brio」也能出这一类）
+          var hitCat = catsOf(card).some(function (cat) {
+            var label = (TUT_CAT_LABELS[cat] || cat).toLowerCase();
+            return label.indexOf(q) !== -1 || cat.indexOf(q) !== -1;
+          });
+          if (!hitCat) return false;
+        }
+      }
+
       if (filter === "all") {
         return !card.getAttribute("data-pin");
       }
@@ -360,17 +377,22 @@
 
         renderCardTags();
 
-      if (emptyHint) emptyHint.hidden = list.length !== 0;
+      if (emptyHint) {
+        emptyHint.hidden = list.length !== 0;
+        emptyHint.textContent = searching ? "没有找到相关教程。" : "这个分类还没有教程。";
+      }
 
       setPageButtons(total);
 
+      var searching = query.trim().length > 0;
+
       if (featured) {
-        featured.hidden = !(filter === "all" && page === 1);
+        featured.hidden = searching || !(filter === "all" && page === 1);
       }
 
       if (catFeatured) {
         var pinnedCat = ["ana", "weiyue", "brio", "other"].indexOf(filter) !== -1 ? filter : null;
-        catFeatured.hidden = !pinnedCat;
+        catFeatured.hidden = searching || !pinnedCat;
         $$("[data-cat-featured]", catFeatured).forEach(function (item) {
           item.hidden = item.getAttribute("data-cat-featured") !== pinnedCat;
         });
@@ -380,6 +402,26 @@
         var top = grid.getBoundingClientRect().top + window.scrollY - 160;
         window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
       }
+    }
+
+    if (searchBox) {
+      searchBox.addEventListener("input", function () {
+        query = searchBox.value;
+        page = 1;
+        if (searchClear) searchClear.hidden = !query;
+        render(false);
+      });
+    }
+
+    if (searchClear) {
+      searchClear.addEventListener("click", function () {
+        searchBox.value = "";
+        query = "";
+        page = 1;
+        searchClear.hidden = true;
+        render(false);
+        searchBox.focus();
+      });
     }
 
     bar.addEventListener("click", function (event) {

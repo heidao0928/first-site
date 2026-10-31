@@ -92,7 +92,8 @@
 
       <section class="section section--tight">
         <div class="container">
-                    <div class="tut-filters" data-tut-filters role="group" aria-label="教程分类">
+                    <div class="tut-toolbar">
+          <div class="tut-filters" data-tut-filters role="group" aria-label="教程分类">
             <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
             <button class="chip" type="button" data-filter="weiyue" aria-pressed="false">卫月相关</button>
             <button class="chip" type="button" data-filter="brio" aria-pressed="false">brio 相关</button>
@@ -100,6 +101,11 @@
             <button class="chip" type="button" data-filter="filter" aria-pressed="false">滤镜相关</button>
             <button class="chip" type="button" data-filter="ps" aria-pressed="false">PS 相关</button>
             <button class="chip" type="button" data-filter="other" aria-pressed="false">其他</button>
+          </div>
+            <div class="tut-search">
+              <input type="search" data-tut-search placeholder="搜索教程…" autocomplete="off" aria-label="搜索教程" />
+              <button type="button" class="tut-search__clear" data-tut-search-clear hidden aria-label="清空搜索">×</button>
+            </div>
           </div>
 
                                         <section class="tut-featured" data-tut-featured aria-label="置顶教程">
