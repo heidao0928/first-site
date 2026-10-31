@@ -17,6 +17,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c02",
       "title": "旋转吧大喵 · 4k 拍照插件",
+      "date": "2026-09-21",
       "cats": [
         "other"
       ],
@@ -25,6 +26,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c01",
       "title": "科技拍照流程",
+      "date": "2026-09-05",
       "cats": [
         "brio"
       ],
@@ -33,6 +35,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c52",
       "title": "brio 新功能讲解（造景）",
+      "date": "2026-07-11",
       "cats": [
         "brio"
       ],
@@ -41,6 +44,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c04",
       "title": "同步动作：怼脸慢呼吸",
+      "date": "2026-06-19",
       "cats": [
         "brio"
       ],
@@ -49,6 +53,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c05",
       "title": "模型幼年体",
+      "date": "2026-05-31",
       "cats": [
         "brio",
         "ana"
@@ -58,6 +63,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c07",
       "title": "我用的啥美化",
+      "date": "2026-03-01",
       "cats": [
         "weiyue"
       ],
@@ -66,6 +72,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c08",
       "title": "录屏不显示 brio",
+      "date": "2026-02-25",
       "cats": [
         "brio"
       ],
@@ -74,6 +81,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c09",
       "title": "brio 角色的待机动作",
+      "date": "2026-02-22",
       "cats": [
         "brio",
         "ana"
@@ -83,6 +91,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c10",
       "title": "brio 的粒子效果",
+      "date": "2026-02-16",
       "cats": [
         "brio"
       ],
@@ -91,6 +100,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c12",
       "title": "骨骼相关碎碎念",
+      "date": "2026-01-27",
       "cats": [
         "brio",
         "ana"
@@ -100,6 +110,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c13",
       "title": "宠物动作详解",
+      "date": "2026-01-19",
       "cats": [
         "brio",
         "ana"
@@ -109,6 +120,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c14",
       "title": "镜头跟踪",
+      "date": "2026-01-09",
       "cats": [
         "weiyue"
       ],
@@ -117,6 +129,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c15",
       "title": "简单溶图（PS 教学）",
+      "date": "2026-01-01",
       "cats": [
         "ps"
       ],
@@ -125,6 +138,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c16",
       "title": "6.0 mod 升 7.0",
+      "date": "2025-12-06",
       "cats": [
         "other"
       ],
@@ -133,6 +147,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c17",
       "title": "GLA 的自由染色",
+      "date": "2025-11-27",
       "cats": [
         "weiyue"
       ],
@@ -141,6 +156,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c18",
       "title": "透明 mod 的用法",
+      "date": "2025-11-16",
       "cats": [
         "brio"
       ],
@@ -149,6 +165,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c20",
       "title": "brio 动态面部控制",
+      "date": "2025-10-30",
       "cats": [
         "brio"
       ],
@@ -157,6 +174,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c21",
       "title": "Brio 的灯光",
+      "date": "2025-10-23",
       "cats": [
         "brio"
       ],
@@ -165,6 +183,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c50",
       "title": "舞蹈 mod 和镜头（他他他 dj 版）",
+      "date": "2025-09-22",
       "cats": [
         "brio"
       ],
@@ -173,6 +192,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c23",
       "title": "ana 和 brio 的保存",
+      "date": "2025-07-14",
       "cats": [
         "brio",
         "ana"
@@ -182,6 +202,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c24",
       "title": "查看 NPC 的数据",
+      "date": "2025-07-13",
       "cats": [
         "ana"
       ],
@@ -190,6 +211,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c26",
       "title": "简单组装可爱小物",
+      "date": "2025-06-17",
       "cats": [
         "brio",
         "ana"
@@ -199,6 +221,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c46",
       "title": "ANA 的常见问题解答",
+      "date": "2025-05-30",
       "cats": [
         "ana"
       ],
@@ -207,6 +230,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c28",
       "title": "如何查看游戏建模",
+      "date": "2025-05-16",
       "cats": [
         "other"
       ],
@@ -215,6 +239,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c29",
       "title": "怎么给动作添加面部表情",
+      "date": "2025-04-26",
       "cats": [
         "brio",
         "ana"
@@ -224,6 +249,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c30",
       "title": "如何使用主手道具",
+      "date": "2025-04-19",
       "cats": [
         "brio",
         "ana"
@@ -233,6 +259,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c31",
       "title": "怎么变成小蛋糕",
+      "date": "2025-03-30",
       "cats": [
         "brio"
       ],
@@ -241,6 +268,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c32",
       "title": "新发现的小技巧",
+      "date": "2025-03-23",
       "cats": [
         "brio"
       ],
@@ -249,6 +277,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c33",
       "title": "怎么单独扣装备",
+      "date": "2025-03-14",
       "cats": [
         "filter"
       ],
@@ -257,6 +286,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c34",
       "title": "怎么拍透明底",
+      "date": "2025-03-10",
       "cats": [
         "filter"
       ],
@@ -265,6 +295,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c35",
       "title": "如何拍摄头部跟踪",
+      "date": "2025-03-08",
       "cats": [
         "other"
       ],
@@ -273,6 +304,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c36",
       "title": "怎么把数据发给约拍",
+      "date": "2025-03-03",
       "cats": [
         "brio",
         "ana"
@@ -282,6 +314,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c19",
       "title": "红卫月转蓝卫月教程",
+      "date": "2025-02-21",
       "cats": [
         "weiyue"
       ],
@@ -290,6 +323,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c37",
       "title": "怎么拍第一人称",
+      "date": "2025-02-13",
       "cats": [
         "brio",
         "ana"
@@ -299,6 +333,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c38",
       "title": "如何添加宠物 NPC 配饰",
+      "date": "2025-02-02",
       "cats": [
         "brio",
         "ana"
@@ -308,6 +343,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c39",
       "title": "第一人称图拆解 1.0",
+      "date": "2025-01-24",
       "cats": [
         "other"
       ],
@@ -316,6 +352,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c41",
       "title": "如何放置武器",
+      "date": "2025-01-01",
       "cats": [
         "brio"
       ],
@@ -324,6 +361,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c42",
       "title": "简单造景之餐盘",
+      "date": "2024-12-31",
       "cats": [
         "other"
       ],
@@ -332,6 +370,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c43",
       "title": "如何拥有多种颜色的蓝闪蝶",
+      "date": "2024-12-27",
       "cats": [
         "brio"
       ],
@@ -340,6 +379,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c44",
       "title": "30s 速通 4k 拍照",
+      "date": "2024-12-18",
       "cats": [
         "other"
       ],
@@ -348,6 +388,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c47",
       "title": "30s 教你如何找 mod 安装 mod",
+      "date": "2024-10-13",
       "cats": [
         "other"
       ],
@@ -356,6 +397,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c49",
       "title": "brio 的使用技巧",
+      "date": "2024-10-06",
       "cats": [
         "brio"
       ],
@@ -364,6 +406,7 @@ window.TUTORIAL_DATA = {
     {
       "cover": "c48",
       "title": "ANA 的安装与使用",
+      "date": "2024-10-04",
       "cats": [
         "ana"
       ],

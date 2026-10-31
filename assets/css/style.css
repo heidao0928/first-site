@@ -3970,3 +3970,33 @@ pre {
     animation: none;
   }
 }
+/* 后台教程行：发布时间 */
+.tut-edit__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.7rem;
+}
+
+.tut-edit__date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--ink-3);
+  font-size: 0.74rem;
+}
+
+.tut-edit__date input {
+  padding: 0.2rem 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.76rem;
+}
+
+.tut-edit__hint {
+  color: var(--ink-3);
+  font-size: 0.68rem;
+}

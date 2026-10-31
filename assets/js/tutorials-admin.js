@@ -30,7 +30,7 @@
     { key: "other", label: "其他" }
   ];
 
-  var state = { updated: "", items: [], sha: null, deleted: [] };
+  var state = { updated: "", items: [], sha: null, deleted: [], featuredOrder: [] };
 
   function tokenValue() {
     return (el.token.value || localStorage.getItem(TOKEN_KEY) || "").trim();
@@ -101,6 +101,10 @@
           '<img class="tut-edit__cover" src="' + COVER_DIR + item.cover + '.webp" alt="" loading="lazy" />' +
           '<div class="tut-edit__body">' +
           '<input class="tut-edit__title" data-field="title" value="' + esc(item.title) + '" placeholder="教程标题" />' +
+          '<div class="tut-edit__meta">' +
+          '<label class="tut-edit__date">发布时间 <input type="date" data-field="date" value="' + esc(item.date || "") + '" /></label>' +
+          '<span class="tut-edit__hint">列表按这个日期从新到旧自动排序</span>' +
+          "</div>" +
           '<input class="tut-edit__link" data-field="link" value="' + esc(item.link || "") + '" placeholder="链接（小红书 / B站，可留空）" />' +
           '<div class="tut-edit__cats">' +
           CATS.map(function (cat) {
@@ -138,6 +142,7 @@
       if (!item) return;
 
       item.title = row.querySelector('[data-field="title"]').value.trim();
+      item.date = row.querySelector('[data-field="date"]').value || "";
       item.link = row.querySelector('[data-field="link"]').value.trim();
       item.cats = Array.prototype.filter
         .call(row.querySelectorAll("[data-cat]"), function (input) {
@@ -174,10 +179,12 @@
         });
 
         state.updated = data.updated || "";
+        state.featuredOrder = (data.featured || []).slice();
         state.items = (data.items || []).map(function (item) {
           return {
             cover: item.cover,
             title: item.title,
+            date: item.date || "",
             link: item.link || "",
             cats: item.cats || [],
             pinAll: featured.indexOf(item.cover) !== -1,
@@ -193,14 +200,32 @@
       });
   }
 
+  function parseDay(value) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value || "").trim());
+    return m ? Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])) : 0;
+  }
+
   function buildFile() {
-    var featured = state.items
+    // 先按发布时间从新到旧排；同一天的保持手工顺序
+    state.items.sort(function (a, b) {
+      return parseDay(b.date) - parseDay(a.date);
+    });
+
+    // 置顶顺序：沿用原有顺序，新置顶的补在后面
+    var pinned = state.items
       .filter(function (item) {
         return item.pinAll;
       })
       .map(function (item) {
         return item.cover;
       });
+    var featured = state.featuredOrder.filter(function (cover) {
+      return pinned.indexOf(cover) !== -1;
+    });
+    pinned.forEach(function (cover) {
+      if (featured.indexOf(cover) === -1) featured.push(cover);
+    });
+    state.featuredOrder = featured;
 
     var catFeatured = {};
     state.items.forEach(function (item) {
@@ -215,6 +240,7 @@
         return {
           cover: item.cover,
           title: item.title,
+          date: item.date || "",
           cats: item.cats,
           link: item.link || ""
         };
@@ -237,6 +263,7 @@
       local.push({
         cover: item.cover,
         title: item.title,
+        date: item.date || "",
         link: item.link || "",
         cats: item.cats || [],
         pinAll: (latest.featured || []).indexOf(item.cover) !== -1,
@@ -378,6 +405,7 @@
         state.items.unshift({
           cover: cover,
           title: title || "新教程",
+          date: new Date().toISOString().slice(0, 10),
           link: "",
           cats: [],
           pinAll: false,
