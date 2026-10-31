@@ -4383,3 +4383,54 @@ pre {
     aspect-ratio: 16 / 9;
   }
 }
+/* 手机端顶部横幅再收 30%（覆盖前面的移动端规则） */
+@media (max-width: 56rem) {
+  .page-top {
+    margin-top: 0.4rem;
+  }
+
+  .page-top__grid {
+    gap: 0.55rem;
+  }
+
+  .page-card {
+    padding: 0.55rem 0.65rem 0.5rem;
+  }
+
+  .page-card__body {
+    gap: 0.1rem;
+  }
+
+  .page-card .section__kicker {
+    margin-bottom: 0.3rem;
+    padding: 0.12rem 0.45rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+  }
+
+  .page-card__title {
+    font-size: 1.08rem;
+    line-height: 1.15;
+  }
+
+  .page-card__meta {
+    margin-top: 0.15rem;
+    font-size: 0.66rem;
+  }
+
+  .page-tips {
+    padding: 0.5rem 0.62rem;
+  }
+
+  .page-tips__title {
+    margin-bottom: 0.2rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+
+  .page-tips__list {
+    gap: 0.12rem;
+    font-size: 0.66rem;
+    line-height: 1.42;
+  }
+}
