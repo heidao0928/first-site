@@ -5,6 +5,13 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-10-31 · 清理死代码与过时文档
+
+- CSS 从 96.4KB 压到 78.7KB（-18%）：删掉旧模板残留的 54 组选择器（about / hero / contact / archive / theme-toggle / admin-gate / page-head / section__head / tut-link-row 等）与其媒体查询分支，以及已隐藏的场景层（rays / caustics / grain / bubbles / bubble / sparkle）。
+- HTML：移除 6 个页面里 4 个 `display:none` 的装饰 div（rays / caustics / grain / bubbles）。
+- JS：删掉 `initBubbles()`（约 60 行）及其调用，`main.js` 26.6 → 24.4KB。
+- 删除未使用的 `assets/img/avatar.svg`。
+- `README.md` 整篇重写成当前站点的说明（原来是旧模板文档，写着双主题和像素气泡）。
 ## 2026-10-31 · 玻璃质感升级 + 性能与 SEO 收尾
 
 **玻璃（拟态）**
