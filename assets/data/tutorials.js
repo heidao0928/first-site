@@ -104,7 +104,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": "https://xhslink.cn/o/3IBvYaEgztq"
+      "link": "https://xhslink.cn/o/3lBvYaEgztq"
     },
     {
       "cover": "c14",
@@ -112,7 +112,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "weiyue"
       ],
-      "link": "https://xhslink.cn/o/pBhZOX3hlk"
+      "link": "https://xhslink.cn/o/pBhZOX3hIk"
     },
     {
       "cover": "c15",
@@ -260,7 +260,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "filter"
       ],
-      "link": "https://xhslink.cn/o/A2gWlYIDpgA"
+      "link": "https://xhslink.cn/o/A2gWIYlDpgA"
     },
     {
       "cover": "c35",
@@ -280,21 +280,21 @@ window.TUTORIAL_DATA = {
       "link": "https://xhslink.cn/o/AFxiUmjCBFT"
     },
     {
-      "cover": "c37",
-      "title": "怎么拍第一人称",
-      "cats": [
-        "brio",
-        "ana"
-      ],
-      "link": "https://xhslink.cn/o/9ZeMkjluwll"
-    },
-    {
       "cover": "c19",
       "title": "红卫月转蓝卫月教程",
       "cats": [
         "weiyue"
       ],
       "link": "https://xhslink.cn/o/ARucphSrYlz"
+    },
+    {
+      "cover": "c37",
+      "title": "怎么拍第一人称",
+      "cats": [
+        "brio",
+        "ana"
+      ],
+      "link": "https://xhslink.cn/o/9ZeMkjIuwIl"
     },
     {
       "cover": "c38",
