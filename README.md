@@ -25,7 +25,7 @@
 │   ├── css/style.css       全部样式：场景、玻璃组件、文章排版
 │   ├── js/main.js          全部交互，约 280 行，无依赖
 │   └── img/
-│       ├── avatar.svg      头像占位图
+│       ├── avatar.png      头像（顶栏用，128×128）
 │       └── favicon.svg     站点图标
 └── README.md
 ```

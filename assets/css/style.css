@@ -2350,7 +2350,7 @@ pre {
 /* 主标题沿用原来的果冻渐变字 */
 .hub__title {
   margin: 0;
-  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+  font-size: clamp(2.3rem, 5vw, 4.1rem);
   line-height: 1.15;
   letter-spacing: -0.03em;
   background: linear-gradient(
@@ -2384,7 +2384,7 @@ pre {
 .hub__sub {
   margin: 0;
   color: var(--ink-2);
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
   letter-spacing: 0.01em;
 }
 
@@ -2535,4 +2535,11 @@ pre {
   .scene__swell {
     animation: none;
   }
+}
+.brand__mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
