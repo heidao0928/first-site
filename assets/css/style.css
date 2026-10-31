@@ -2614,8 +2614,21 @@ pre {
 
 .tut-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1.2rem 0.9rem;
+}
+
+/* 窄一些的窗口退成 3 列 / 2 列，避免封面被压得太小 */
+@media (max-width: 68rem) {
+  .tut-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 40rem) {
+  .tut-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .tut-card {

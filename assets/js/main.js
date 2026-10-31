@@ -311,7 +311,7 @@
     if (!bar || !grid) return;
 
     var cards = $$(".tut-card", grid);
-    var perPage = 12;
+    var perPage = 15;
     var filter = "all";
     var page = 1;
 
