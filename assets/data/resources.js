@@ -11,7 +11,9 @@ window.RESOURCE_DATA = {
       "desc": "7.57 版本（gpose 内换武器）",
       "link": "",
       "file": {
-        "kind": "pending"
+        "kind": "download",
+        "href": "https://wwawr.lanzouc.com/iic2s4e59kxg",
+        "hint": "ff14"
       }
     },
     {
@@ -45,7 +47,9 @@ window.RESOURCE_DATA = {
       "desc": "右键「管理员模式」运行",
       "link": "",
       "file": {
-        "kind": "pending"
+        "kind": "download",
+        "href": "https://wwawr.lanzouc.com/ih11c4e59kyh",
+        "hint": "ff14"
       }
     },
     {
@@ -83,7 +87,9 @@ window.RESOURCE_DATA = {
       "desc": "解压后点开文件夹，复制路径添加到卫月本地安装，选择 dll 文件；保存后回到插件中心点「扫描插件」。路径不得有中文",
       "link": "",
       "file": {
-        "kind": "pending"
+        "kind": "download",
+        "href": "https://wwawr.lanzouc.com/iC2W64e59ojg",
+        "hint": "ff14"
       }
     },
     {
@@ -94,7 +100,8 @@ window.RESOURCE_DATA = {
       "desc": "安装 mod 时右上角把 safe 点成 unsafe",
       "link": "",
       "file": {
-        "kind": "pending"
+        "kind": "download",
+        "href": "https://wwawr.lanzouc.com/iZNtj4e59nxe"
       }
     },
     {
