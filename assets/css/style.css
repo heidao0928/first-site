@@ -4000,3 +4000,19 @@ pre {
   color: var(--ink-3);
   font-size: 0.68rem;
 }
+/* ============================================================
+   桌面端：滚动条出现/消失会让 fixed 背景随视口宽度重算 cover，
+   表现为背景被「拉伸 + 闪一下」。这里固定预留滚动条槽位，
+   让视口宽度在任何页面都一致。
+   ============================================================ */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+.scene {
+  background-attachment: scroll;
+  /* 去掉 will-change，避免滚动时反复重建图层；translateZ 保留 */
+  will-change: auto;
+  contain: layout paint;
+}
