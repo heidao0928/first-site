@@ -626,8 +626,16 @@ pre {
   transition: transform var(--dur) var(--ease);
 }
 
-.brand:hover .brand__mark {
-  transform: rotate(-6deg);
+.brand__mark:hover {
+  transform: rotate(-6deg) scale(1.06);
+}
+
+.brand__text {
+  transition: color var(--dur) var(--ease);
+}
+
+.brand__text:hover {
+  color: var(--accent);
 }
 
 .nav {
