@@ -30,7 +30,7 @@
     { key: "other", label: "其他" }
   ];
 
-  var state = { updated: "", items: [], sha: null };
+  var state = { updated: "", items: [], sha: null, deleted: [] };
 
   function tokenValue() {
     return (el.token.value || localStorage.getItem(TOKEN_KEY) || "").trim();
@@ -224,6 +224,45 @@
     return "/* 教程数据：由 admin.html 维护，也可直接手改 */\nwindow.TUTORIAL_DATA = " + JSON.stringify(data, null, 2) + ";\n";
   }
 
+  /* 远端被别人改过时：把远端新增的条目并进来，本地编辑优先 */
+  function mergeWith(latest) {
+    var local = state.items;
+    var localCovers = local.map(function (item) {
+      return item.cover;
+    });
+
+    (latest.items || []).forEach(function (item) {
+      if (localCovers.indexOf(item.cover) !== -1) return;
+      if (state.deleted.indexOf(item.cover) !== -1) return;
+      local.push({
+        cover: item.cover,
+        title: item.title,
+        link: item.link || "",
+        cats: item.cats || [],
+        pinAll: (latest.featured || []).indexOf(item.cover) !== -1,
+        catPin: ""
+      });
+    });
+
+    Object.keys(latest.catFeatured || {}).forEach(function (cat) {
+      var cover = latest.catFeatured[cat];
+      var hasLocal = local.some(function (item) {
+        return item.catPin === cat;
+      });
+      if (hasLocal) return;
+      local.forEach(function (item) {
+        if (item.cover === cover) item.catPin = cat;
+      });
+    });
+
+    (latest.featured || []).forEach(function (cover) {
+      var item = local.filter(function (i) {
+        return i.cover === cover;
+      })[0];
+      if (item && !item.pinAll) item.pinAll = true;
+    });
+  }
+
   function save() {
     collect();
 
@@ -236,15 +275,30 @@
     }
 
     status("保存中…");
-    api("contents/" + DATA_PATH, {
-      method: "PUT",
-      body: JSON.stringify({
-        message: "更新教程数据（admin）",
-        content: encodeBase64(buildFile()),
-        sha: state.sha,
-        branch: branch()
+
+    api("contents/" + DATA_PATH + "?ref=" + encodeURIComponent(branch()))
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
       })
-    })
+      .then(function (file) {
+        var raw = decodeBase64(file.content);
+        var start = raw.indexOf("window.TUTORIAL_DATA");
+        var eq = raw.indexOf("=", start);
+        var latest = parseData(raw.slice(eq + 1).trim().replace(/;$/, "")) || {};
+        mergeWith(latest);
+        render();
+
+        return api("contents/" + DATA_PATH, {
+          method: "PUT",
+          body: JSON.stringify({
+            message: "更新教程数据（admin）",
+            content: encodeBase64(buildFile()),
+            sha: file.sha,
+            branch: branch()
+          })
+        });
+      })
       .then(function (res) {
         if (!res.ok) {
           return res.json().then(function (body) {
@@ -255,6 +309,7 @@
       })
       .then(function (json) {
         state.sha = json.content.sha;
+        state.deleted = [];
         status("已保存 " + state.items.length + " 条教程，约 1 分钟后生效", "ok");
       })
       .catch(function (error) {
@@ -352,6 +407,7 @@
 
     if (act === "del") {
       if (!window.confirm("确定删除「" + state.items[index].title + "」？保存后才会真正生效。")) return;
+      state.deleted.push(state.items[index].cover);
       state.items.splice(index, 1);
     } else if (act === "up" && index > 0) {
       var prev = state.items[index - 1];
