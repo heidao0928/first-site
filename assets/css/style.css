@@ -3907,3 +3907,66 @@ pre {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+/* ============================================================
+   手机端滚动闪烁修复
+   1) 背景层单独提层，避免滚动时被反复重绘
+   2) 关掉移动端的高开销效果：70px 动画模糊、混合模式
+   3) 换更小的背景图，减少解码与显存
+   4) 面板在移动端不用 backdrop-filter，改用更高不透明度
+   ============================================================ */
+.scene {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+}
+
+@media (max-width: 56rem) {
+  .scene {
+    background-image: url("../img/bg-water-mobile.jpg");
+    background-attachment: scroll;
+  }
+
+  /* 动画 + 大半径模糊 = 移动端掉帧/闪烁的主因，直接停掉 */
+  .scene__swell {
+    animation: none;
+    filter: none;
+    opacity: 0.32;
+    mix-blend-mode: normal;
+  }
+
+  .scene__vignette {
+    mix-blend-mode: normal;
+    opacity: 0.55;
+  }
+
+  /* 面板：移动端不模糊，用不透明一点的白蓝，滚动时不再逐帧重采样 */
+  .hub__intro,
+  .hub__panel,
+  .hub__notice,
+  .hub__thanks,
+  .section,
+  .page-card,
+  .page-tips,
+  .post,
+  .site-header,
+  .links-split .links-list,
+  .links-split .links-promo {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: rgba(244, 253, 255, 0.88);
+  }
+
+  /* 卡片内部的小元素本来就没有模糊，这里顺带禁掉过渡抖动 */
+  .tut-card__cover,
+  .entry {
+    will-change: auto;
+  }
+}
+
+/* 系统开了「减少动态效果」时也别再动 */
+@media (prefers-reduced-motion: reduce) {
+  .scene__swell {
+    animation: none;
+  }
+}

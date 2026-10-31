@@ -5,6 +5,12 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-10-31 · 修手机端滚动时背景闪烁
+
+- 背景层 `.scene` 提层：`transform: translateZ(0)` + `backface-visibility: hidden`，滚动时不再被反复重绘。
+- 手机端关掉两个高开销特效：`.scene__swell` 的 `filter: blur(70px)` 与 80s 动画、`.scene__vignette` 的 `mix-blend-mode`（保留静态渐变）。
+- 手机端改用更小的背景图 `bg-water-mobile.jpg`（1080 宽，57KB，原来是 1920 宽 149KB），解码更快。
+- 手机端面板取消 `backdrop-filter`（含顶部导航），改成 `rgba(244,253,255,0.88)`，滚动不再逐帧重采样；桌面端玻璃效果不变。
 ## 2026-10-31 · 后台新增「页面文案」：大部分内容可在后台改
 
 - 新增 `assets/data/site.js`（`window.SITE_DATA`）：首页眉标/标题/副标题、社交链接、内容入口三项、致敬语、四页页脚一句话、三页 TIPS、相关网站列表（含群号行）与自制 mod 卡。
