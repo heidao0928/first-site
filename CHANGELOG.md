@@ -2,6 +2,9 @@
 
 每条都尽量写清「改了什么 / 为什么」，方便以后回退或让 AI 接手。
 
+## 2026-10-31 · 资源表第 03 条链接更正
+
+- 说明改为「【腾讯文档】主手道具：…」，链接换成 `https://docs.qq.com/sheet/DYWhRZ1RabnV4U1Ns?tab=BB08J2`。
 ## 2026-10-31 · 资源表 05/06 修正
 
 - 第 05 条蓝奏云链接改为 `https://wwf.lanzoul.com/b0sxagp0d`（原 wwt 有误），说明补上「官网可能需要挂梯」与「官网：SpinningMomo」。
