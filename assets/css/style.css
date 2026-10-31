@@ -2551,3 +2551,22 @@ pre {
   object-fit: cover;
   border-radius: 8px;
 }
+
+/* 社交链接：小字里也要看得出能点 */
+.hub__meta a {
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-decoration-color: rgba(10, 127, 163, 0.35);
+  text-underline-offset: 3px;
+  transition: color var(--dur) var(--ease),
+    text-decoration-color var(--dur) var(--ease);
+}
+
+.hub__meta a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.hub__meta span {
+  margin: 0 0.15rem;
+}
