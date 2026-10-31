@@ -5,6 +5,11 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-10-31 · 后台新增「页面文案」：大部分内容可在后台改
+
+- 新增 `assets/data/site.js`（`window.SITE_DATA`）：首页眉标/标题/副标题、社交链接、内容入口三项、致敬语、四页页脚一句话、三页 TIPS、相关网站列表（含群号行）与自制 mod 卡。
+- `initSiteContent()` 按页渲染上述内容；HTML 只保留兜底结构，改数据即可改页面。
+- 后台新增「页面文案」分区：分三块（首页 / TIPS / 相关网站），支持加行、删行、改字段，保存写入 `site.js`。
 ## 2026-10-31 · 清理死代码与过时文档
 
 - CSS 从 96.4KB 压到 78.7KB（-18%）：删掉旧模板残留的 54 组选择器（about / hero / contact / archive / theme-toggle / admin-gate / page-head / section__head / tut-link-row 等）与其媒体查询分支，以及已隐藏的场景层（rays / caustics / grain / bubbles / bubble / sparkle）。

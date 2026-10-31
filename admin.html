@@ -34,6 +34,7 @@
           <button type="button" class="admin__tab" data-pane="thanks">致谢</button>
           <button type="button" class="admin__tab" data-pane="links">下载链接</button>
           <button type="button" class="admin__tab" data-pane="tutorial">教程</button>
+          <button type="button" class="admin__tab" data-pane="site">页面文案</button>
           <a class="admin__side-link" href="resources.html">看资源页 →</a>
         </nav>
 
@@ -102,6 +103,21 @@
             <p class="admin__hint">显示在首页「公告」下方的一条小字。名字留空的行保存时会被忽略。</p>
 
             <div class="admin__list" id="th-list"></div>
+          </section>
+
+          <!-- 页面文案 -->
+          <section class="admin__pane" data-pane-panel="site" aria-label="页面文案" hidden>
+            <div class="admin__bar">
+              <div class="admin__bar-actions">
+                <button type="button" class="admin__btn" id="s-load">重新读取</button>
+                <button type="button" class="admin__btn admin__btn--primary" id="s-save">保存全部</button>
+              </div>
+              <p class="admin__status" id="s-status" role="status"></p>
+            </div>
+
+            <p class="admin__hint">首页标题、社交链接、内容入口、页脚一句话、三个页面的 TIPS、相关网站列表与自制 mod 卡，都在这里改。</p>
+
+            <div id="s-body"></div>
           </section>
 
           <!-- 教程 -->
@@ -180,5 +196,6 @@
     <script src="assets/js/notices-admin.js"></script>
     <script src="assets/js/tutorials-admin.js"></script>
     <script src="assets/js/thanks-admin.js"></script>
+    <script src="assets/js/site-admin.js"></script>
   </body>
 </html>

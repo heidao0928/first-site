@@ -67,11 +67,11 @@
     <main class="hub" id="main">
       <div class="hub__col">
       <section class="hub__intro" aria-labelledby="hub-title">
-        <p class="hub__eyebrow">✧ 欢迎光临</p>
+        <p class="hub__eyebrow" data-site-eyebrow>✧ 欢迎光临</p>
 
-        <h1 class="hub__title" id="hub-title">黑岛摄影手册</h1>
-        <p class="hub__sub">教程随版本变化有出入，具体参考最新插件界面。</p>
-        <p class="hub__meta">
+        <h1 class="hub__title" id="hub-title" data-site-title>黑岛摄影手册</h1>
+        <p class="hub__sub" data-site-sub>教程随版本变化有出入，具体参考最新插件界面。</p>
+        <p class="hub__meta" data-site-links>
           <a
             href="https://www.xiaohongshu.com/user/profile/6412fbc0000000001102217c"
             target="_blank"
@@ -121,7 +121,7 @@
       <aside class="hub__panel" aria-labelledby="entry-title">
         <h2 class="hub__panel-title" id="entry-title">内容入口</h2>
 
-        <ul class="entry-list">
+        <ul class="entry-list" data-site-entries>
           <li>
             <a class="entry" href="tutorials.html">
               <span class="entry__text">
@@ -150,7 +150,7 @@
             </a>
           </li>
         </ul>
-        <p class="hub__credit">
+        <p class="hub__credit" data-site-tribute>
           <span>致敬传奇制作人</span>
           <strong>吉田直树</strong>
         </p>
@@ -160,11 +160,12 @@
     <footer class="site-footer">
       <div class="container site-footer__inner">
         <p>© <span data-year>2026</span> 黑岛 · 最终幻想 14 拍照科技相关 <span class="site-footer__note">只分享拍照科技，请勿影响他人游戏体验</span></p>
-        <p class="site-footer__wish">希望 FF14 越来越好</p>
+        <p class="site-footer__wish" data-site-wish>希望 FF14 越来越好</p>
       </div>
     </footer>
 
     <script src="assets/data/notices.js"></script>
+    <script src="assets/data/site.js"></script>
     <script src="assets/data/thanks.js"></script>
     <script src="assets/js/main.js"></script>
   </body>

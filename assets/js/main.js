@@ -574,6 +574,132 @@
     });
   }
 
+  /* ------------------------------------------------------ 页面文案渲染 */
+  function initSiteContent() {
+    var data = window.SITE_DATA;
+    if (!data) return;
+
+    var home = data.home || {};
+    var file = (location.pathname.split("/").pop() || "index.html").replace(/\.html$/, "");
+    var page = file || "index";
+
+    function esc(value) {
+      return String(value == null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function setText(sel, text) {
+      var el = document.querySelector(sel);
+      if (el && text) el.textContent = text;
+    }
+
+    setText("[data-site-eyebrow]", home.eyebrow);
+    setText("[data-site-title]", home.title);
+    setText("[data-site-sub]", home.sub);
+
+    var meta = document.querySelector("[data-site-links]");
+    if (meta && Array.isArray(home.links) && home.links.length) {
+      meta.innerHTML = home.links
+        .map(function (item, index) {
+          var a =
+            '<a href="' + esc(item.href) + '" target="_blank" rel="noopener noreferrer">' +
+            esc(item.label) + "</a>";
+          return index ? '<span aria-hidden="true">·</span>' + a : a;
+        })
+        .join("");
+    }
+
+    var entries = document.querySelector("[data-site-entries]");
+    if (entries && Array.isArray(home.entries)) {
+      entries.innerHTML = home.entries
+        .map(function (item) {
+          return (
+            '<li><a class="entry" href="' + esc(item.href) + '">' +
+            '<span class="entry__text">' +
+            '<span class="entry__label">' + esc(item.label) + "</span>" +
+            '<span class="entry__desc">' + esc(item.desc) + "</span>" +
+            "</span>" +
+            '<span class="entry__arrow" aria-hidden="true">→</span>' +
+            "</a></li>"
+          );
+        })
+        .join("");
+    }
+
+    var trib = document.querySelector("[data-site-tribute]");
+    if (trib && home.tributeName) {
+      trib.innerHTML =
+        "<span>" + esc(home.tributeLabel || "") + "</span><strong>" + esc(home.tributeName) + "</strong>";
+    }
+
+    var wish = document.querySelector("[data-site-wish]");
+    if (wish && home.wishes && home.wishes[page]) {
+      wish.textContent = home.wishes[page];
+    }
+
+    var tips = document.querySelector("[data-page-tips]");
+    if (tips && data.tips && Array.isArray(data.tips[page]) && data.tips[page].length) {
+      tips.innerHTML = data.tips[page]
+        .map(function (line) {
+          return "<li>" + esc(line) + "</li>";
+        })
+        .join("");
+    }
+
+    var rowsBox = document.querySelector("[data-links-rows]");
+    if (rowsBox && data.links && Array.isArray(data.links.rows)) {
+      rowsBox.innerHTML = data.links.rows
+        .map(function (row) {
+          var head =
+            '<span class="post-item__date">' + esc(row.tag) + "</span>" +
+            '<span class="post-item__body">' +
+            '<span class="post-item__title">' + esc(row.title) + "</span>" +
+            '<span class="post-item__summary">' + esc(row.desc) + "</span>";
+
+          if (row.type === "groups") {
+            var buttons = (row.groups || [])
+              .map(function (g) {
+                return (
+                  '<button type="button" class="chip" data-copy="' + esc(g.qq) + '">' +
+                  esc(g.name) + " " + esc(g.qq) + "</button>"
+                );
+              })
+              .join("");
+            return (
+              '<li class="post-item"><div class="post-item__link post-item__link--static">' +
+              head + '<span class="link-buttons">' + buttons + "</span></span></div></li>"
+            );
+          }
+
+          return (
+            '<li class="post-item"><a class="post-item__link" href="' + esc(row.href) +
+            '" target="_blank" rel="noopener noreferrer">' +
+            head + "</span>" +
+            '<span class="post-item__arrow" aria-hidden="true">↗</span></a></li>'
+          );
+        })
+        .join("");
+    }
+
+    var promo = document.querySelector("[data-links-promo]");
+    if (promo && data.links && data.links.promo) {
+      var pr = data.links.promo;
+      if (pr.href) promo.setAttribute("href", pr.href);
+      var img = promo.querySelector("img");
+      if (img && pr.cover) img.src = "assets/img/covers/" + pr.cover + ".webp";
+      if (img && pr.title) img.alt = pr.title;
+      var pt = promo.querySelector(".links-promo__title");
+      if (pt && pr.title) pt.textContent = pr.title;
+      var pd = promo.querySelector(".links-promo__desc");
+      if (pd && pr.desc) pd.textContent = pr.desc;
+      var kicker = document.querySelector(".links-promo__kicker");
+      if (kicker && pr.kicker) kicker.textContent = pr.kicker;
+    }
+  }
+
   /* ------------------------------------------------------ 教程数据渲染 */
   function initTutorialData() {
     var data = window.TUTORIAL_DATA;
@@ -722,6 +848,7 @@
   function boot() {
     // 先让内容可见，再逐个启用交互；某个模块出错不会连累其他功能
     var steps = [
+      initSiteContent,
       initReveal,
       initNav,
       initScrollSpy,
