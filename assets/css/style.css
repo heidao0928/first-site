@@ -3876,3 +3876,11 @@ pre {
     border-top: 1px solid var(--panel-line);
   }
 }
+.links-promo__kicker {
+  margin: 0 0 0.7rem;
+  color: var(--ink-3);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
