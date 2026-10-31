@@ -13,7 +13,7 @@ param(
   [string]$Message = ""
 )
 
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"
 
 $root = Split-Path -Parent $PSScriptRoot
 Set-Location $root
