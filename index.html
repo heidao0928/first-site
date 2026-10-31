@@ -90,6 +90,7 @@
     </header>
 
     <main class="hub" id="main">
+      <div class="hub__col">
       <section class="hub__intro" aria-labelledby="hub-title">
         <p class="hub__eyebrow">✧ 欢迎光临</p>
 
@@ -119,44 +120,13 @@
         </p>
       </section>
 
-      <aside class="hub__panel" aria-labelledby="entry-title">
-        <h2 class="hub__panel-title" id="entry-title">内容入口</h2>
-
-        <ul class="entry-list">
-          <li>
-            <a class="entry" href="tutorials.html">
-              <span>教程区</span>
-              <span class="entry__arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li>
-            <a class="entry" href="resources.html">
-              <span>资源区</span>
-              <span class="entry__arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li>
-            <a class="entry" href="links.html">
-              <span>相关网站</span>
-              <span class="entry__arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-        </ul>
-      </aside>
-
       <section class="hub__rail" aria-labelledby="latest-title">
         <div class="hub__rail-head">
           <h2 class="hub__rail-title" id="latest-title">最近更新</h2>
-          <a class="hub__rail-more" href="tutorials.html">查看全部 48 篇 →</a>
+          <a class="hub__rail-more" href="tutorials.html">全部 48 篇 →</a>
         </div>
 
         <ul class="hub__rail-list">
-          <li>
-            <a href="tutorials.html">
-              <img src="assets/img/covers/c46.jpg" alt="ANA 的常见问题解答" loading="lazy" />
-              <span>ANA 的常见问题解答</span>
-            </a>
-          </li>
           <li>
             <a href="tutorials.html">
               <img src="assets/img/covers/c47.jpg" alt="30s 教你如何找 mod 安装 mod" loading="lazy" />
@@ -176,7 +146,60 @@
             </a>
           </li>
         </ul>
+
+        <ul class="hub__feed">
+          <li><time datetime="2026-10-31">10.31</time>教程补到 48 篇，按卫月 / brio / ana / 滤镜 / PS / 其他 分类</li>
+          <li><time datetime="2026-10-31">10.31</time>全部封面换成实拍图，支持分页浏览</li>
+          <li><time datetime="2026-10-30">10.30</time>首页改版，新增 TIPS 与爱发电入口</li>
+        </ul>
       </section>
+      </div>
+
+      <aside class="hub__panel" aria-labelledby="entry-title">
+        <h2 class="hub__panel-title" id="entry-title">内容入口</h2>
+
+        <ul class="entry-list">
+          <li>
+            <a class="entry" href="tutorials.html">
+              <span class="entry__text">
+                <span class="entry__label">教程区</span>
+                <span class="entry__desc">48 篇拍照科技教程，按六类整理</span>
+              </span>
+              <span class="entry__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="entry" href="resources.html">
+              <span class="entry__text">
+                <span class="entry__label">资源区</span>
+                <span class="entry__desc">常用插件、工具与下载</span>
+              </span>
+              <span class="entry__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="entry" href="links.html">
+              <span class="entry__text">
+                <span class="entry__label">相关网站</span>
+                <span class="entry__desc">常用站点、文档与社区</span>
+              </span>
+              <span class="entry__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="hub__cats">
+          <p class="hub__cats-title">分类</p>
+          <ul class="hub__cats-list">
+            <li><a class="chip" href="tutorials.html">卫月相关</a></li>
+            <li><a class="chip" href="tutorials.html">brio 相关</a></li>
+            <li><a class="chip" href="tutorials.html">ana 相关</a></li>
+            <li><a class="chip" href="tutorials.html">滤镜相关</a></li>
+            <li><a class="chip" href="tutorials.html">PS 相关</a></li>
+            <li><a class="chip" href="tutorials.html">其他</a></li>
+          </ul>
+        </div>
+      </aside>
     </main>
 
     <footer class="site-footer">
