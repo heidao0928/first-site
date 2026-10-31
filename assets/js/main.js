@@ -484,6 +484,55 @@
     if (updated) updated.textContent = data.updated ? "更新于 " + data.updated : "";
   }
 
+  /* ------------------------------------------------------------ 复制群号 */
+  function initCopyButtons() {
+    var buttons = $$("[data-copy]");
+    if (!buttons.length) return;
+
+    var copyText = function (text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text);
+      }
+      return new Promise(function (resolve, reject) {
+        var area = document.createElement("textarea");
+        area.value = text;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.opacity = "0";
+        document.body.appendChild(area);
+        area.select();
+        try {
+          document.execCommand("copy");
+          resolve();
+        } catch (error) {
+          reject(error);
+        }
+        document.body.removeChild(area);
+      });
+    };
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var text = button.getAttribute("data-copy");
+        var label = button.textContent;
+        copyText(text)
+          .then(function () {
+            button.textContent = "已复制 " + text;
+            button.classList.add("is-copied");
+          })
+          .catch(function () {
+            button.textContent = "复制失败，手动选一下";
+          })
+          .then(function () {
+            setTimeout(function () {
+              button.textContent = label;
+              button.classList.remove("is-copied");
+            }, 1600);
+          });
+      });
+    });
+  }
+
   /* ---------------------------------------------------------------- 启动 */
   function boot() {
     // 先让内容可见，再逐个启用交互；某个模块出错不会连累其他功能
@@ -499,6 +548,7 @@
       initLightbox,
       initResourcesTable,
       initNotices,
+      initCopyButtons,
     ];
 
     steps.forEach(function (step) {

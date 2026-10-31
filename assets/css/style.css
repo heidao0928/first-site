@@ -3634,3 +3634,19 @@ pre {
   color: var(--ink-3);
   opacity: 0.9;
 }
+/* 相关网站里的群号按钮 */
+.link-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.post-item__link--static {
+  cursor: default;
+}
+.chip.is-copied {
+  border-color: rgba(10, 110, 140, 0.55);
+  background: linear-gradient(180deg, #7fdcf5 0%, #23a5cb 48%, #0d86aa 100%);
+  color: #fff;
+}
