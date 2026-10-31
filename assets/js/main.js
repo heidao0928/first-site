@@ -308,6 +308,7 @@
     var bar = document.querySelector("[data-tut-filters]");
     var grid = document.querySelector(".tut-grid");
     var pager = document.querySelector("[data-tut-pager]");
+    var featured = document.querySelector("[data-tut-featured]");
     if (!bar || !grid) return;
 
     var cards = $$(".tut-card", grid);
@@ -316,6 +317,7 @@
     var page = 1;
 
     function matches(card) {
+      if (filter === "all" && card.getAttribute("data-pin")) return false;
       return filter === "all" || card.getAttribute("data-cat") === filter;
     }
 
@@ -361,6 +363,10 @@
       });
 
       setPageButtons(total);
+
+      if (featured) {
+        featured.hidden = !(filter === "all" && page === 1);
+      }
 
       if (scroll) {
         var top = grid.getBoundingClientRect().top + window.scrollY - 160;
