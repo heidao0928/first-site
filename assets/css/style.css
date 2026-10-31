@@ -2768,11 +2768,7 @@ pre {
 }
 
 .tut-head {
-  padding: 3.3rem 1.25rem 1.2rem;
-}
-
-.tut-head .window-bar {
-  height: 2.2rem;
+  padding: 1.35rem 1.25rem 1.2rem;
 }
 
 .tut-head__body {

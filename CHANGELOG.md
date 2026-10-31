@@ -2,6 +2,10 @@
 
 每条都尽量写清「改了什么 / 为什么」，方便以后回退或让 AI 接手。
 
+## 2026-10-31 · 去掉教程页标题卡的窗口栏
+
+- 删掉 `.tut-head` 里的 `.window-bar`（红黄绿点 + tutorials 字样），只保留蓝色 TUTORIALS 胶囊和「教程」。
+- 卡片上内边距从 3.3rem 收到 1.35rem，整块更矮、和右侧 TIPS 卡齐平。
 ## 2026-10-31 · 首页加爱发电
 
 - `.hub__meta` 增加「爱发电@黑岛」，链接 <https://afdian.com/a/heidao0928>（`target="_blank"` + `noopener`），排在 b 站之后。
