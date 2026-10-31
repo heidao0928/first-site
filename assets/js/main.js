@@ -631,6 +631,30 @@
     });
   }
 
+  /* ------------------------------------------------------ 教程链接挂载 */
+  function initTutorialLinks() {
+    var map = window.TUTORIAL_LINKS || {};
+
+    function coverKey(el) {
+      var img = el.querySelector("img");
+      if (!img) return null;
+      var m = (img.getAttribute("src") || "").match(/covers\/([^./]+)\./);
+      return m ? m[1] : null;
+    }
+
+    $$(".tut-card, .tut-featured__item").forEach(function (el) {
+      if (!el.tagName || el.tagName.toLowerCase() !== "a") return;
+      var key = coverKey(el);
+      var href = key && map[key] ? String(map[key]).trim() : "";
+      if (href) {
+        el.setAttribute("href", href);
+        el.setAttribute("target", "_blank");
+        el.setAttribute("rel", "noopener noreferrer");
+        el.classList.add("has-link");
+      }
+    });
+  }
+
   /* ---------------------------------------------------------------- 启动 */
   function boot() {
     // 先让内容可见，再逐个启用交互；某个模块出错不会连累其他功能
@@ -647,6 +671,7 @@
       initResourcesTable,
       initNotices,
       initCopyButtons,
+      initTutorialLinks,
     ];
 
     steps.forEach(function (step) {

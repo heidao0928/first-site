@@ -5,6 +5,12 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-10-31 · 后台新增「教程」：给封面挂链接
+
+- 新增数据文件 `assets/data/tutorial-links.js`（`window.TUTORIAL_LINKS`，键是封面名如 `c48`，值是链接）。
+- `initTutorialLinks()` 在页面加载后把链接写到对应的宫格卡和置顶卡上（自动 `target=_blank` + `noopener`）。
+- 后台新增「教程」分区：从 GitHub 读 `tutorials.html` 解析出全部封面与标题，逐条填链接，保存时写回数据文件。
+- 已实测：填了 c48 / c02 两条后，宫格与置顶共 6 处都正确带上链接。
 ## 2026-10-31 · 自制 mod 卡片接上 B 站
 
 - 整张卡（封面 + 标题 + 说明）指向 <https://www.bilibili.com/video/BV1Xxx9zsEDp/>，新标签打开，去掉了分享跟踪参数。

@@ -34,6 +34,7 @@
           <button type="button" class="admin__tab is-active" data-pane="general">总管理</button>
           <button type="button" class="admin__tab" data-pane="notice">公告</button>
           <button type="button" class="admin__tab" data-pane="links">下载链接</button>
+          <button type="button" class="admin__tab" data-pane="tutorial">教程</button>
           <a class="admin__side-link" href="resources.html">看资源页 →</a>
         </nav>
 
@@ -88,6 +89,19 @@
             </div>
           </section>
 
+          <!-- 教程 -->
+          <section class="admin__pane" data-pane-panel="tutorial" aria-label="教程" hidden>
+            <div class="admin__bar">
+              <div class="admin__bar-actions">
+                <button type="button" class="admin__btn" id="t-load">读取教程</button>
+                <button type="button" class="admin__btn admin__btn--primary" id="t-save">保存链接</button>
+              </div>
+              <p class="admin__status" id="t-status" role="status"></p>
+            </div>
+
+            <div class="admin__list" id="t-list"></div>
+          </section>
+
           <!-- 下载链接 -->
           <section class="admin__pane" data-pane-panel="links" aria-label="下载链接" hidden>
             <div class="admin__bar">
@@ -139,5 +153,6 @@
     </script>
     <script src="assets/js/admin.js"></script>
     <script src="assets/js/notices-admin.js"></script>
+    <script src="assets/js/tutorial-links-admin.js"></script>
   </body>
 </html>

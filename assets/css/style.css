@@ -3900,3 +3900,52 @@ pre {
 .links-promo__card:hover .links-promo__cover {
   filter: brightness(1.04);
 }
+/* 后台「教程」页的行 */
+.tut-link-row {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.tut-link-row__cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.tut-link-row__body {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.tut-link-row__title {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.tut-link-row__input {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.tut-link-row__input:focus {
+  outline: 2px solid rgba(35, 165, 203, 0.55);
+  outline-offset: 1px;
+}
+
+@media (max-width: 48rem) {
+  .tut-link-row {
+    grid-template-columns: 6rem minmax(0, 1fr);
+  }
+}
