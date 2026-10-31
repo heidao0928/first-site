@@ -20,7 +20,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/9d8CCRv95tU"
     },
     {
       "cover": "c02",
@@ -36,7 +36,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/3fMI1BjeYuY"
     },
     {
       "cover": "c05",
@@ -45,7 +45,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/3Ly2Fs6d8u0"
     },
     {
       "cover": "c07",
@@ -53,7 +53,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "weiyue"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/5Dt6knnQi7g"
     },
     {
       "cover": "c08",
@@ -61,7 +61,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/4vL0L8hlZd6"
     },
     {
       "cover": "c09",
@@ -70,7 +70,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/84Dpnaba8CO"
     },
     {
       "cover": "c10",
@@ -78,7 +78,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/74Oyr2Yav9n"
     },
     {
       "cover": "c12",
@@ -87,7 +87,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/6IrRoq0t9mR"
     },
     {
       "cover": "c13",
@@ -96,7 +96,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/3IBvYaEgztq"
     },
     {
       "cover": "c14",
@@ -104,7 +104,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "weiyue"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/pBhZOX3hlk"
     },
     {
       "cover": "c15",
@@ -112,7 +112,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "ps"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/57XgTpu4A7u"
     },
     {
       "cover": "c16",
@@ -120,7 +120,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "other"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/2YFESHHlgVX"
     },
     {
       "cover": "c17",
@@ -128,7 +128,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "weiyue"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/5HBvkv9yEyq"
     },
     {
       "cover": "c18",
@@ -169,7 +169,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/4BKySeHe17W"
     },
     {
       "cover": "c24",
@@ -177,7 +177,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/2Gubryzo8HU"
     },
     {
       "cover": "c26",
@@ -220,7 +220,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/9RAQXqP6B5U"
     },
     {
       "cover": "c32",
@@ -228,7 +228,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/4NJDc2qkGAm"
     },
     {
       "cover": "c33",
@@ -236,7 +236,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "filter"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/bhg2T7lDsu"
     },
     {
       "cover": "c34",
@@ -244,7 +244,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "filter"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/A2gWlYIDpgA"
     },
     {
       "cover": "c35",
@@ -252,7 +252,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "other"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/7nkLczzYSKt"
     },
     {
       "cover": "c36",
@@ -261,7 +261,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/AFxiUmjCBFT"
     },
     {
       "cover": "c37",
@@ -270,7 +270,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/9ZeMkjluwll"
     },
     {
       "cover": "c38",
@@ -279,7 +279,7 @@ window.TUTORIAL_DATA = {
         "brio",
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/7so2z6MUWES"
     },
     {
       "cover": "c39",
@@ -287,7 +287,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "other"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/7Tx2K303N5x"
     },
     {
       "cover": "c41",
@@ -295,7 +295,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/YhmENEDu9f"
     },
     {
       "cover": "c42",
@@ -303,7 +303,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "other"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/8CVBXZLKZSU"
     },
     {
       "cover": "c43",
@@ -335,7 +335,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/9we3k4VUmzp"
     },
     {
       "cover": "c47",
@@ -343,7 +343,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "other"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/2A49YWSSbEu"
     },
     {
       "cover": "c48",
@@ -351,7 +351,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "ana"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/2IlwJvTbKEV"
     },
     {
       "cover": "c49",
@@ -359,7 +359,7 @@ window.TUTORIAL_DATA = {
       "cats": [
         "brio"
       ],
-      "link": ""
+      "link": "https://xhslink.cn/o/4Tgsju7Gjbr"
     },
     {
       "cover": "c50",
