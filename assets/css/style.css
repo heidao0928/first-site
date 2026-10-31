@@ -4159,3 +4159,93 @@ pre {
 .tut-featured__item:not([href]) {
   cursor: default;
 }
+/* 首页左下：致谢（大）+ 公告（小）并排 */
+.hub__duo {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.32fr) minmax(0, 1fr);
+  gap: clamp(0.75rem, 1.6vh, 1.1rem);
+  min-height: 0;
+}
+
+/* 致谢卡：占左边较大一块 */
+.hub__thanks {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+  min-height: 0;
+  padding: clamp(0.85rem, 1.8vw, 1.15rem) clamp(0.95rem, 2vw, 1.35rem) clamp(1rem, 2vw, 1.25rem);
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-top-color: var(--panel-gloss);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+.hub__thanks-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.hub__thanks-list {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0.6rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  list-style: none;
+  color: var(--ink-2);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  overflow: auto;
+  min-height: 0;
+  scrollbar-width: thin;
+}
+
+.hub__thanks-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.hub__thanks-item a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hub__thanks-item a:hover {
+  text-decoration: underline;
+}
+
+.hub__thanks-item em {
+  color: var(--ink-3);
+  font-style: normal;
+  font-size: 0.74rem;
+}
+
+.hub__thanks-empty {
+  color: var(--ink-3);
+  font-size: 0.78rem;
+}
+
+/* 右边公告收窄，字号略收 */
+.hub__duo .hub__notice {
+  min-height: 0;
+}
+
+.hub__duo .hub__notice .hub__feed {
+  font-size: 0.71rem;
+}
+
+@media (max-width: 56rem) {
+  .hub__duo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

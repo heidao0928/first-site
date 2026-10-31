@@ -750,7 +750,7 @@
     var items = Array.isArray(data.items) ? data.items : [];
 
     if (!items.length) {
-      box.innerHTML = '<span class="hub__thanks-empty">还没有名单，欢迎通过爱发电支持。</span>';
+      box.innerHTML = '<li class="hub__thanks-empty">还没有名单，欢迎通过爱发电支持。</li>';
       return;
     }
 
@@ -770,7 +770,7 @@
           ? '<a href="' + esc(link) + '" target="_blank" rel="noopener noreferrer">' + name + "</a>"
           : "<span>" + name + "</span>";
         var note = item.note ? '<em>' + esc(item.note) + "</em>" : "";
-        return '<span class="hub__thanks-item">' + label + note + "</span>";
+        return '<li class="hub__thanks-item">' + label + note + "</li>";
       })
       .join("");
   }
