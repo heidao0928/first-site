@@ -2494,3 +2494,45 @@ pre {
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
+
+/* --------------------------------------------------------------------------
+   19 水的「活气」：缓慢漂移的水光 + 细颗粒
+   -------------------------------------------------------------------------- */
+.scene__swell {
+  position: absolute;
+  inset: -18% -12%;
+  background:
+    radial-gradient(45% 38% at 28% 32%, rgba(255, 255, 255, 0.5), transparent 70%),
+    radial-gradient(42% 34% at 72% 58%, rgba(190, 250, 255, 0.42), transparent 72%),
+    radial-gradient(55% 45% at 48% 86%, rgba(120, 230, 255, 0.32), transparent 76%);
+  filter: blur(70px);
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  animation: swell-drift 80s ease-in-out infinite alternate;
+  will-change: transform;
+  pointer-events: none;
+}
+
+:root[data-theme="dark"] .scene__swell {
+  opacity: 0.28;
+}
+
+.scene__grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+:root[data-theme="dark"] .scene__grain {
+  opacity: 0.1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene__swell {
+    animation: none;
+  }
+}
