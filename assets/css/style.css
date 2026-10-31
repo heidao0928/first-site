@@ -2309,6 +2309,7 @@ pre {
 .hub {
   flex: 1;
   display: grid;
+  align-content: center;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   align-items: center;
   gap: clamp(1.5rem, 4vw, 4.5rem);
@@ -2954,4 +2955,89 @@ pre {
   background: rgba(120, 220, 250, 0.14);
   border-color: rgba(150, 230, 255, 0.22);
   color: var(--ink-2);
+}
+/* --------------------------------------------------------------------------
+   22 首页「最近更新」通栏
+   -------------------------------------------------------------------------- */
+.hub__rail {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 0.65rem;
+  padding: clamp(0.85rem, 1.8vw, 1.15rem) clamp(0.95rem, 2vw, 1.35rem) clamp(1rem, 2vw, 1.3rem);
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-top-color: var(--panel-gloss);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+.hub__rail-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hub__rail-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.hub__rail-more {
+  color: var(--accent);
+  font-size: 0.76rem;
+  text-decoration: none;
+}
+
+.hub__rail-more:hover {
+  text-decoration: underline;
+}
+
+.hub__rail-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hub__rail-list a {
+  display: grid;
+  gap: 0.3rem;
+  text-decoration: none;
+}
+
+.hub__rail-list img {
+  display: block;
+  width: 100%;
+  height: clamp(76px, 11vh, 128px);
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.hub__rail-list span {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--ink-2);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 56rem) {
+  .hub__rail-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hub__rail-list img {
+    height: 84px;
+  }
 }
