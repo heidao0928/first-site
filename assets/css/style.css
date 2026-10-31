@@ -2486,3 +2486,10 @@ pre {
     padding-block: 1.25rem 2rem;
   }
 }
+.site-footer__note {
+  display: block;
+  margin-top: 0.18rem;
+  color: var(--ink-3);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
