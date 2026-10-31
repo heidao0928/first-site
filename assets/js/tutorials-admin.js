@@ -374,7 +374,8 @@
       .then(function (res) {
         if (!res.ok) throw new Error("封面 HTTP " + res.status);
         collect();
-        state.items.push({
+        // 新加的放最前面（列表是按发布时间从新到旧的）
+        state.items.unshift({
           cover: cover,
           title: title || "新教程",
           link: "",
@@ -385,7 +386,8 @@
         el.addFile.value = "";
         el.addTitle.value = "";
         render();
-        status("封面已上传为 " + cover + "，补好标题和分类后点「保存」提交", "ok");
+        status("封面已上传为 " + cover + "，已放到列表最前面；补好分类和链接后点「保存」", "ok");
+        if (el.list.scrollIntoView) el.list.scrollIntoView({ block: "start", behavior: "smooth" });
       })
       .catch(function (error) {
         status("添加失败：" + error.message, "err");
