@@ -12,7 +12,8 @@
     text: document.getElementById("n-text"),
     status: document.getElementById("n-status"),
     load: document.getElementById("n-load"),
-    save: document.getElementById("n-save")
+    save: document.getElementById("n-save"),
+    gen: document.getElementById("n-gen")
   };
 
   if (!el.text) return;
@@ -152,7 +153,42 @@
       });
   }
 
+  function replyDate(value) {
+    var match = String(value || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
+    return match ? match[2] + "." + match[3] : "";
+  }
+
+  function generateDraft() {
+    status("读取最近提交…");
+    api("commits?per_page=12")
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(function (list) {
+        var skip = /更新资源表|更新首页公告|Merge|快照|合并/;
+        var lines = [];
+        list.forEach(function (item) {
+          var message = (item.commit && item.commit.message) || "";
+          var subject = message.split("\n")[0].trim();
+          if (!subject || skip.test(subject)) return;
+          var date = replyDate((item.commit && item.commit.committer && item.commit.committer.date) || "");
+          lines.push((date ? date + " " : "") + subject.replace(/（admin）$/, ""));
+        });
+        if (!lines.length) {
+          status("最近没有可用的提交记录", "err");
+          return;
+        }
+        el.text.value = lines.slice(0, 4).join("\n");
+        status("已生成 " + Math.min(lines.length, 4) + " 条草稿，改完点「保存公告」", "ok");
+      })
+      .catch(function (error) {
+        status("生成失败：" + error.message, "err");
+      });
+  }
+
   el.load.addEventListener("click", load);
   el.save.addEventListener("click", save);
+  if (el.gen) el.gen.addEventListener("click", generateDraft);
   load();
 })();
