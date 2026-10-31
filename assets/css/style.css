@@ -2749,20 +2749,20 @@ pre {
 /* --------------------------------------------------------------------------
    21 教程页顶部：小方块标题 + 右侧贴士
    -------------------------------------------------------------------------- */
-.tut-top {
+.page-top {
   width: min(100% - 2 * var(--edge), var(--container));
   margin: 0.9rem auto 0;
 }
 
-.tut-top__grid {
+.page-top__grid {
   display: grid;
   grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
   gap: 0.9rem;
   align-items: stretch;
 }
 
-.tut-head,
-.tut-tips {
+.page-card,
+.page-tips {
   position: relative;
   background: var(--panel);
   border: 1px solid var(--panel-line);
@@ -2773,16 +2773,16 @@ pre {
   -webkit-backdrop-filter: blur(16px) saturate(150%);
 }
 
-.tut-head {
+.page-card {
   padding: 1.35rem 1.25rem 1.2rem;
 }
 
-.tut-head__body {
+.page-card__body {
   display: grid;
   gap: 0.2rem;
 }
 
-.tut-head__title {
+.page-card__title {
   margin: 0;
   font-size: clamp(1.9rem, 3vw, 2.6rem);
   line-height: 1.1;
@@ -2790,13 +2790,13 @@ pre {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-.tut-head__meta {
+.page-card__meta {
   margin: 0.35rem 0 0;
   color: var(--ink-3);
   font-size: 0.78rem;
 }
 
-.tut-tips {
+.page-tips {
   padding: 1.2rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -2818,7 +2818,7 @@ pre {
   background-repeat: no-repeat, no-repeat;
 }
 
-:root[data-theme="dark"] .tut-tips {
+:root[data-theme="dark"] .page-tips {
   background-image:
     linear-gradient(
       100deg,
@@ -2831,18 +2831,18 @@ pre {
     url("../img/tips-bg.jpg");
 }
 
-.tut-tips > * {
+.page-tips > * {
   position: relative;
   max-width: 66%;
 }
 
 @media (max-width: 56rem) {
-  .tut-tips > * {
+  .page-tips > * {
     max-width: 100%;
   }
 
   /* 窄屏文字会压到图上，把左侧的托底加重一点 */
-  .tut-tips {
+  .page-tips {
     background-position: 0 0, 6% 46%;
     background-size: auto, 165% auto;
     background-image: linear-gradient(
@@ -2855,7 +2855,7 @@ pre {
       url("../img/tips-bg.jpg");
   }
 
-  :root[data-theme="dark"] .tut-tips {
+  :root[data-theme="dark"] .page-tips {
     background-image: linear-gradient(
         100deg,
         rgba(6, 34, 46, 0.95) 0%,
@@ -2867,7 +2867,7 @@ pre {
   }
 }
 
-.tut-tips__title {
+.page-tips__title {
   margin: 0 0 0.55rem;
   color: var(--ink);
   font-size: 0.95rem;
@@ -2875,7 +2875,7 @@ pre {
   letter-spacing: 0.1em;
 }
 
-.tut-tips__list {
+.page-tips__list {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -2886,12 +2886,12 @@ pre {
   line-height: 1.6;
 }
 
-.tut-tips__list li {
+.page-tips__list li {
   position: relative;
   padding-left: 1rem;
 }
 
-.tut-tips__list li::before {
+.page-tips__list li::before {
   content: "✧";
   position: absolute;
   left: 0;
@@ -2901,7 +2901,7 @@ pre {
 }
 
 @media (max-width: 56rem) {
-  .tut-top__grid {
+  .page-top__grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }
@@ -3248,4 +3248,12 @@ pre {
 /* hidden 属性必须压过 .tut-featured 的 display: grid */
 .tut-featured[hidden] {
   display: none !important;
+}
+/* 不带底图的纯玻璃 TIPS（资源页用） */
+.page-tips--plain {
+  background-image: none;
+}
+
+.page-tips--plain > * {
+  max-width: 100%;
 }

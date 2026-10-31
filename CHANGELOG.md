@@ -2,6 +2,11 @@
 
 每条都尽量写清「改了什么 / 为什么」，方便以后回退或让 AI 接手。
 
+## 2026-10-31 · 资源页改成「标题卡 + TIPS」两栏
+
+- 资源页顶部与教程页统一：左边小卡（RESOURCES / 资源 / 小字「下载资源都是分享，请认准官方 GitHub」），右边 TIPS 卡。
+- TIPS 用纯玻璃、不带底图（`.page-tips--plain`），三条：无偿分享并会先自测、出错请联系、第三方插件不被官方允许且别发带 ID 的截图。
+- 顺手把原来的 `tut-top / tut-head / tut-tips` 改名为通用的 `page-top / page-card / page-tips`，两页共用一套样式，避免复制。
 ## 2026-10-31 · 修复置顶在翻页后仍显示
 
 - 原因：`.tut-featured { display: grid }` 是作者样式，优先级高于浏览器默认的 `[hidden] { display: none }`，`hidden` 属性设了但不生效。
