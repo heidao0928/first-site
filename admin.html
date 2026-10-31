@@ -53,9 +53,22 @@
         <p class="admin__status" id="a-status" role="status"></p>
       </section>
 
+      <section class="admin__bar" aria-label="公告编辑">
+        <label class="admin__field admin__field--wide">
+          <span>首页公告（一行一条，格式「日期 内容」，日期可省略，例如 10.31 资源区开放下载）</span>
+          <textarea id="n-text" rows="6" spellcheck="false"></textarea>
+        </label>
+        <div class="admin__bar-actions">
+          <button type="button" class="admin__btn" id="n-load">读取公告</button>
+          <button type="button" class="admin__btn admin__btn--primary" id="n-save">保存公告</button>
+        </div>
+        <p class="admin__status" id="n-status" role="status"></p>
+      </section>
+
       <ol class="admin__list" id="a-list"></ol>
     </main>
 
     <script src="assets/js/admin.js"></script>
+    <script src="assets/js/notices-admin.js"></script>
   </body>
 </html>

@@ -2326,6 +2326,8 @@ pre {
 
 /* 左边也做成一块玻璃窗，和右侧入口卡同一套语言 */
 .hub__intro {
+  flex: 1;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -2965,7 +2967,7 @@ pre {
    22 首页「最近更新」通栏
    -------------------------------------------------------------------------- */
 .hub__rail {
-  flex: 1;
+  flex: 0 0 auto;
   display: grid;
   gap: 0.6rem;
   padding: clamp(0.85rem, 1.8vw, 1.15rem) clamp(0.95rem, 2vw, 1.35rem) clamp(1rem, 2vw, 1.25rem);
@@ -3796,4 +3798,26 @@ pre {
   font: inherit;
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* 首页公告栏 */
+.hub__notice-updated {
+  color: var(--ink-3);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.hub__feed li span {
+  flex: 1;
+  min-width: 0;
+}
+
+.hub__feed-empty {
+  color: var(--ink-3);
+  font-size: 0.8rem;
+}
+
+/* 公告卡比原来的更新卡矮一些，内容更松 */
+.hub__notice {
+  align-content: start;
 }

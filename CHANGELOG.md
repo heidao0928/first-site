@@ -5,6 +5,12 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-10-31 · 首页改公告栏 + B站短链
+
+- 首页 B 站链接改为 `https://b23.tv/f0rhl5`。
+- 「最近更新」卡换成「公告」卡：数据在 `assets/data/notices.js`（`window.NOTICE_DATA`），由 `initNotices()` 渲染，每行「日期 内容」。
+- 管理页新增公告编辑区（textarea，一行一条），保存走同一个 GitHub Contents API，提交 `assets/data/notices.js`。
+- 版式调整：介绍卡撑满剩余高度（内容垂直居中），公告卡按内容自适应，比原来矮。
 ## 2026-10-31 · 管理页加「测试 token」
 
 - 新增按钮：调 `/user` 与 `/repos/{repo}` 验证 token，直接显示 @用户名 和有权限与否。

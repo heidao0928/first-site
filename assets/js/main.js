@@ -501,6 +501,37 @@
       .join("");
   }
 
+  /* ------------------------------------------------------------ 首页公告 */
+  function initNotices() {
+    var list = document.querySelector("[data-notice-list]");
+    if (!list) return;
+
+    function esc(value) {
+      return String(value == null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    var data = window.NOTICE_DATA;
+    var updated = document.querySelector("[data-notice-updated]");
+
+    if (!data || !data.items || !data.items.length) {
+      list.innerHTML = '<li class="hub__feed-empty">暂时还没有公告。</li>';
+      return;
+    }
+
+    list.innerHTML = data.items
+      .map(function (item) {
+        var date = item.date ? "<time>" + esc(item.date) + "</time>" : "";
+        return "<li>" + date + "<span>" + esc(item.text) + "</span></li>";
+      })
+      .join("");
+
+    if (updated) updated.textContent = data.updated ? "更新于 " + data.updated : "";
+  }
+
   /* ---------------------------------------------------------------- 启动 */
   function boot() {
     // 先让内容可见，再逐个启用交互；某个模块出错不会连累其他功能
@@ -516,6 +547,7 @@
       initTutorialGallery,
       initLightbox,
       initResourcesTable,
+      initNotices,
     ];
 
     steps.forEach(function (step) {
