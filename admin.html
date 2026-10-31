@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>资源表管理 · 黑岛摄影手册</title>
+    <title>后台管理 · 黑岛摄影手册</title>
     <meta name="robots" content="noindex, nofollow" />
     <meta name="theme-color" content="#0a6383" />
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
@@ -21,53 +21,121 @@
       <header class="admin__head">
         <div>
           <p class="admin__kicker">Admin</p>
-          <h1 class="admin__title">资源表管理</h1>
+          <h1 class="admin__title">后台管理</h1>
           <p class="admin__hint">
-            填链接 → 点「保存到 GitHub」，它会把 <code>assets/data/resources.js</code>
-            提交到仓库，Pages 约 1 分钟后生效。token 只存在这台电脑的浏览器里。
+            改动会提交到 GitHub 仓库，约 1 分钟后线上生效。token 只存在这台电脑的浏览器里。
           </p>
         </div>
-        <a class="admin__back" href="resources.html">← 回到资源页</a>
+        <a class="admin__back" href="index.html">← 回到网站</a>
       </header>
 
-      <section class="admin__bar" aria-label="连接设置">
-        <label class="admin__field">
-          <span>仓库</span>
-          <input id="a-repo" value="heidao0928/first-site" spellcheck="false" />
-        </label>
-        <label class="admin__field">
-          <span>分支</span>
-          <input id="a-branch" value="main" spellcheck="false" />
-        </label>
-        <label class="admin__field admin__field--wide">
-          <span>GitHub token（fine-grained，只需该仓库 Contents 读写）</span>
-          <input id="a-token" type="password" placeholder="github_pat_..." spellcheck="false" />
-        </label>
-        <p class="admin__token-state" id="a-token-state" hidden></p>
-        <div class="admin__bar-actions">
-          <button type="button" class="admin__btn" id="a-test">测试 token</button>
-          <button type="button" class="admin__btn" id="a-load">读取</button>
-          <button type="button" class="admin__btn admin__btn--primary" id="a-save">保存到 GitHub</button>
-          <button type="button" class="admin__btn" id="a-add">新增一条</button>
-        </div>
-        <p class="admin__status" id="a-status" role="status"></p>
-      </section>
+      <div class="admin__layout">
+        <nav class="admin__side" aria-label="管理分区">
+          <button type="button" class="admin__tab is-active" data-pane="general">总管理</button>
+          <button type="button" class="admin__tab" data-pane="notice">公告</button>
+          <button type="button" class="admin__tab" data-pane="links">下载链接</button>
+          <a class="admin__side-link" href="resources.html">看资源页 →</a>
+        </nav>
 
-      <section class="admin__bar" aria-label="公告编辑">
-        <label class="admin__field admin__field--wide">
-          <span>首页公告（一行一条，格式「日期 内容」，日期可省略，例如 10.31 资源区开放下载）</span>
-          <textarea id="n-text" rows="6" spellcheck="false"></textarea>
-        </label>
-        <div class="admin__bar-actions">
-          <button type="button" class="admin__btn" id="n-load">读取公告</button>
-          <button type="button" class="admin__btn admin__btn--primary" id="n-save">保存公告</button>
-        </div>
-        <p class="admin__status" id="n-status" role="status"></p>
-      </section>
+        <div class="admin__panes">
+          <!-- 总管理 -->
+          <section class="admin__pane is-active" data-pane-panel="general" aria-label="总管理">
+            <div class="admin__bar">
+              <label class="admin__field">
+                <span>仓库</span>
+                <input id="a-repo" value="heidao0928/first-site" spellcheck="false" />
+              </label>
+              <label class="admin__field">
+                <span>分支</span>
+                <input id="a-branch" value="main" spellcheck="false" />
+              </label>
+              <label class="admin__field admin__field--wide">
+                <span>GitHub token（fine-grained 需该仓库 Contents 读写；classic 需勾 repo）</span>
+                <input id="a-token" type="password" placeholder="github_pat_..." spellcheck="false" />
+              </label>
+              <p class="admin__token-state" id="a-token-state" hidden></p>
+              <div class="admin__bar-actions">
+                <button type="button" class="admin__btn" id="a-test">测试 token</button>
+              </div>
+              <p class="admin__status" id="a-test-status" role="status"></p>
+            </div>
 
-      <ol class="admin__list" id="a-list"></ol>
+            <div class="admin__tips">
+              <h2 class="admin__tips-title">怎么改东西</h2>
+              <ol>
+                <li>把 token 填在上面，点「测试 token」确认能访问仓库。</li>
+                <li>切到「公告」改首页公告；切到「下载链接」改资源表。</li>
+                <li>改完点各自页面右下角的保存按钮，等 1 分钟生效。</li>
+              </ol>
+            </div>
+          </section>
+
+          <!-- 公告 -->
+          <section class="admin__pane" data-pane-panel="notice" aria-label="公告" hidden>
+            <div class="admin__bar">
+              <label class="admin__field admin__field--wide">
+                <span>首页公告（一行一条，格式「日期 内容」，日期可省略）</span>
+                <textarea id="n-text" rows="10" spellcheck="false">10.31 资源区开放下载，链接走网盘，提取码见各条
+10.31 教程补到 48 篇，按卫月 / brio / ana / 滤镜 / PS / 其他 分类
+10.30 首页改版，新增 TIPS 与爱发电入口</textarea>
+              </label>
+              <div class="admin__bar-actions">
+                <button type="button" class="admin__btn" id="n-load">读取公告</button>
+                <button type="button" class="admin__btn admin__btn--primary" id="n-save">保存公告</button>
+              </div>
+              <p class="admin__status" id="n-status" role="status"></p>
+            </div>
+          </section>
+
+          <!-- 下载链接 -->
+          <section class="admin__pane" data-pane-panel="links" aria-label="下载链接" hidden>
+            <div class="admin__bar">
+              <div class="admin__bar-actions">
+                <button type="button" class="admin__btn" id="a-load">读取资源表</button>
+                <button type="button" class="admin__btn admin__btn--primary" id="a-save">保存到 GitHub</button>
+                <button type="button" class="admin__btn" id="a-add">新增一条</button>
+              </div>
+              <p class="admin__status" id="a-status" role="status"></p>
+            </div>
+
+            <ol class="admin__list" id="a-list"></ol>
+          </section>
+        </div>
+      </div>
     </main>
 
+    <script>
+      (function () {
+        var tabs = document.querySelectorAll("[data-pane]");
+        var panes = document.querySelectorAll("[data-pane-panel]");
+
+        function activate(name) {
+          Array.prototype.forEach.call(tabs, function (item) {
+            item.classList.toggle("is-active", item.getAttribute("data-pane") === name);
+          });
+          Array.prototype.forEach.call(panes, function (pane) {
+            var active = pane.getAttribute("data-pane-panel") === name;
+            pane.classList.toggle("is-active", active);
+            pane.hidden = !active;
+          });
+        }
+
+        Array.prototype.forEach.call(tabs, function (tab) {
+          tab.addEventListener("click", function () {
+            var name = tab.getAttribute("data-pane");
+            activate(name);
+            try {
+              history.replaceState(null, "", "#" + name);
+            } catch (error) {
+              /* file:// 下可能被拦，忽略 */
+            }
+          });
+        });
+
+        var hash = (location.hash || "").replace("#", "");
+        if (hash && document.querySelector('[data-pane-panel="' + hash + '"]')) activate(hash);
+      })();
+    </script>
     <script src="assets/js/admin.js"></script>
     <script src="assets/js/notices-admin.js"></script>
   </body>

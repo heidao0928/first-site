@@ -3821,3 +3821,120 @@ pre {
 .hub__notice {
   align-content: start;
 }
+
+
+/* 后台：左菜单 + 右内容 */
+.admin__layout {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.admin__side {
+  position: sticky;
+  top: 1rem;
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.55rem;
+  border: 1px solid var(--panel-line);
+  border-top-color: var(--panel-gloss);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(16px) saturate(150%);
+}
+
+.admin__tab {
+  padding: 0.55rem 0.8rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.admin__tab:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.admin__tab.is-active {
+  background: linear-gradient(180deg, #7fdcf5 0%, #23a5cb 48%, #0d86aa 100%);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 50, 70, 0.35);
+}
+
+.admin__side-link {
+  margin-top: 0.25rem;
+  padding: 0.35rem 0.8rem;
+  color: var(--ink-3);
+  font-size: 0.76rem;
+  text-decoration: none;
+}
+
+.admin__side-link:hover {
+  color: var(--accent);
+}
+
+.admin__panes {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.admin__pane {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin__pane[hidden] {
+  display: none !important;
+}
+
+.admin__tips {
+  padding: clamp(0.9rem, 2vw, 1.2rem);
+  border: 1px solid var(--panel-line);
+  border-top-color: var(--panel-gloss);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(16px) saturate(150%);
+}
+
+.admin__tips-title {
+  margin: 0 0 0.5rem;
+  color: var(--ink-2);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.admin__tips ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--ink-2);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 48rem) {
+  .admin__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin__side {
+    position: static;
+    grid-auto-flow: column;
+    justify-content: start;
+    overflow-x: auto;
+  }
+
+  .admin__tab {
+    white-space: nowrap;
+  }
+}

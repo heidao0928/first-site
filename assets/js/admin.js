@@ -15,7 +15,8 @@
     load: document.getElementById("a-load"),
     add: document.getElementById("a-add"),
     test: document.getElementById("a-test"),
-    tokenState: document.getElementById("a-token-state")
+    tokenState: document.getElementById("a-token-state"),
+    testStatus: document.getElementById("a-test-status")
   };
 
   if (!el.list) return;
@@ -34,6 +35,13 @@
   function status(message, kind) {
     el.status.textContent = message;
     el.status.className = "admin__status" + (kind ? " is-" + kind : "");
+  }
+
+  function setStatus(node, message, kind) {
+    var target = node || el.status;
+    if (!target) return;
+    target.textContent = message;
+    target.className = "admin__status" + (kind ? " is-" + kind : "");
   }
 
   function tokenValue() {
@@ -255,10 +263,10 @@
   function testToken() {
     var t = tokenValue();
     if (!t) {
-      status("还没填 token", "err");
+      setStatus(el.testStatus || el.status, "还没填 token", "err");
       return;
     }
-    status("正在验证 token…");
+    setStatus(el.testStatus || el.status, "正在验证 token…");
     fetch("https://api.github.com/user", { headers: headers() })
       .then(function (res) {
         if (!res.ok) throw new Error("HTTP " + res.status + (res.status === 401 ? "（token 无效或已删除）" : ""));
@@ -271,16 +279,16 @@
       })
       .then(function (result) {
         if (result.repoOk) {
-          status("token 有效：@" + result.user.login + "，能访问 " + repo(), "ok");
+          setStatus(el.testStatus || el.status, "token 有效：@" + result.user.login + "，能访问 " + repo(), "ok");
         } else {
-          status(
+          setStatus(el.testStatus || el.status, 
             "token 有效：@" + result.user.login + "，但访问 " + repo() + " 失败（HTTP " + result.code + "），检查仓库名或权限",
             "err"
           );
         }
       })
       .catch(function (error) {
-        status("验证失败：" + error.message, "err");
+        setStatus(el.testStatus || el.status, "验证失败：" + error.message, "err");
       });
   }
 
