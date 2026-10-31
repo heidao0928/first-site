@@ -3704,9 +3704,11 @@ pre {
 .tut-featured__item[hidden] {
   display: none !important;
 }
-/* 「全部」置顶改成一行四个 */
-.tut-featured {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+/* 「全部」置顶改成一行四个（仅桌面） */
+@media (min-width: 56.01rem) {
+  .tut-featured {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 /* 「其他」分类的置顶小 20% */
@@ -4249,9 +4251,11 @@ pre {
     grid-template-columns: minmax(0, 1fr);
   }
 }
-/* 公告在左、更大；致谢在右、略小 */
-.hub__duo {
-  grid-template-columns: minmax(0, 1.42fr) minmax(0, 1fr);
+/* 公告在左、更大；致谢在右、略小（仅桌面） */
+@media (min-width: 56.01rem) {
+  .hub__duo {
+    grid-template-columns: minmax(0, 1.42fr) minmax(0, 1fr);
+  }
 }
 
 .hub__duo .hub__notice .hub__feed {
@@ -4260,4 +4264,122 @@ pre {
 
 .hub__duo .hub__thanks .hub__thanks-list {
   font-size: 0.75rem;
+}
+/* ============================================================
+   手机端（≤56rem）：修排版 + 收窄顶部横幅，让内容尽快露出
+   ============================================================ */
+@media (max-width: 56rem) {
+  /* 首页：公告与致谢竖排 */
+  .hub__duo {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+
+  .hub__thanks {
+    padding: 0.7rem 0.9rem 0.8rem;
+  }
+
+  .hub__thanks-title,
+  .hub__rail-title {
+    font-size: 0.85rem;
+  }
+
+  .hub__thanks-list {
+    gap: 0.3rem;
+    padding-top: 0.45rem;
+    font-size: 0.76rem;
+  }
+
+  /* 教程：置顶改成 2×2，不再挤成一条 */
+  .tut-featured {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .tut-featured__title {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    -webkit-line-clamp: 2;
+  }
+
+  /* 分类置顶：单列，别被桌面的 34rem 规则顶住 */
+  .tut-featured.tut-featured--cat {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-flow: row;
+    overflow: visible;
+  }
+
+  .tut-featured__item--sm {
+    max-width: 100%;
+  }
+
+  /* 顶部横幅：标题卡 + TIPS 都收紧 */
+  .page-top {
+    margin-top: 0.55rem;
+  }
+
+  .page-card {
+    padding: 0.85rem 0.95rem 0.8rem;
+  }
+
+  .page-card__kicker,
+  .page-card .window-bar {
+    margin-bottom: 0.35rem;
+  }
+
+  .page-card__title {
+    font-size: 1.55rem;
+  }
+
+  .page-card__meta {
+    margin-top: 0.25rem;
+    font-size: 0.72rem;
+  }
+
+  .page-tips {
+    padding: 0.7rem 0.9rem;
+    min-height: 0;
+  }
+
+  .page-tips__title {
+    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  .page-tips__list {
+    gap: 0.2rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  /* 筛选栏与搜索框也矮一点 */
+  .tut-toolbar {
+    gap: 0.5rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .tut-search input {
+    padding: 0.38rem 1.8rem 0.38rem 0.75rem;
+    font-size: 0.78rem;
+  }
+}
+/* 覆盖旧的「手机横滑」规则：置顶改成 2×2 网格 */
+@media (max-width: 56rem) {
+  .tut-featured {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+  }
+
+  .tut-featured__item {
+    scroll-snap-align: none;
+  }
+
+  .tut-featured__cover {
+    aspect-ratio: 16 / 9;
+  }
 }
