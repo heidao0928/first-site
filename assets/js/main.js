@@ -243,7 +243,13 @@
     if (!bar || !grid) return;
 
     var cards = $$(".tut-card", grid);
-    var perPage = 15;
+
+    // 手机是 2 列，用偶数每页，最后一行才不会空一格
+    var MOBILE_QUERY = window.matchMedia("(max-width: 56rem)");
+    function perPage() {
+      return MOBILE_QUERY.matches ? 14 : 15;
+    }
+    var lastPerPage = perPage();
     var filter = "all";
     var page = 1;
     var query = "";
@@ -308,11 +314,11 @@
 
     function render(scroll) {
       var list = cards.filter(matches);
-      var total = Math.max(1, Math.ceil(list.length / perPage));
+      var total = Math.max(1, Math.ceil(list.length / perPage()));
       if (page > total) page = total;
 
-      var start = (page - 1) * perPage;
-      var visible = new Set(list.slice(start, start + perPage));
+      var start = (page - 1) * perPage();
+      var visible = new Set(list.slice(start, start + perPage()));
 
       cards.forEach(function (card) {
         card.classList.toggle("is-hidden", !visible.has(card));
@@ -345,6 +351,20 @@
         var top = grid.getBoundingClientRect().top + window.scrollY - 160;
         window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
       }
+    }
+
+    function onViewportChange() {
+      var next = perPage();
+      if (next === lastPerPage) return;
+      lastPerPage = next;
+      page = 1;
+      render(false);
+    }
+
+    if (MOBILE_QUERY.addEventListener) {
+      MOBILE_QUERY.addEventListener("change", onViewportChange);
+    } else if (MOBILE_QUERY.addListener) {
+      MOBILE_QUERY.addListener(onViewportChange);
     }
 
     if (searchBox) {
