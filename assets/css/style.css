@@ -3485,3 +3485,10 @@ pre {
 .res-link:hover {
   text-decoration: underline;
 }
+.res-hint {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--ink-3);
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
