@@ -2727,3 +2727,102 @@ pre {
     gap: 0.9rem 0.7rem;
   }
 }
+/* --------------------------------------------------------------------------
+   21 教程页顶部：小方块标题 + 右侧贴士
+   -------------------------------------------------------------------------- */
+.tut-top {
+  width: min(100% - 2 * var(--edge), var(--container));
+  margin: 0.9rem auto 0;
+}
+
+.tut-top__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: stretch;
+}
+
+.tut-head,
+.tut-tips {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-top-color: var(--panel-gloss);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+.tut-head {
+  padding: 3.3rem 1.25rem 1.2rem;
+}
+
+.tut-head .window-bar {
+  height: 2.2rem;
+}
+
+.tut-head__body {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.tut-head__title {
+  margin: 0;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.tut-head__meta {
+  margin: 0.35rem 0 0;
+  color: var(--ink-3);
+  font-size: 0.78rem;
+}
+
+.tut-tips {
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tut-tips__title {
+  margin: 0 0 0.55rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.tut-tips__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.3rem;
+  color: var(--ink-2);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.tut-tips__list li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.tut-tips__list li::before {
+  content: "✧";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  color: var(--accent-2);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 56rem) {
+  .tut-top__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
