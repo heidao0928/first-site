@@ -469,8 +469,10 @@
         var file = item.file || { kind: "none" };
         var fileHtml;
         if (file.kind === "download") {
+          var hintText = file.hint || "";
+          if (hintText && hintText.indexOf("提取码") !== 0) hintText = "提取码 " + hintText;
           fileHtml =
-            (file.hint ? '<span class="res-hint">' + esc(file.hint) + "</span>" : "") +
+            (hintText ? '<span class="res-hint">' + esc(hintText) + "</span>" : "") +
             '<a class="res-dl" href="' +
             esc(file.href) +
             '" target="_blank" rel="noopener noreferrer">下载</a>';
