@@ -5,6 +5,10 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-10-31 · 滚动条改成白色轨道
+
+- 原来的轨道是深色半透明（`rgba(2,35,48,.35)`），压在浅色背景上显得发黑；改成 `rgba(255,255,255,.66)`，滑块保持水蓝渐变。
+- 补 `scrollbar-color` / `scrollbar-width`，Firefox 也生效；深色主题单独配深色轨道。
 ## 2026-10-31 · 背景加动态波纹与白色边缘柔化
 
 - `.scene::before` 改成两层细波纹（`repeating-radial-gradient` + `screen` 混合），`ripple-drift` 40s 缓慢漂移 + 轻微缩放旋转，`prefers-reduced-motion` 下自动停。

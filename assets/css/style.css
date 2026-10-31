@@ -158,18 +158,41 @@ button {
   border-radius: 4px;
 }
 
+/* 滚动条：浅色轨道 + 水蓝色滑块 */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #7fd8ef rgba(255, 255, 255, 0.66);
+}
+
 ::-webkit-scrollbar {
   width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(2, 35, 48, 0.35);
+  background: rgba(255, 255, 255, 0.66);
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 2px solid rgba(2, 35, 48, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.66);
   border-radius: var(--radius-full);
-  background: linear-gradient(180deg, #d8f8ff, #6fd2ec 45%, #2a9cbe);
+  background: linear-gradient(180deg, #eafcff, #7fd8ef 45%, #2a9cbe);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffffff, #8fe4f7 45%, #1f8fb0);
+}
+
+:root[data-theme="dark"] {
+  scrollbar-color: #2a9cbe rgba(8, 38, 50, 0.6);
+}
+
+:root[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: rgba(8, 38, 50, 0.6);
+}
+
+:root[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  border-color: rgba(8, 38, 50, 0.6);
 }
 
 .skip-link {
