@@ -13,7 +13,8 @@
     status: document.getElementById("a-status"),
     save: document.getElementById("a-save"),
     load: document.getElementById("a-load"),
-    add: document.getElementById("a-add")
+    add: document.getElementById("a-add"),
+    test: document.getElementById("a-test")
   };
 
   if (!el.list) return;
@@ -35,7 +36,7 @@
   }
 
   function tokenValue() {
-    return (localStorage.getItem(TOKEN_KEY) || el.token.value || "").trim();
+    return (el.token.value || localStorage.getItem(TOKEN_KEY) || "").trim();
   }
 
   function headers() {
@@ -93,7 +94,7 @@
         status("已读取，共 " + data.items.length + " 条", "ok");
       })
       .catch(function (error) {
-        status("读取失败：" + error.message + "（私有库需要先填 token）", "err");
+        status("读取失败：" + error.message + "（token 无效或未填，点「测试 token」看看）", "err");
       });
   }
 
@@ -250,6 +251,39 @@
     render();
   });
 
+  function testToken() {
+    var t = tokenValue();
+    if (!t) {
+      status("还没填 token", "err");
+      return;
+    }
+    status("正在验证 token…");
+    fetch("https://api.github.com/user", { headers: headers() })
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status + (res.status === 401 ? "（token 无效或已删除）" : ""));
+        return res.json();
+      })
+      .then(function (user) {
+        return fetch("https://api.github.com/repos/" + repo(), { headers: headers() }).then(function (res) {
+          return { user: user, repoOk: res.ok, code: res.status };
+        });
+      })
+      .then(function (result) {
+        if (result.repoOk) {
+          status("token 有效：@" + result.user.login + "，能访问 " + repo(), "ok");
+        } else {
+          status(
+            "token 有效：@" + result.user.login + "，但访问 " + repo() + " 失败（HTTP " + result.code + "），检查仓库名或权限",
+            "err"
+          );
+        }
+      })
+      .catch(function (error) {
+        status("验证失败：" + error.message, "err");
+      });
+  }
+
+  if (el.test) el.test.addEventListener("click", testToken);
   el.save.addEventListener("click", save);
   el.load.addEventListener("click", load);
 

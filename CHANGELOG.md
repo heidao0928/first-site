@@ -2,6 +2,11 @@
 
 每条都尽量写清「改了什么 / 为什么」，方便以后回退或让 AI 接手。
 
+## 2026-10-31 · 管理页加「测试 token」
+
+- 新增按钮：调 `/user` 与 `/repos/{repo}` 验证 token，直接显示 @用户名 和有权限与否。
+- 修：token 取输入框优先于 localStorage，避免改了却仍用旧 token。
+- 401 提示改为「token 无效或未填，点测试 token 看看」。
 ## 2026-10-31 · 资源表改为数据驱动 + 管理页
 
 - 资源表数据抽到 `assets/data/resources.js`（`window.RESOURCE_DATA`），用 `<script src>` 加载，`file://` 双击也能读（fetch 会被 CORS 挡）。
