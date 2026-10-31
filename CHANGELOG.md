@@ -5,6 +5,23 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-10-31 · 玻璃质感升级 + 性能与 SEO 收尾
+
+**玻璃（拟态）**
+- `backdrop-filter` 从 `blur(16px) saturate(150%)` 升为 `blur(20px) saturate(168%) brightness(1.045)`（24 处），透过来更亮更蓝。
+- 面板投影加了左右两侧内高光 + 底部暗边 + 一圈 1px 外描边，玻璃「切边」出来了。
+- 圆角 18px → 22px。
+- 面板加 157° 斜向高光渐变（左上亮、右下略暗）。
+- 首页入口卡 hover 新增一道高光扫过（只动 transform/opacity，`prefers-reduced-motion` 下关闭）。
+- `--panel` 透明度 0.74 → 0.67，水纹更能透过玻璃。
+
+**性能**
+- `tips-bg.jpg` 277KB → `tips-bg.webp` 162KB。
+- 手机端（≤56rem）`backdrop-filter` 降到 `blur(12px)`。
+
+**可访问性 / SEO**
+- `--accent` `#0a7fa3` → `#0a7599`，链接对比度 4.41 → 5.03，过 AA。
+- 新增 `404.html`（玻璃卡片样式，跳首页/教程）、`robots.txt`（Disallow admin.html）、`sitemap.xml`。
 ## 2026-10-31 · 手机端首页重排
 
 - 顺序改为：第一行「摄影手册（左）+ 公告（右）」→ 内容入口 → 致谢。

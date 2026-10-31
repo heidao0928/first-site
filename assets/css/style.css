@@ -19,13 +19,13 @@
   --edge: clamp(0.75rem, 3vw, 2.5rem);
   /* 宽屏时内容栏跟着变宽，避免两侧空出太多水面 */
   --container: min(76rem, max(68rem, 66vw));
-  --radius: 18px;
+  --radius: 22px;
   --radius-sm: 10px;
   --radius-xs: 8px;
   --radius-full: 999px;
 
   /* 玻璃面板 */
-  --panel: rgba(240, 253, 255, 0.74);
+  --panel: rgba(240, 253, 255, 0.67);
   --panel-strong: rgba(255, 255, 255, 0.92);
   --panel-line: rgba(255, 255, 255, 0.9);
   --panel-gloss: rgba(255, 255, 255, 0.95);
@@ -38,16 +38,19 @@
   --on-dark: #eafaff;
 
   /* 强调色 */
-  --accent: #0a7fa3;
+  --accent: #0a7599;
   --accent-2: #0f9fc6;
   --accent-ink: #ffffff;
   --accent-soft: rgba(15, 159, 198, 0.14);
   --glow: rgba(150, 240, 255, 0.6);
 
   /* 阴影 */
-  --shadow-panel: inset 0 1px 0 rgba(255, 255, 255, 0.85),
-    inset 0 -1px 0 rgba(6, 60, 80, 0.05),
-    0 24px 50px -28px rgba(1, 45, 62, 0.55), 0 2px 6px rgba(1, 45, 62, 0.1);
+  --shadow-panel: inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    inset 1px 0 0 rgba(255, 255, 255, 0.55),
+    inset -1px 0 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(6, 60, 80, 0.07),
+    0 26px 54px -30px rgba(1, 45, 62, 0.58), 0 2px 6px rgba(1, 45, 62, 0.1),
+    0 0 0 1px rgba(6, 70, 95, 0.06);
   --shadow-soft: 0 12px 24px -16px rgba(1, 45, 62, 0.45);
   --shadow-pop: 0 20px 40px -22px rgba(1, 45, 62, 0.6);
 
@@ -363,8 +366,8 @@ pre {
   border-top-color: var(--panel-gloss);
   border-radius: var(--radius);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
+  -webkit-backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 /* Windows 风格的窗口标题栏 */
@@ -2045,8 +2048,8 @@ pre {
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
+  -webkit-backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .hub__eyebrow {
@@ -2110,8 +2113,8 @@ pre {
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
+  -webkit-backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .hub__panel-title {
@@ -2435,8 +2438,8 @@ pre {
   border-top-color: var(--panel-gloss);
   border-radius: var(--radius);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
+  -webkit-backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .page-card {
@@ -2478,7 +2481,7 @@ pre {
       rgba(236, 250, 255, 0.3) 68%,
       rgba(236, 250, 255, 0) 82%
     ),
-    url("../img/tips-bg.jpg");
+    url("../img/tips-bg.webp");
   background-position: 0 0, 82% 52%;
   background-size: auto, cover;
   background-repeat: no-repeat, no-repeat;
@@ -2505,7 +2508,7 @@ pre {
         rgba(246, 253, 255, 0.6) 82%,
         rgba(246, 253, 255, 0.3) 100%
       ),
-      url("../img/tips-bg.jpg");
+      url("../img/tips-bg.webp");
   }
 }
 
@@ -2610,8 +2613,8 @@ pre {
   border-top-color: var(--panel-gloss);
   border-radius: var(--radius);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
+  -webkit-backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .hub__rail-head {
@@ -2903,8 +2906,8 @@ pre {
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
+  -webkit-backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .res-table {
@@ -3208,7 +3211,7 @@ pre {
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .admin__kicker {
@@ -3258,7 +3261,7 @@ pre {
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .admin__field {
@@ -3356,7 +3359,7 @@ pre {
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .admin__row-head {
@@ -3476,7 +3479,7 @@ pre {
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .admin__tab {
@@ -3537,7 +3540,7 @@ pre {
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .admin__tips-title {
@@ -3593,7 +3596,7 @@ pre {
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .admin-gate__kicker {
@@ -3863,8 +3866,8 @@ pre {
   border-top-color: var(--panel-gloss);
   border-radius: var(--radius);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
+  -webkit-backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .links-split .links-promo {
@@ -4080,8 +4083,8 @@ pre {
   border-top-color: var(--panel-gloss);
   border-radius: var(--radius);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
+  -webkit-backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
   overflow: hidden;
 }
 
@@ -4182,8 +4185,8 @@ pre {
   border-top-color: var(--panel-gloss);
   border-radius: var(--radius);
   box-shadow: var(--shadow-panel);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
+  -webkit-backdrop-filter: blur(20px) saturate(168%) brightness(1.045);
 }
 
 .hub__thanks-title {
@@ -4533,5 +4536,101 @@ pre {
   .hub__panel-title {
     font-size: 0.85rem;
     margin-bottom: 0.5rem;
+  }
+}
+/* ============================================================
+   玻璃质感：斜向高光 + 底部暗边（做出厚度）
+   ============================================================ */
+.hub__intro,
+.hub__panel,
+.hub__notice,
+.hub__thanks,
+.section,
+.page-card,
+.post,
+.links-split .links-list,
+.links-split .links-promo {
+  background-image: linear-gradient(
+    157deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.14) 18%,
+    rgba(255, 255, 255, 0) 42%,
+    rgba(6, 60, 80, 0.03) 100%
+  );
+  background-repeat: no-repeat;
+}
+
+/* 玻璃边：顶部更亮的一条内高光 */
+.hub__intro::after,
+.hub__panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0,
+    rgba(255, 255, 255, 0) 14%
+  );
+  opacity: 0.7;
+}
+
+.hub__intro,
+.hub__panel {
+  position: relative;
+}
+
+/* 入口卡片 hover：一道高光扫过 */
+.entry {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.entry::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  bottom: -60%;
+  left: -70%;
+  width: 60%;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.62) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(0) skewX(-14deg);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.62s var(--ease), opacity 0.32s var(--ease);
+}
+
+.entry:hover::after,
+.entry:focus-visible::after {
+  transform: translateX(330%) skewX(-14deg);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry::after {
+    display: none;
+  }
+}
+/* 手机端把玻璃模糊降一档，省电也省 GPU */
+@media (max-width: 56rem) {
+  .hub__intro,
+  .hub__panel,
+  .hub__notice,
+  .hub__thanks,
+  .section,
+  .page-card,
+  .post,
+  .site-header,
+  .links-split .links-list,
+  .links-split .links-promo {
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
   }
 }
