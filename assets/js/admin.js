@@ -80,9 +80,13 @@
       })
       .then(function (json) {
         sha = json.sha;
-        var raw = decodeBase64(json.content)
-          .replace(/^\s*window\.RESOURCE_DATA\s*=\s*/, "")
-          .replace(/;\s*$/, "");
+        var raw = decodeBase64(json.content);
+        var start = raw.indexOf("window.RESOURCE_DATA");
+        if (start >= 0) {
+          var eq = raw.indexOf("=", start);
+          raw = raw.slice(eq + 1).trim();
+          if (raw.charAt(raw.length - 1) === ";") raw = raw.slice(0, -1);
+        }
         data = JSON.parse(raw);
         if (!Array.isArray(data.items)) data.items = [];
         render();
