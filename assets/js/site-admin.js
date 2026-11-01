@@ -130,6 +130,10 @@
       '<h3 class="site-block__title">相关网站</h3>' +
       '<div data-list="links.rows"></div>' +
       '<button type="button" class="admin__btn admin__btn--tiny" data-add="links.rows">+ 加一行</button>' +
+      '<p class="site-sub">小工具（自制 mod 下方的小框）</p>' +
+      field("小标题", (links.tools || {}).kicker, 'data-f="tools.kicker"') +
+      '<div data-list="tools"></div>' +
+      '<button type="button" class="admin__btn admin__btn--tiny" data-add="tools">+ 加一个工具</button>' +
       '<p class="site-sub">群号（显示在「友情代挂」那一行）</p>' +
       '<div data-list="groups"></div>' +
       '<button type="button" class="admin__btn admin__btn--tiny" data-add="groups">+ 加一个群</button>' +
@@ -147,16 +151,23 @@
 
     renderList("home.links", home.links || [], ["label", "href"]);
     renderList("home.entries", home.entries || [], ["label", "desc", "href"]);
-    renderList("links.rows", links.rows || [], ["tag", "title", "desc", "href"]);
+    renderList("links.rows", links.rows || [], ["tag", "title", "desc", "href"], { big: true });
+    renderList("tools", (links.tools && links.tools.items) || [], ["title", "desc", "href"]);
     renderList("groups", state.groups, ["name", "qq"]);
   }
 
-  function renderList(key, items, fields) {
+  function renderList(key, items, fields, opts) {
     var box = el.body.querySelector('[data-list="' + key + '"]');
     if (!box) return;
 
     box.innerHTML = items
       .map(function (item, index) {
+        var big = "";
+        if (opts && opts.big) {
+          big =
+            '<label class="site-row__big"><input type="checkbox" data-big="' + index + '"' +
+            (item.big ? " checked" : "") + " /> 大字</label>";
+        }
         var inputs = fields
           .map(function (f) {
             return (
@@ -165,7 +176,7 @@
             );
           })
           .join("");
-        return '<div class="site-row">' + inputs +
+        return '<div class="site-row">' + big + inputs +
           '<button type="button" class="admin__btn admin__btn--tiny" data-del="' + key + '" data-i="' + index + '">删除</button>' +
           "</div>";
       })
@@ -184,6 +195,9 @@
       } else if (path.indexOf("tips.") === 0) {
         d.tips = d.tips || {};
         d.tips[path.split(".")[1]] = input.value.split("\n").map(function (s) { return s.trim(); }).filter(Boolean);
+      } else if (path.indexOf("tools.") === 0) {
+        d.links.tools = d.links.tools || { items: [] };
+        d.links.tools[path.split(".")[1]] = value;
       } else if (path.indexOf("promo.") === 0) {
         d.links.promo = d.links.promo || {};
         d.links.promo[path.split(".")[1]] = value;
@@ -191,6 +205,16 @@
         d.home[path.split(".")[1]] = value;
       }
     });
+
+    // 小工具条目
+    state.data.links.tools = state.data.links.tools || { kicker: "小工具", items: [] };
+    var tools = state.data.links.tools.items || [];
+    el.body.querySelectorAll('[data-list="tools"] .site-row__input').forEach(function (input) {
+      var i = Number(input.getAttribute("data-i"));
+      if (!tools[i]) return;
+      tools[i][input.getAttribute("data-k")] = input.value.trim();
+    });
+    state.data.links.tools.items = tools;
 
     ["home.links", "home.entries", "links.rows"].forEach(function (key) {
       var list = key === "home.links" ? d.home.links : key === "home.entries" ? d.home.entries : d.links.rows;
@@ -204,6 +228,11 @@
         arr[i][input.getAttribute("data-k")] = input.value.trim();
       });
       target[parts[1]] = arr;
+    });
+
+    el.body.querySelectorAll("[data-big]").forEach(function (input) {
+      var i = Number(input.getAttribute("data-big"));
+      if (state.data.links.rows[i]) state.data.links.rows[i].big = input.checked;
     });
 
     el.body.querySelectorAll('[data-list="groups"] .site-row__input').forEach(function (input) {
@@ -300,6 +329,10 @@
       else if (key === "home.entries") state.data.home.entries.push({ label: "", desc: "", href: "" });
       else if (key === "links.rows") state.data.links.rows.push({ type: "link", tag: "", title: "", desc: "", href: "" });
       else if (key === "groups") state.groups.push({ name: "", qq: "" });
+      else if (key === "tools") {
+        state.data.links.tools = state.data.links.tools || { kicker: "小工具", items: [] };
+        state.data.links.tools.items.push({ title: "", desc: "", href: "" });
+      }
       render();
       return;
     }
@@ -313,6 +346,7 @@
       else if (listKey === "home.entries") state.data.home.entries.splice(index, 1);
       else if (listKey === "links.rows") state.data.links.rows.splice(index, 1);
       else if (listKey === "groups") state.groups.splice(index, 1);
+      else if (listKey === "tools") state.data.links.tools.items.splice(index, 1);
       render();
     }
   });

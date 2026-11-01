@@ -69,14 +69,40 @@ window.SITE_DATA = {
         "tag": "Mod",
         "title": "mod 网站",
         "desc": "NSFW 内容需要 DC 登录；卡顿就开梯子",
-        "href": "https://www.xivmodarchive.com/"
+        "href": "https://www.xivmodarchive.com/",
+        "big": false
+      },
+      {
+        "type": "link",
+        "big": true,
+        "tag": "插件",
+        "title": "Anamnesis",
+        "desc": "捏脸与姿势编辑，支持保存 / 导入角色数据",
+        "href": "https://github.com/imchillin/Anamnesis"
+      },
+      {
+        "type": "link",
+        "big": true,
+        "tag": "插件",
+        "title": "Brio",
+        "desc": "动作、表情、镜头与物体摆放的场景工具",
+        "href": "https://github.com/Etheirys/Brio"
+      },
+      {
+        "type": "link",
+        "big": true,
+        "tag": "插件",
+        "title": "Stagehand",
+        "desc": "自由摆拍与舞台布景（Posing / Staging）",
+        "href": "https://github.com/universalconquistador/Stagehand"
       },
       {
         "type": "link",
         "tag": "Wiki",
         "title": "最终幻想 14 Wiki",
         "desc": "查副本、任务、装备与剧情",
-        "href": "https://ff14.huijiwiki.com/"
+        "href": "https://ff14.huijiwiki.com/",
+        "big": false
       },
       {
         "type": "groups",
@@ -92,14 +118,8 @@ window.SITE_DATA = {
             "name": "名创群",
             "qq": "1078398703"
           }
-        ]
-      },
-      {
-        "type": "link",
-        "tag": "学习",
-        "title": "treepractice",
-        "desc": "简洁好用的四六级托福网站",
-        "href": "https://www.treepractice.com/"
+        ],
+        "big": false
       }
     ],
     "promo": {
@@ -108,6 +128,16 @@ window.SITE_DATA = {
       "desc": "把高炉、锻造台、织布机、熔炉、工作台换进 FF14 的场景里。",
       "href": "https://www.bilibili.com/video/BV1Xxx9zsEDp/",
       "cover": "c51"
+    },
+    "tools": {
+      "kicker": "小工具",
+      "items": [
+        {
+          "title": "treepractice",
+          "desc": "简洁好用的四六级托福网站",
+          "href": "https://www.treepractice.com/"
+        }
+      ]
     }
   }
 };
