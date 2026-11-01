@@ -1,6 +1,6 @@
 /* 站点文案与列表：由 admin.html 的「页面文案」维护，也可直接手改 */
 window.SITE_DATA = {
-  "updated": "2026-10-31",
+  "updated": "2026-11-01",
   "home": {
     "eyebrow": "✧ 欢迎光临",
     "title": "黑岛摄影手册",
@@ -119,7 +119,8 @@ window.SITE_DATA = {
             "qq": "1078398703"
           }
         ],
-        "big": false
+        "big": false,
+        "href": ""
       }
     ],
     "promo": {
