@@ -4016,11 +4016,11 @@ html {
   will-change: auto;
   contain: layout paint;
 }
-/* 手机端页脚收小到原来的约 40%（四个页面共用） */
+/* 手机端页脚：左边两行小字，愿望贴最右，整体更矮 */
 @media (max-width: 56rem) {
   .site-footer {
     margin: 0.15rem auto 0.45rem;
-    padding: 0.22rem 0.6rem;
+    padding: 0.2rem 0.62rem;
     font-size: 0.52rem;
     text-align: left;
     background: rgba(255, 255, 255, 0.62);
@@ -4029,13 +4029,23 @@ html {
   }
 
   .site-footer__inner {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .site-footer__inner > p:first-child {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .site-footer p {
     margin: 0;
     font-size: 0.52rem;
-    line-height: 1.22;
+    line-height: 1.2;
     letter-spacing: 0;
   }
 
@@ -4047,8 +4057,11 @@ html {
   }
 
   .site-footer__wish {
-    margin: 0.02rem 0 0;
+    flex: none;
+    margin: 0;
     font-size: 0.5rem;
+    white-space: nowrap;
+    text-align: right;
   }
 }
 /* 关掉移动端的文字自动放大（font boosting），否则小字号会被系统“抬大” */
