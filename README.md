@@ -93,6 +93,38 @@ python -m http.server 8000
 
 ---
 
+---
+
+## 部署到阿里云 OSS（香港，无需备案）
+
+GitHub Pages 之外，还可以同步一份到阿里云 OSS 香港节点，国内访问更快。
+
+**1. 阿里云控制台**
+
+- 开通 OSS，创建 **香港** Bucket（例如 `heidao-site`）
+- 读写权限选 **公共读**
+- 基础设置 → 静态页面：默认首页 `index.html`，默认 404 页 `404.html`
+- 传输管理 → 域名管理：绑定你的域名（按提示加 CNAME 解析）
+- 证书管理：申请免费 DV 证书并绑定到域名，开启 HTTPS
+
+**2. GitHub 仓库 Secrets**
+
+`Settings → Secrets and variables → Actions` 添加：
+
+| 名称 | 内容 |
+| --- | --- |
+| `OSS_ENDPOINT` | `oss-cn-hongkong.aliyuncs.com` |
+| `OSS_BUCKET` | Bucket 名称 |
+| `OSS_ACCESS_KEY_ID` | 阿里云 AccessKey ID |
+| `OSS_ACCESS_KEY_SECRET` | 阿里云 AccessKey Secret |
+
+**3. 自动部署**
+
+之后每次 `git push` 到 `main`，`.github/workflows/deploy-oss.yml` 会自动把站点同步到 OSS。
+没配 Secrets 时会自动跳过，不影响继续用 GitHub Pages。
+
+> 注意：OSS 默认域名访问 HTML 会被当成下载，**必须绑自定义域名**才能正常打开网页。
+
 ## 约定
 
 - 不引构建步骤、不引 npm 依赖，所有资源用相对路径

@@ -5,6 +5,12 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-11-01 · 准备阿里云 OSS 部署
+
+- 新增 `.github/workflows/deploy-oss.yml`：推送到 main 时用 ossutil 同步到 OSS（香港），未配置 Secrets 时自动跳过并给 warning。
+- `404.html` 里 `/first-site/` 绝对路径改成根路径 `/`，适配自有域名。
+- `robots.txt` 加了「换域名后要改 sitemap 地址」的 TODO。
+- README 补充 OSS 部署步骤（Bucket 静态页面、域名、证书、Secrets 列表）。
 ## 2026-11-01 · 后台加 token 快捷新建入口
 
 - token 输入框下方加了一行链接「token 过期或失效？点这里新建一个」，直达 GitHub fine-grained token 新建页（预填名字、365 天有效期），减少手点。

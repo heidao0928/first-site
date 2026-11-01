@@ -1,0 +1,63 @@
+name: Deploy to Aliyun OSS
+
+# 推送到 main 就自动同步到阿里云 OSS（香港，无需备案）
+# 需要先在仓库 Settings → Secrets and variables → Actions 里加：
+#   OSS_ENDPOINT          例如 oss-cn-hongkong.aliyuncs.com
+#   OSS_BUCKET            Bucket 名称
+#   OSS_ACCESS_KEY_ID     AccessKey ID
+#   OSS_ACCESS_KEY_SECRET AccessKey Secret
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 检查 Secrets 是否配置
+        id: check
+        run: |
+          if [ -z "${{ secrets.OSS_ACCESS_KEY_ID }}" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "::warning::还没配置 OSS Secrets，本次跳过部署（站点仍可继续用 GitHub Pages）"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 安装 ossutil
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          curl -sS -o ossutil https://gosspublic.alicdn.com/ossutil/1.7.18/ossutil64
+          chmod +x ossutil
+          ./ossutil --version
+
+      - name: 上传到 OSS
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          ./ossutil config \
+            -e "${{ secrets.OSS_ENDPOINT }}" \
+            -i "${{ secrets.OSS_ACCESS_KEY_ID }}" \
+            -k "${{ secrets.OSS_ACCESS_KEY_SECRET }}" \
+            -L CH
+
+          ./ossutil cp -r ./ oss://${{ secrets.OSS_BUCKET }}/ \
+            --update -f \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "preview/*" \
+            --exclude "版本存档/*" \
+            --exclude "_恢复前_*/*" \
+            --exclude ".gitignore" \
+            --exclude "*.cmd" \
+            --exclude "AGENTS.md" \
+            --exclude "CHANGELOG.md" \
+            --exclude "README.md" \
+            --exclude "tools/*"
+
+      - name: 收尾
+        if: steps.check.outputs.skip != 'true'
+        run: echo "已同步到 oss://${{ secrets.OSS_BUCKET }}/"

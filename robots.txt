@@ -3,3 +3,4 @@ Allow: /
 Disallow: /admin.html
 
 Sitemap: https://heidao0928.github.io/first-site/sitemap.xml
+# TODO 换自有域名后，把上面一行改成 https://你的域名/sitemap.xml
