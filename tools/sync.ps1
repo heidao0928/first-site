@@ -17,9 +17,9 @@ if (-not $git) { $git = "D:\tools\git\cmd\git.exe" }
 $before = (& $git rev-parse HEAD 2>$null).Trim()
 
 # 本地有改动就先收起来，免得 pull 直接失败
-$dirty = (& $git status --porcelain).Trim()
+$dirty = (@(& $git status --porcelain) -join "`n")
 $stashed = $false
-if ($dirty) {
+if ($dirty.Trim()) {
   Write-Host "检测到本地未提交的改动，先临时收起来…" -ForegroundColor Yellow
   & $git stash push -u -m "sync-auto" | Out-Null
   if ($LASTEXITCODE -eq 0) { $stashed = $true }
