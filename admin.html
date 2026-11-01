@@ -53,7 +53,13 @@
               <label class="admin__field admin__field--wide">
                 <span>GitHub token（fine-grained 需该仓库 Contents 读写；classic 需勾 repo）</span>
                 <input id="a-token" type="password" placeholder="github_pat_..." spellcheck="false" />
-              </label>
+                <a
+                  class="admin__token-link"
+                  href="https://github.com/settings/personal-access-tokens/new?name=heidao-site-admin&amp;description=admin&amp;expires_in=365&amp;contents=write"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >token 过期或失效？点这里新建一个 →</a
+                >
               <p class="admin__token-state" id="a-token-state" hidden></p>
               <div class="admin__bar-actions">
                 <button type="button" class="admin__btn" id="a-test">测试 token</button>

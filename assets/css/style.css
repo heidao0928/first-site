@@ -4173,3 +4173,15 @@ html {
 .site-row__big input {
   accent-color: var(--accent);
 }
+/* 后台 token 输入下方的快捷链接 */
+.admin__token-link {
+  display: inline-block;
+  margin-top: 0.3rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  text-decoration: none;
+}
+
+.admin__token-link:hover {
+  text-decoration: underline;
+}
