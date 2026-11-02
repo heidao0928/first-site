@@ -5,6 +5,12 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-11-02 · 站点迁移到 heidao09.cn（阿里云 OSS 香港）
+
+- 域名 `heidao09.cn` 绑定阿里云 OSS 香港 Bucket `heidao09`，静态网站托管（首页 index.html / 404 页 404.html），公共读。
+- HTTPS：DigiCert DV 证书（2026-11-02 ~ 2027-01-30，覆盖 heidao09.cn 与 www），已上传 OSS 域名。
+- 自动部署：GitHub Actions 用 `tools/upload_oss.py`（oss2）上传，替换掉之前失败的一版 `ossutil cp`；推送 main 即同步。
+- `sitemap.xml` / `robots.txt` 已换成新域名。
 ## 2026-11-02 · 切换到自有域名 heidao09.cn
 
 - `sitemap.xml` 四条 URL 换成 `https://heidao09.cn/`，`lastmod` 更新到 2026-11-02。
