@@ -97,7 +97,7 @@ window.RESOURCE_DATA = {
       "tags": [
         "插件"
       ],
-      "desc": "安装 mod 时右上角把 safe 点成 unsafe",
+      "desc": "安装 mod 时右上角把 safe 点成 unsafe 官网：",
       "link": "https://www.ffxiv-textools.net/",
       "file": {
         "kind": "none"

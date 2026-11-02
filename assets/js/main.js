@@ -472,7 +472,7 @@
         var desc = esc(item.desc || "");
         if (item.link) {
           desc +=
-            '<a class="res-link" href="' +
+            ' <a class="res-link" href="' +
             esc(item.link) +
             '" target="_blank" rel="noopener noreferrer">' +
             esc(item.link) +
