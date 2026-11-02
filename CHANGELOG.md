@@ -5,6 +5,11 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-11-02 · 低配模式再关背景大模糊 + 手动开关
+
+- `.low-gpu` 下同时停掉 `.scene__swell` 的 `filter: blur(70px)` 与 80 秒动画、`.scene__vignette` 的混合模式、卡片 hover 位移——这些在 QQ 浏览器里同样逐帧重绘。
+- 新增手动开关：地址后加 `?fast=1` 可强制进入低配模式（排障用，也可直接发给觉得卡的人）。
+- 验证：`?fast=1` 下 `swellFilter=none`、`swellAnim=none`、`introBlur=none`。
 ## 2026-11-02 · 国内套壳浏览器（QQ/360/UC/微信）低配渲染降级
 
 - 各页面 head 注入一小段脚本：UA 命中 MQQBrowser/QQBrowser/MicroMessenger/UCBrowser/360 或 `hardwareConcurrency ≤ 4`、`deviceMemory ≤ 4` 时，给 `<html>` 加 `.low-gpu`。

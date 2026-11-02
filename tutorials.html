@@ -29,7 +29,7 @@
         var weak = /MQQBrowser|QQBrowser|MicroMessenger|UCBrowser|360SE|360EE|HeyTapBrowser/i.test(ua);
         if (!weak && navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) weak = true;
         if (!weak && navigator.deviceMemory && navigator.deviceMemory <= 4) weak = true;
-        if (weak) document.documentElement.className += " low-gpu";
+        if (weak || /(\?|&)fast=1/.test(location.search)) document.documentElement.className += " low-gpu";
       })();
     </script>
 

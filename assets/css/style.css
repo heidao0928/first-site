@@ -4236,3 +4236,25 @@ html {
 .low-gpu .entry {
   transition-duration: 0.12s;
 }
+/* 低配模式：背景里的 70px 模糊 + 长时间动画也一起停掉（QQ 浏览器最吃这个） */
+.low-gpu .scene__swell {
+  animation: none !important;
+  filter: none !important;
+  opacity: 0.3;
+  mix-blend-mode: normal;
+}
+
+.low-gpu .scene__vignette {
+  mix-blend-mode: normal;
+}
+
+.low-gpu .scene::after {
+  backdrop-filter: none;
+}
+
+/* 低配模式：卡片 hover 不再位移，减少重绘 */
+.low-gpu .tut-card:hover .tut-card__cover,
+.low-gpu .entry:hover,
+.low-gpu .links-tool:hover {
+  transform: none;
+}
