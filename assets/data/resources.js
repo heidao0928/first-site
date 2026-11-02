@@ -93,16 +93,16 @@ window.RESOURCE_DATA = {
       }
     },
     {
-      "name": "TexTools 7.4",
+      "name": "TexTools",
       "tags": [
         "插件"
       ],
       "desc": "安装 mod 时右上角把 safe 点成 unsafe",
-      "link": "",
+      "link": "https://www.ffxiv-textools.net/",
       "file": {
         "kind": "download",
-        "href": "https://wwawr.lanzouc.com/iZNtj4e59nxe",
-        "hint": "提取码 ff14"
+        "href": "",
+        "hint": ""
       }
     },
     {
