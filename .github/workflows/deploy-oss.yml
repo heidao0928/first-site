@@ -2,7 +2,7 @@ name: Deploy to Aliyun OSS
 
 # 推送到 main 就自动同步到阿里云 OSS（香港，无需备案）
 # 需要先在仓库 Settings → Secrets and variables → Actions 里加：
-#   OSS_ENDPOINT          例如 oss-cn-hongkong.aliyuncs.com（带 https:// 会自动去掉）
+#   OSS_ENDPOINT          oss-cn-hongkong.aliyuncs.com
 #   OSS_BUCKET            Bucket 名称
 #   OSS_ACCESS_KEY_ID     AccessKey ID
 #   OSS_ACCESS_KEY_SECRET AccessKey Secret
@@ -16,8 +16,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      OSS_ENDPOINT_RAW: ${{ secrets.OSS_ENDPOINT }}
-      OSS_BUCKET_NAME: ${{ secrets.OSS_BUCKET }}
+      OSS_ENDPOINT: ${{ secrets.OSS_ENDPOINT }}
+      OSS_BUCKET: ${{ secrets.OSS_BUCKET }}
       OSS_AK: ${{ secrets.OSS_ACCESS_KEY_ID }}
       OSS_SK: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
     steps:
@@ -33,62 +33,15 @@ jobs:
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: 安装 ossutil
+      - uses: actions/setup-python@v5
         if: steps.check.outputs.skip != 'true'
-        run: |
-          curl -sS -o ossutil https://gosspublic.alicdn.com/ossutil/1.7.18/ossutil64
-          chmod +x ossutil
-          ./ossutil --version
+        with:
+          python-version: "3.11"
 
-      - name: 配置 ossutil 并检查连通性
+      - name: 安装 oss2
         if: steps.check.outputs.skip != 'true'
-        run: |
-          set -euo pipefail
-          ENDPOINT="$(echo "$OSS_ENDPOINT_RAW" | tr -d '[:space:]')"
-          ENDPOINT="${ENDPOINT#https://}"
-          ENDPOINT="${ENDPOINT#http://}"
-          ENDPOINT="${ENDPOINT#/}"
-          BUCKET="$(echo "$OSS_BUCKET_NAME" | tr -d '[:space:]')"
-          AK="$(echo "$OSS_AK" | tr -d '[:space:]')"
-          SK="$(echo "$OSS_SK" | tr -d '[:space:]')"
-
-          echo "endpoint=[$ENDPOINT]"
-          echo "bucket=[$BUCKET]"
-          echo "ak 长度=${#AK} sk 长度=${#SK}"
-
-          if [ -z "$ENDPOINT" ] || [ -z "$BUCKET" ]; then
-            echo "::error::OSS_ENDPOINT 或 OSS_BUCKET 为空"
-            exit 1
-          fi
-
-          ./ossutil config -e "$ENDPOINT" -i "$AK" -k "$SK" -L CH
-
-          echo "--- 测试访问 Bucket ---"
-          ./ossutil ls "oss://$BUCKET" --limited-num 1 || {
-            echo "::error::访问 Bucket 失败：检查 AccessKey 是否有效、权限策略是否包含 OSS 读写"
-            exit 1
-          }
+        run: pip install --quiet oss2
 
       - name: 上传到 OSS
         if: steps.check.outputs.skip != 'true'
-        run: |
-          set -euo pipefail
-          BUCKET="$(echo "$OSS_BUCKET_NAME" | tr -d '[:space:]')"
-          ./ossutil cp -r ./ "oss://$BUCKET/" \
-            --update -f --jobs 4 --parallel 4 \
-            --exclude ".git/*" \
-            --exclude ".github/*" \
-            --exclude "preview/*" \
-            --exclude "版本存档/*" \
-            --exclude "_恢复前_*/*" \
-            --exclude ".gitignore" \
-            --exclude "*.cmd" \
-            --exclude "*.ps1" \
-            --exclude "AGENTS.md" \
-            --exclude "CHANGELOG.md" \
-            --exclude "README.md" \
-            --exclude "tools/*"
-
-      - name: 收尾
-        if: steps.check.outputs.skip != 'true'
-        run: echo "已同步完成"
+        run: python tools/upload_oss.py
