@@ -100,9 +100,7 @@ window.RESOURCE_DATA = {
       "desc": "安装 mod 时右上角把 safe 点成 unsafe",
       "link": "https://www.ffxiv-textools.net/",
       "file": {
-        "kind": "download",
-        "href": "",
-        "hint": ""
+        "kind": "none"
       }
     },
     {
