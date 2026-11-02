@@ -15,7 +15,11 @@
         var weak = /MQQBrowser|QQBrowser|MicroMessenger|UCBrowser|360SE|360EE|HeyTapBrowser|Core\/\d/i.test(ua);
         if (!weak && navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) weak = true;
         if (!weak && navigator.deviceMemory && navigator.deviceMemory <= 4) weak = true;
-        if (weak || /(\?|&)fast=1/.test(location.search)) document.documentElement.className += " low-gpu";
+        var m = /[?&]fast=(\d)/.exec(location.search || "");
+        var level = m ? Number(m[1]) : 0;
+        if (weak || level >= 1) document.documentElement.className += " low-gpu";
+        if (level >= 2) document.documentElement.className += " fast2";
+        if (level >= 3) document.documentElement.className += " fast3";
       })();
     </script>
 
