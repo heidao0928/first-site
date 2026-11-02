@@ -5,6 +5,11 @@
 ## 2026-10-31 · 提取码显示统一
 
 - 资源表渲染时，若 `hint` 不以「提取码」开头，自动补成「提取码 xxx」，避免出现只有 "ff14" 的孤立小字。
+## 2026-11-02 · 国内套壳浏览器（QQ/360/UC/微信）低配渲染降级
+
+- 各页面 head 注入一小段脚本：UA 命中 MQQBrowser/QQBrowser/MicroMessenger/UCBrowser/360 或 `hardwareConcurrency ≤ 4`、`deviceMemory ≤ 4` 时，给 `<html>` 加 `.low-gpu`。
+- `.low-gpu` 下关闭所有 `backdrop-filter`（改 `rgba(246,253,255,.94)` 实色）、去掉入口卡的高光扫过与 `.scene` 的图层提升，缓解滚动卡顿。
+- 顶部导航只关 `::before` 的模糊，保留胶囊外观（修掉一开始误加在 `.site-header` 上导致的整条白条）。
 ## 2026-11-02 · 站点迁移到 heidao09.cn（阿里云 OSS 香港）
 
 - 域名 `heidao09.cn` 绑定阿里云 OSS 香港 Bucket `heidao09`，静态网站托管（首页 index.html / 404 页 404.html），公共读。

@@ -22,6 +22,17 @@
     </script>
 
     <link rel="stylesheet" href="assets/css/style.css" />
+    <script>
+      /* 低配 GPU / 国内套壳浏览器（QQ、360、UC 等）关掉玻璃模糊，避免滚动卡顿 */
+      (function () {
+        var ua = navigator.userAgent || "";
+        var weak = /MQQBrowser|QQBrowser|MicroMessenger|UCBrowser|360SE|360EE|HeyTapBrowser/i.test(ua);
+        if (!weak && navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) weak = true;
+        if (!weak && navigator.deviceMemory && navigator.deviceMemory <= 4) weak = true;
+        if (weak) document.documentElement.className += " low-gpu";
+      })();
+    </script>
+
   </head>
 
   <body>
