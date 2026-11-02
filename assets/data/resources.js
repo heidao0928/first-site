@@ -95,7 +95,8 @@ window.RESOURCE_DATA = {
     {
       "name": "TexTools",
       "tags": [
-        "插件"
+        "插件",
+        "官网"
       ],
       "desc": "安装 mod 时右上角把 safe 点成 unsafe 官网：",
       "link": "https://www.ffxiv-textools.net/",
