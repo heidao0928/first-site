@@ -1,6 +1,6 @@
 /* 站点文案与列表：由 admin.html 的「页面文案」维护，也可直接手改 */
 window.SITE_DATA = {
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "home": {
     "eyebrow": "✧ 欢迎光临",
     "title": "黑岛摄影手册",
