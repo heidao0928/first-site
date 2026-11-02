@@ -2,7 +2,7 @@ name: Deploy to Aliyun OSS
 
 # 推送到 main 就自动同步到阿里云 OSS（香港，无需备案）
 # 需要先在仓库 Settings → Secrets and variables → Actions 里加：
-#   OSS_ENDPOINT          例如 oss-cn-hongkong.aliyuncs.com
+#   OSS_ENDPOINT          例如 oss-cn-hongkong.aliyuncs.com（带 https:// 会自动去掉）
 #   OSS_BUCKET            Bucket 名称
 #   OSS_ACCESS_KEY_ID     AccessKey ID
 #   OSS_ACCESS_KEY_SECRET AccessKey Secret
@@ -15,15 +15,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      OSS_ENDPOINT_RAW: ${{ secrets.OSS_ENDPOINT }}
+      OSS_BUCKET_NAME: ${{ secrets.OSS_BUCKET }}
+      OSS_AK: ${{ secrets.OSS_ACCESS_KEY_ID }}
+      OSS_SK: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
     steps:
       - uses: actions/checkout@v4
 
       - name: 检查 Secrets 是否配置
         id: check
         run: |
-          if [ -z "${{ secrets.OSS_ACCESS_KEY_ID }}" ]; then
+          if [ -z "$OSS_AK" ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "::warning::还没配置 OSS Secrets，本次跳过部署（站点仍可继续用 GitHub Pages）"
+            echo "::warning::还没配置 OSS Secrets，本次跳过部署"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
@@ -35,17 +40,42 @@ jobs:
           chmod +x ossutil
           ./ossutil --version
 
+      - name: 配置 ossutil 并检查连通性
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          ENDPOINT="$(echo "$OSS_ENDPOINT_RAW" | tr -d '[:space:]')"
+          ENDPOINT="${ENDPOINT#https://}"
+          ENDPOINT="${ENDPOINT#http://}"
+          ENDPOINT="${ENDPOINT#/}"
+          BUCKET="$(echo "$OSS_BUCKET_NAME" | tr -d '[:space:]')"
+          AK="$(echo "$OSS_AK" | tr -d '[:space:]')"
+          SK="$(echo "$OSS_SK" | tr -d '[:space:]')"
+
+          echo "endpoint=[$ENDPOINT]"
+          echo "bucket=[$BUCKET]"
+          echo "ak 长度=${#AK} sk 长度=${#SK}"
+
+          if [ -z "$ENDPOINT" ] || [ -z "$BUCKET" ]; then
+            echo "::error::OSS_ENDPOINT 或 OSS_BUCKET 为空"
+            exit 1
+          fi
+
+          ./ossutil config -e "$ENDPOINT" -i "$AK" -k "$SK" -L CH
+
+          echo "--- 测试访问 Bucket ---"
+          ./ossutil ls "oss://$BUCKET" --limited-num 1 || {
+            echo "::error::访问 Bucket 失败：检查 AccessKey 是否有效、权限策略是否包含 OSS 读写"
+            exit 1
+          }
+
       - name: 上传到 OSS
         if: steps.check.outputs.skip != 'true'
         run: |
-          ./ossutil config \
-            -e "${{ secrets.OSS_ENDPOINT }}" \
-            -i "${{ secrets.OSS_ACCESS_KEY_ID }}" \
-            -k "${{ secrets.OSS_ACCESS_KEY_SECRET }}" \
-            -L CH
-
-          ./ossutil cp -r ./ oss://${{ secrets.OSS_BUCKET }}/ \
-            --update -f \
+          set -euo pipefail
+          BUCKET="$(echo "$OSS_BUCKET_NAME" | tr -d '[:space:]')"
+          ./ossutil cp -r ./ "oss://$BUCKET/" \
+            --update -f --jobs 4 --parallel 4 \
             --exclude ".git/*" \
             --exclude ".github/*" \
             --exclude "preview/*" \
@@ -53,6 +83,7 @@ jobs:
             --exclude "_恢复前_*/*" \
             --exclude ".gitignore" \
             --exclude "*.cmd" \
+            --exclude "*.ps1" \
             --exclude "AGENTS.md" \
             --exclude "CHANGELOG.md" \
             --exclude "README.md" \
@@ -60,4 +91,4 @@ jobs:
 
       - name: 收尾
         if: steps.check.outputs.skip != 'true'
-        run: echo "已同步到 oss://${{ secrets.OSS_BUCKET }}/"
+        run: echo "已同步完成"
