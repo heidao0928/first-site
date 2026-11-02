@@ -75,9 +75,13 @@ def main():
     uploaded, failed = 0, []
     for rel, full in files:
         ext = os.path.splitext(rel)[1].lower()
+        # 数据文件（后台改的内容）必须不缓存，否则用户看到的是旧内容
+        is_data = rel.startswith("assets/data/")
+        no_cache = is_data or ext in (".html", ".xml", ".txt", ".json")
+
         headers = {
             "Content-Type": TYPE_MAP.get(ext, mimetypes.guess_type(rel)[0] or "application/octet-stream"),
-            "Cache-Control": "no-cache" if ext in (".html", ".xml", ".txt") else "public, max-age=604800",
+            "Cache-Control": "no-cache, max-age=0, must-revalidate" if no_cache else "public, max-age=604800",
         }
         try:
             bucket.put_object_from_file(rel, full, headers=headers)
