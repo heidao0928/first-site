@@ -125,6 +125,17 @@ window.RESOURCE_DATA = {
       "file": {
         "kind": "none"
       }
+    },
+    {
+      "name": "如何加载世界物体与特效 来自Ihate Gpose@Masamune",
+      "tags": [
+        "教程"
+      ],
+      "desc": "",
+      "link": "https://www.kdocs.cn/l/cgwa6KECOUs2?from=docs",
+      "file": {
+        "kind": "none"
+      }
     }
   ]
 };
