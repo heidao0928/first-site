@@ -136,6 +136,17 @@ window.RESOURCE_DATA = {
       "file": {
         "kind": "none"
       }
+    },
+    {
+      "name": "s0rry老师的场景道具及特效网站",
+      "tags": [
+        "官网"
+      ],
+      "desc": "",
+      "link": "https://xiv-preview.top/",
+      "file": {
+        "kind": "none"
+      }
     }
   ]
 };
